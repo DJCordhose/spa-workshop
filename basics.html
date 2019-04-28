@@ -83,6 +83,16 @@
       font-weight: bold;
     }
 
+    .reveal {
+        font-family: 'Calibri', sans-serif !important;
+    }
+
+    .reveal pre code {
+      max-height: 1000px !important;
+    }
+
+
+
   </style>
 
 	</head>
@@ -676,16 +686,16 @@ class Sayer {
       <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
 // TypeScript allows to put the type annotation here instead of using inference
 function foo(num: number) {
-if (num > 10) {
-  return 'cool';
-}
+    if (num > 10) {
+        return 'cool';
+    }
 }
 </code></pre>
       <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
 // check required
 const fooed: string|void = foo(9);
 if (fooed) {
-fooed.toString();
+    fooed.toString();
 }
 </code></pre>
       <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
@@ -773,7 +783,7 @@ cats.forEach(cat => console.log(`Cat: ${cat.name}`));
         <p>This code is safe (as we access cats in a readonly fashion)</p>
         <pre><code class="typescript line-numbers" contenteditable data-trim>
 function logAnimals(animals: Array&lt;Animal>) {
-animals.forEach(animal => console.log(`Animal: ${animal.name}`));
+    animals.forEach(animal => console.log(`Animal: ${animal.name}`));
 }
 
 logAnimals(cats);
@@ -792,9 +802,9 @@ logAnimals(cats);
         <pre><code class="java line-numbers" contenteditable data-trim>
 // Java
 void logAnimals(List&lt;? extends Animal> animals) {
-animals.forEach(animal -> System.out.println("Animal: " + animal.name));
-// illegal:
-animals.add(new Animal("Twinky"));
+    animals.forEach(animal -> System.out.println("Animal: " + animal.name));
+    // illegal:
+    animals.add(new Animal("Twinky"));
 }
 </code></pre>
         </div>
@@ -823,7 +833,7 @@ let r2: boolean = func('wat');
         </ul>
     </section>
 
-    <section data-markdown style="font-size: xx-large">
+    <section data-markdown>
       <textarea data-template>
 ### `unknown` type
 
@@ -889,36 +899,14 @@ _not really_
     </section>
 
     <section>
-        <h3>Structural Typing for Interfaces</h3>
-        <pre><code class="typescript line-numbers" contenteditable data-trim>
-interface NamedObject {
-name: string;
-}
-
-// this is fine as nominal typing only applies to Flow classes
-let namedObject: NamedObject = dog;
-
-// same thing, also fine
-let namedObject: NamedObject = {
-name: "Olli"
-};
-
-// not fine in either, missing name
-let namedObject: NamedObject = {
-firstName: "Olli"
-};
-        </code></pre>
-    </section>
-
-    <section>
         <h3>Structural Typing for classes</h3>
         <pre><code class="typescript line-numbers" contenteditable data-trim>
 class Person {
-name: string;
+    name: string;
 }
 
 class Dog {
-name: string;
+    name: string;
 }
 
 let dog: Dog = new Dog();
@@ -928,9 +916,31 @@ let person: Person = dog;
 
 // same thing, also correct
 let person: Person = {
-name: "Olli"
+    name: "Olli"
 };
 
+        </code></pre>
+    </section>
+
+    <section>
+        <h3>Structural Typing for Interfaces</h3>
+        <pre><code class="typescript line-numbers" contenteditable data-trim>
+interface NamedObject {
+    name: string;
+}
+
+// this is fine
+let namedObject: NamedObject = dog;
+
+// same thing, also fine
+let namedObject: NamedObject = {
+    name: "Olli"
+};
+
+// not fine, missing name
+let namedObject: NamedObject = {
+    firstName: "Olli"
+};
         </code></pre>
     </section>
 
@@ -964,30 +974,10 @@ Annotations in Java</a>)
 
 * Integration with raw JavaScript
 * install external type declarations transparently <a href="https://blogs.msdn.microsoft.com/typescript/2016/06/15/the-future-of-declaration-files/">using npm</a>
-                        (e.g.<em>npm install @types/react --save</em>)
+  * (e.g. `yarn add @types/react --dev`)
 * If there are no existing declaration files: still works, but less powerful
 </textarea>
     </section>
-
-  <section>
-      <h3 style="top: -30px; position: relative">Should you use a type checker?</h3>
-      <ul class="fragment" style="top: -30px; position: relative">
-          <li>don't be fooled: checkers do not make your programs error free
-          <li><a target="_blank" href="http://danluu.com/empirical-pl/">there seems to be little or no impact on productivity</a>
-          <li>initial effort to introduce a checker is low, though
-          <li>but a type system is a complex thing, it comes at a cost
-      </ul>
-      <p class="fragment" style="top: -30px; position: relative">My biased recommendation</p>
-      <ul class="fragment" style="top: -40px; position: relative">
-          <li >your project does not live for long: <em >no</em>
-          <li >your project is really simple: <em >no</em>
-          <li >there is a chance you will need to refactor the thing: <em >yes</em>
-          <li >your system is very important or even crucial for the success of your company: <em >yes</em>
-          <li >people enter or leave your team frequently: <em >yes</em>
-          <li >you have substantial amount of algorithmic code: <em >yes</em>
-      </ul>
-  </section>
-
 
 			</div>
 
