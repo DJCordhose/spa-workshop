@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Workshop</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="reveal.js/css/reset.css">
+		<link rel="stylesheet" href="reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+		<!-- <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme"> -->
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="reveal.js/lib/css/monokai.css">
+		<!-- <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"> -->
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		  <style>
+    .weg:before {
+      content: 'Streichen?';
+    }
+
+    .weg {
+      color: red !important;
+    }
+
+    .todo:before {
+      content: 'TODO: ';
+    }
+
+    .todo {
+      color: red !important;
+    }
+
+    code span.line-number {
+      color: lightcoral;
+    }
+
+    .reveal {
+      -ms-touch-action: auto !important;
+      touch-action: auto !important;
+    }
+
+    .reveal {
+      color: black !important;
+    }       
+
+    a {
+      color: #888800 !important;
+    }       
+
+    .reveal h2,
+    .reveal h3,
+    .reveal h4 {
+      letter-spacing: 2px;
+                        font-family: 'Calibri', sans-serif;
+                          /* font-family: 'Times New Roman', Times, serif; */
+                          font-weight: bold;
+                          color: black;
+                          font-style: italic;
+                          letter-spacing: -2px;
+                          text-transform: none !important;
+    }
+    .reveal em {
+      font-weight: bold;
+    }
+
+  </style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+      <section>
+        <h2>Frontend Workshop</h2>
+
+        <div>
+          <a href="http://zeigermann.eu">Oliver Zeigermann</a> /
+          <a href="http://twitter.com/djcordhose">@DJCordhose</a>
+        </div>
+        <p style="clear: both">
+          Folien:
+            <a href="http://bit.ly/ab-fe">
+              http://bit.ly/ab-fe</a>
+        </p>
+      </section>
+
+      <section data-markdown style="font-size: xx-large">
+          <textarea data-template>
+### Installation
+
+1. https://git-scm.com/downloads
+2. Chrome Browser: https://www.google.com/chrome/
+    * Optional: Chrome Dev Tools https://fb.me/react-devtools
+    * Optional: Redux DevTools https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+3. Visual Studio Code: https://code.visualstudio.com/
+    * Optional: https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome
+4. node.js (JavaScript außerhalb des Browsers): https://nodejs.org/en/ LTS
+5. yarn (dependency management): https://yarnpkg.com/en/docs/install
+6. npm Installation über proxy: https://www.freecodecamp.org/forum/t/npm-behind-a-proxy-server/19386
+7. web server: `npm install -g http-server` (gleich ein Test dafür, ob das mit der Installation klappt)
+  </textarea>
+  </section>
+  
+      <section data-markdown>
+          <textarea data-template>
+### Tag 1
+<!-- 
+Ts, js, html, css
+
+web Entwicklung ohne Framework
+
+tsc
+node, npm
+
+geht über zu Web Components mit lit-element
+ -->
+
+1. <a href='2019_js_ts.html'>Web-Entwicklung mit JavaScript und TypeScript</a>
+1. <a href='2019_arch_overview.html'>Überblick Frontend Architektur</a>
+1. <a href='2019_web_components.html'>Entwicklung mit Web Components</a>
+
+      </textarea>
+    </section>
+
+    <section data-markdown>
+      <textarea data-template>
+### Tag 2
+
+1. <a href='2019_spa_architecture.html'>SPA Architektur</a>
+1. <a href='2019_frameworks.html'>Welches Framework?</a>
+1. <a href='2019_spa_scaled.html'>Large Scale SPA</a>
+
+  </textarea>
+</section>
+
+			</div>
+
+		</div>
+
+		<script src="reveal.js/js/reveal.js"></script>
+		<script src="lib/jquery-2.2.4.js "></script>
+		<script>
+		  if (window.location.hostname.indexOf('localhost') !== -1) {
+		  } else {
+			// only applies to public version
+			$('.preparation').remove();
+			$('.todo').remove();
+			$('.local').remove();
+			$('.presenter').remove();
+	  
+		  }
+		  Reveal.addEventListener('ready', function (event) {
+			  // do we want this???
+			  $('li').addClass('fragment')
+	  
+			  // make all links open in new tab
+			  $('a').attr('target', '_blank')
+	  
+			if (window.location.hostname.indexOf('localhost') !== -1) {
+			  // only applies to presentation version
+			  Reveal.configure({ controls: false });
+			} else {
+			  // only applies to public version
+			  $('.fragment').removeClass('fragment');
+			}
+			// applies to all versions
+			$('code').attr('data-trim', true)
+			$('code').addClass('line-numbers');
+	  
+	  });
+		  // $('section').attr('data-background-image', "backgrounds/light-metal.jpg");
+		  // $('section').attr('data-background-image', "backgrounds/pink.jpg");
+		  // $('section').attr('data-background-image', "backgrounds/white.jpg");
+		// $('section').attr('data-background-image', "backgrounds/sky.jpg");
+		$('section').attr('data-background-image', "backgrounds/sky-winter.jpg");
+	  
+		</script>
+	  
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				width: 1100,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true },
+					{ src: 'reveal.js/plugin/search/search.js', async: true },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'lib/js/line-numbers.js', async: true }
+
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
