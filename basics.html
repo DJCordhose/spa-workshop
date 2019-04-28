@@ -17,7 +17,7 @@
 		<!-- <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme"> -->
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="reveal.js/lib/css/monokai.css">
+        <link rel="stylesheet" href="reveal.js/lib/css/monokai.css">
 		<!-- <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"> -->
 
 		<!-- Printing and PDF exports -->
@@ -406,7 +406,7 @@ displayInPage('Hello, World');
    </code></pre>
                     </section>
                     
-      <section data-markdown>
+      <section data-markdown style="font-size: xx-large">
           <textarea data-template>
 ### Modules and Build
 
@@ -420,11 +420,31 @@ displayInPage('Hello, World');
   * webpack (https://webpack.js.org/, https://webpack.js.org/api/cli/, https://webpack.js.org/configuration/dev-server/)
   * babel (https://babeljs.io/)
 
-<small>
-cd code\js-workspace; yarn; yarn start  
-</small>
+`cd code/js-workspace; yarn; yarn start`  
                 </textarea>
       </section>
+
+      <section data-markdown style="font-size: xx-large">
+          <textarea data-template>
+### Server Calls
+
+* `fetch` is the standard browser API for server calls
+* despite the name it does all methods, not only GET
+* no need for any other lib in modern browsers
+* a simple server can be implemented in a few lines of code
+
+https://caniuse.com/#feat=fetch
+
+<br>
+<small>
+</small>
+<br>
+
+`cd code/server; yarn; yarn start`
+
+</textarea>
+      </section>
+
 
                 <section>
                     <h2>fetch</h2>
@@ -472,94 +492,6 @@ fetch(url, {
                             </ul>
                         </section>
     
-                    <!-- <section>
-                            <h3>Create a Promoise and react asynchronously</h3>
-       <pre class="fragment"><code class="javascript" contenteditable>const promise = new Promise(resolve =>
-        setTimeout(
-            () => resolve('Result from promise'),
-            1000)
-    );
-    </code></pre>
-        <pre><code class="javascript" contenteditable>promise.then(value => console.log(value));
-    // Output after 1 second: Result from promise
-    </code></pre>
-                        </section>
-                        <section>
-                            <h3>Chaining Execution</h3>
-       <pre><code class="javascript" contenteditable>const promise = new Promise(resolve =>
-        setTimeout(
-            () => resolve('Result from promise'),
-            1000)
-    );
-    </code></pre>
-        <pre class="fragment"><code class="javascript" contenteditable>// then returns a new promise
-    const promise2 = promise.then(value => `${value} plus stuff`);</code></pre>
-        <pre class="fragment"><code class="javascript" contenteditable>promise2.then(value => console.log(value));
-    // Output after 1 second: Result from promise plus stuff
-    </code></pre>
-                        </section>
-                <section>
-                    <h3>Errors abort the rest of the chain</h3>
-                    <p class="fragment">Unfortunately, such an error will be swallowed if you do not react to it</p>
-                </section>
-    
-                        <section>
-                            <h3>Catch Clause</h3>
-       <pre><code class="javascript" contenteditable>Promise
-        // creates and directly resolves promise
-        .resolve('Result from promise')
-        .then(x => {
-            // this will be printed
-            console.log(x);
-        })
-        .then(() => {
-            console.log('This will be printed');
-        })
-        // this will NOT be printed as no error occured
-        .catch(e => console.log('error: ', e))
-    
-    // Output:
-    // Result from promise
-    // This will be printed</code></pre>
-                        </section>
-                        <section>
-                            <h3>Catch Clause when there is an error</h3>
-       <pre><code class="javascript" contenteditable>Promise
-        // creates and directly resolves promise
-        .resolve('Result from promise')
-        .then(x => {
-            // this will be printed
-            console.log(x);
-            throw new Error('Something went wrong');
-        })
-        .then(() => {
-            console.log('This will NOT be printed');
-        })
-        // this will be printed
-        .catch(e => console.log('error: ', e))
-    
-    // Output:
-    // Result from promise
-    // error:  [Error: Something went wrong]</code></pre>
-                        </section>
-                        <section>
-                            <h3>Catch Clause when Promise is rejected</h3>
-       <pre><code class="javascript" contenteditable>Promise
-        // creates and directly rejects promise
-        .reject('Promise rejected')
-        .then(x => {
-            // this will NOT be printed
-            console.log(x);
-        })
-        .then(() => {
-            console.log('This will NOT be printed');
-        })
-        // this will be printed
-        .catch(e => console.log('error: ', e))
-    
-    // Output:
-    // error:  Promise rejected</code></pre>
-                    </section> -->
 <section data-markdown>
     <textarea data-template>
 ### From Callback to Promise to async/await
@@ -576,7 +508,7 @@ https://twitter.com/addyosmani/status/1097035418657144832
         <pre class="fragment"><code class="javascript" contenteditable data-trim>
 async function loadGreetings() {          
   try {
-    const response = await fetch('http://localhost:7000/greetings');
+    const response = await fetch('http://localhost:3000/greetings');
     const json = await response.json();
     // success: do something with json
   } catch (err) {
@@ -709,25 +641,28 @@ foo = 10;
 
 // types can be inferred (return type)
 function sayIt(what: string) {
-return `Saying: ${what}`;
+    return `Saying: ${what}`;
 }
 const said: string = sayIt(obj);
 
 </code></pre>
        <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
 class Sayer {
-what: string; // mandatory
+    what: string; // mandatory
 
-constructor(what: string) {
-    this.what = what;
-}
+    constructor(what: string) {
+        this.what = what;
+    }
 
-// return type if you want to
-sayIt(): string {
-    return `Saying: ${this.what}`;
-}
+    // return type if you want to
+    sayIt(): string {
+        return `Saying: ${this.what}`;
+    }
 }
 </code></pre>
+
+`cd code/ts-workspace; yarn; yarn start`  
+
   </section>
 
   <section>
@@ -1105,7 +1040,8 @@ Annotations in Java</a>)
 				progress: true,
 				center: true,
 				hash: true,
-				width: 1100,
+                width: '100%',
+                height: '100%',
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
