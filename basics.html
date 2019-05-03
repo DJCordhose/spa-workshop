@@ -64,7 +64,7 @@
     }       
 
     a {
-      color: #888800 !important;
+      color: #222200 !important;
     }       
 
     .reveal h2,
@@ -197,50 +197,6 @@ console.log(map.hund); // undefined
 </code></pre>
                 </section>
                 <section>
-                    <h2>Runtime Types</h2>
-                        <pre><code class="javascript" contenteditable>let string = "String";
-typeof string === "string";
-
-let int = 1;
-typeof int === "number";
-
-let float = 1.0;
-typeof float === "number";
-
-let bool = true;
-typeof bool === "boolean";
-
-let func = function() {};
-typeof func === "function";
-
-typeof doesNotExist === "undefined";</code></pre>
-                </section>
-                <section>
-                    <h2><code>==, ===</code></h2>
-    <pre><code class="javascript" contenteditable>// == tries conversions, will confuse you`
-"dog" == "dog";
-1 == true;
-2 != false;
-2 != true;
-0 == false;
--1 != false;
--1 != true;
-1 == "1";
-1 == "1.0";
-
-// === without conversion, always take this
-"dog" === "dog";
-1 !== true;
-1 !== false;
-1 === 1;
-1 !== "1"</code></pre>
-
-<small data-template>
-https://js-equality-jackpot.surge.sh/    
-</small>
-            </section>
-
-                <section>
                     <h2>undefined and null</h2>
     <pre><code class="javascript" contenteditable>let obj = {
     a: null,
@@ -275,19 +231,6 @@ array.splice(1, 2);
 // at pos 1 remove 0 elements and insert "x"
 // Zudem wird an Position 1 "x" hinzugefügt
 array.splice(1, 0, "x");                        </code></pre>
-                </section>
-
-                <section>
-                    <h2>string</h2>
-<pre><code class="javascript" contenteditable>let s1 = 'Hallo, ';
-let s2 = "Olli's Oma";
-
-let s3 = s1 + s2;
-s3 === "Hallo, Olli's Oma";
-
-s3[1] === "a";
-s3.charAt(1) === s3[1];
-</code></pre>
                 </section>
 
                 <section>
@@ -537,14 +480,14 @@ async function loadGreetings() {
 </textarea>
 </section>
 
-<section data-markdown>
+<!-- <section data-markdown>
   <textarea data-template>
 <img src='img/saccone-testing.jpg'>
 <small>
 https://twitter.com/samccone/status/1102341416372514816
 </small>
 </textarea>
-</section>
+</section> -->
 
 <section>
     <h2>Why using type systems?</h2>
@@ -579,7 +522,7 @@ https://twitter.com/samccone/status/1102341416372514816
     </a></small></p>
 </section>
 
-<section>
+<!-- <section>
     <h2>TypeScript</h2>
     <h3 class="fragment">ease of use and tool support over soundness</h3>
     <ul class="fragment">
@@ -626,7 +569,7 @@ Vue Roadmap: https://github.com/vuejs/vue/projects/6#column-4065494
 </small>
 
 </textarea>
-</section>
+</section> -->
   
 <section data-markdown>
     <textarea data-template>
@@ -677,7 +620,7 @@ class Sayer {
 
   </section>
 
-  <section>
+  <!-- <section>
       <h2>Nullability</h2>
       <p>One of my main sources of runtime exceptions when programming Java</p>
       <p><small>Even after many years it is still surprising how many corner cases I miss in complex code</small></p>
@@ -709,8 +652,8 @@ fooed!.toString();
           <p>All types nullable by default in TypeScript 1.x</p>
       </div>
   </section>
-
-  <section data-markdown>
+ -->
+  <!-- <section data-markdown>
       <textarea data-template>
 ### Generic Type information
 
@@ -811,7 +754,7 @@ void logAnimals(List&lt;? extends Animal> animals) {
 </code></pre>
         </div>
 
-    </section>
+    </section> -->
 
     <section>
         <h3>any type</h3>
@@ -835,7 +778,7 @@ let r2: boolean = func('wat');
         </ul>
     </section>
 
-    <section data-markdown>
+    <!-- <section data-markdown>
       <textarea data-template>
 ### `unknown` type
 
@@ -870,7 +813,7 @@ Open in Playground
 </a>
 </small>    
 </textarea>
-    </section>
+    </section> -->
 
     <section data-markdown>
         <textarea data-template>
@@ -884,23 +827,11 @@ _not really_
 * type system more expressive
 * type inference
 * control flow based type analysis
+* nominal typing for classes and interfaces
 </textarea>
     </section>
 
-    <section>
-        <h2>Structural vs Nominal Typing</h2>
-        <ul>
-            <li class="fragment">Nominal Typing: types are compatible when their declared types match
-            <li class="fragment">Structural Typing: types are compatible when their structures match
-            <li class="fragment">Java, C#, C++, C all use nominal typing exclusively
-            <li class="fragment">Flow classes are also treated as nominal types
-            <li class="fragment">TypeScript classes are treated as structural types
-            <li class="fragment">Everything else in both Flow and TypeScript uses structural typing
-            <li class="fragment elm">Elm always uses structural typing with exact matches on Records
-        </ul>
-    </section>
-
-    <section>
+    <!-- <section>
         <h3>Structural Typing for classes</h3>
         <pre><code class="typescript line-numbers" contenteditable data-trim>
 class Person {
@@ -944,8 +875,7 @@ let namedObject: NamedObject = {
     firstName: "Olli"
 };
         </code></pre>
-    </section>
-
+    </section> -->
 
     <section>
         <h2>Classes in TypeScript</h2>
