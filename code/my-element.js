@@ -39,7 +39,7 @@ class MyElement extends HTMLElement {
     render() {
         // https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
         this.attachShadow({mode: 'open'});
-        this.shadowRoot.innerHTML = template;
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
         this.input = this.shadowRoot.querySelector("#in");
         this.log = this.shadowRoot.querySelector("#log");
         this.button = this.shadowRoot.querySelector("#btn");

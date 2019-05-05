@@ -94,6 +94,33 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
+      <section data-markdown>
+          <textarea data-template>
+### Tag 1: Grundlagen ohne Laufzeit-Bibliotheken
+
+1. <a href='basics.html'>Web-Entwicklung mit JavaScript und TypeScript</a>
+1. <a href='wc.html'>Entwicklung mit Web Components ohne Abhängigkeiten</a>
+
+https://gitpod.io/#https://github.com/DJCordhose/spa-workshop
+      </textarea>
+    </section>
+
+    <section data-markdown>
+      <textarea data-template>
+### Tag 2: Frameworks und Bibliotheken
+
+1. SPA Architektur (vom JAX)
+1. <a href='lit.html'>Web Components mit lit-element</a>
+1. <a href='react.html'>React</a>
+1. <a href='ng.html'>Angular</a>
+
+https://gitpod.io/#https://github.com/DJCordhose/spa-workshop
+
+  </textarea>
+</section>
+
+
+
       <section>
         <h2>Frontend Workshop</h2>
 
@@ -110,21 +137,18 @@
 
       <section data-markdown class="todo">
           <textarea data-template>
-### Orga
+* workspaces für
+	* lit-element
+	* react
+	* angular
 
-* Das hier clonen
-* Installation wie unten
-* Ich brauche unbedingt Internet wie alle anderen auch
+* 	
 
 						</textarea>
 					</section>
 
 					<section data-markdown class="todo">
 							<textarea data-template>
-### Code Samples Basics
-* Basic css
-* Canvas
-* Web Components
 
 ### Lit-element
 * https://github.com/LarsDenBakker/lit-html-workshop
@@ -151,29 +175,6 @@
   </textarea>
   </section>
   
-      <section data-markdown>
-          <textarea data-template>
-### Tag 1: Grundlagen ohne Laufzeit-Bibliotheken
-
-1. <a href='basics.html'>Web-Entwicklung mit JavaScript und TypeScript</a>
-1. <a href='wc.html'>Entwicklung mit Web Components ohne Abhängigkeiten</a>
-
-      </textarea>
-    </section>
-
-    <section data-markdown>
-      <textarea data-template>
-### Tag 2: Frameworks und Bibliotheken
-
-1. <a href='lit.html'>Web Components mit lit-element</a>
-1. SPA Architektur
-1. react
-1. vue
-1. Angular
-
-  </textarea>
-</section>
-
 			</div>
 
 		</div>
@@ -192,7 +193,7 @@
 		  }
 		  Reveal.addEventListener('ready', function (event) {
 			  // do we want this???
-			  $('li').addClass('fragment')
+			  // $('li').addClass('fragment')
 	  
 			  // make all links open in new tab
 			  $('a').attr('target', '_blank')

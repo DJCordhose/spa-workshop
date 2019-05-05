@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>React</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="reveal.js/css/reset.css">
+		<link rel="stylesheet" href="reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+		<!-- <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme"> -->
+
+		<!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="reveal.js/lib/css/monokai.css">
+		<!-- <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"> -->
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		  <style>
+    .weg:before {
+      content: 'Streichen?';
+    }
+
+    .weg {
+      color: red !important;
+    }
+
+    .todo:before {
+      content: 'TODO: ';
+    }
+
+    .todo {
+      color: red !important;
+    }
+
+    code span.line-number {
+      color: lightcoral;
+    }
+
+    .reveal {
+      -ms-touch-action: auto !important;
+      touch-action: auto !important;
+    }
+
+    .reveal {
+      color: black !important;
+    }       
+
+    a {
+      color: #222200 !important;
+    }       
+
+    .reveal h2,
+    .reveal h3,
+    .reveal h4 {
+      letter-spacing: 2px;
+                        font-family: 'Calibri', sans-serif;
+                          /* font-family: 'Times New Roman', Times, serif; */
+                          font-weight: bold;
+                          color: black;
+                          font-style: italic;
+                          letter-spacing: -2px;
+                          text-transform: none !important;
+    }
+    .reveal em {
+      font-weight: bold;
+    }
+
+    .reveal {
+        font-family: 'Calibri', sans-serif !important;
+    }
+
+    .reveal pre code {
+      max-height: 1000px !important;
+    }
+
+
+
+  </style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+<section data-markdown>
+  <textarea data-template>
+## Crash Course React
+
+https://reactjs.org/
+</textarea>
+</section>
+      <section data-markdown>
+        <textarea data-template>
+### Creating React project skeleton
+
+_Install https://facebook.github.io/create-react-app/ using TypeScript 
+https://facebook.github.io/create-react-app/docs/adding-typescript_ 
+
+1. `npm install -g create-react-app`
+1. `create-react-app react-app --typescript`
+1. `cd react-app`
+1. `yarn start`
+1. Open http://localhost:3000/ 
+1. Do what the app tells you to do
+</textarea>
+</section>
+<section data-markdown>
+  <textarea data-template>
+### Inspect the created files together
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+### Basics of React programming
+
+</textarea>
+</section>
+
+<section>
+    <h3>React: Applications from Components</h3>
+    <ul>
+        <li class="fragment">Everything is a component, even an Application
+        <li class="fragment">Components wrap Template and Logic
+        <li class="fragment">Can be implemented as a class or a function
+        <li class="fragment">JSX (HTML like) as template language
+    </ul>
+    <pre class="fragment"><code data-trim contenteditable>class HelloMessage extends React.Component {
+  render() {
+    return &lt;h1 className='title'>Hello, World!&lt;/h1>
+  }
+}
+</code></pre>
+</section>
+
+<section>
+    <h3>Hello World React</h3>
+        <a target="_blank" href="./code/hello-world/public/index.html">Demo</a>
+</section>
+
+        <section>
+                    <h3>Hello World React</h3>
+<pre><code data-trim contenteditable>class HelloMessage extends React.Component {
+  render() {
+    return (&lt;div>
+            &lt;input ref={input => this.input = input}
+                   onChange={event => this.updateModel(event)}
+                   value={this.state.greeting} />
+            &lt;p>{this.state.greeting}, World&lt;/p>
+            &lt;button
+                onClick={() => this.reset()}>
+                Clear
+            &lt;/button>
+        &lt;/div>);
+  }</code></pre>
+<pre class="fragment"><code contenteditable class="javascript">  constructor(props) {
+    super(props);
+    this.state = {greeting: this.props.greeting};
+  }
+  updateModel(event) {
+    this.setState({greeting: event.target.value});
+  }
+  reset() {
+    this.setState({greeting: ""});
+    this.input.focus();
+  }
+}</code></pre>
+                </section>
+
+                <section>
+                    <h3>Glue code to start application</h3>
+<pre><code data-trim contenteditable>
+// index.html
+&lt;html>
+  &lt;body>
+    <div id="mount"></div>
+  &lt;/body>
+  &lt;script src="dist/main.js">&lt;/script>
+&lt;/html>
+</code></pre>
+<pre class="fragment"><code data-trim contenteditable class="javascript">
+// main.js
+import HelloMessage from './HelloMessage';
+
+const mountNode = document.getElementById('mount');
+ReactDOM.render(&lt;HelloMessage greeting="Hello"/>, mountNode);
+</code></pre>
+                    <a target="_blank" href="code/hello_world/public/index.html">Run</a>
+                </section>
+     <section>
+        <h2>Webpack and Babel</h2>
+        <img src="img/webpack-und-babel.png" style="border:0;box-shadow:0 0 0 0"/>
+    </section>
+
+            <section style="font-size: xx-large">
+                <h3>React: Rendering</h3>
+                <ul>
+                    <li>Every React Component needs a <code>render</code>-Method (or needs to be a function):</li>
+                    <li>will be called when first displayed into DOM and when state changes</li>
+                    <li>uses HTML like JSX syntax</li>
+                    <li>JSX can contain pure JavaScript in curly braces (<code>{}</code>)
+                </ul>
+<pre class="fragment"><code class="xml" contenteditable data-trim>
+class GreetingDetail extends React.Component {
+  render() {
+    return (
+      <div>
+        &lt;input ref={input => this.input = input}
+           onChange={event => this.updateModel(event.target.value)}
+           value={this.state.greeting} />
+        <p>{this.state.greeting}, World</p>
+      </div>
+    );
+  }
+  // ...
+}
+</code></pre>
+        </section>
+           <section>
+                <h3>React: Rendering #2</h3>
+                <ul>
+                    <li>DOM-Events are wrapped in React-Events
+                    <li>React-Events have very simliar API as DOM-Events
+                    <li>No automatic 2-way binding to models
+                </ul>
+<pre class="fragment"><code class="xml" contenteditable data-trim>
+class GreetingDetail extends React.Component {
+  render() {
+    return (
+      <div>
+        &lt;input ref={input => this.input = input}
+               onChange={event => this.updateModel(event.target.value)}
+               value={this.state.greeting} />
+        <p>{this.state.greeting}, World</p>
+      </div>
+    );
+  }
+  updateModel(greeting) {
+    this.setState({greeting});
+  }
+  // ...
+}
+</code></pre>
+        </section>
+
+        <section>
+            <h3>React: Properties and State</h3>
+            <ul>
+                <li><b>Properties</b> are being passed to components from <b>outside</b> and are immutable</li>
+                <li><b>State</b> an <b>internal</b> property of a component and can be changed</li>
+                <li>Both are objects containing key-/value pairs</li>
+                <li>Both can be passed to child components</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Properties of a Component</h3>
+            <ul>
+                <li>Properties initially being passed in contructor</li>
+                <li>RO Access using <code>this.props</code></li>
+            </ul>
+            <pre class="fragment"><code class="javascript" contenteditable data-trim>
+class TitleComponent extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+      return &lt;h1>{this.props.title}&lt;/h1>
+    }
+   // ...
+}
+</code></pre>
+<pre class="fragment"><code class="javascript" contenteditable data-trim>
+  &lt;TitleComponent title='Hello World' />
+</code></pre>
+        </section>
+
+        <section>
+            <h3>State of a Component</h3>
+            <ul>
+                <li>Example: Data from Input Field or loaded from Server</li>
+                <li>Initialization in Constructor <code>this.state={}</code>
+                <li><b>Read</b> state using <code>this.state</code>
+                <li><b>Set</b> state using <code>this.setState()</code>
+                <ul><li>not really a setter</li>
+                    <li>merges old and new state</li>
+                    <li><b>triggers re-rendering of <i>complete</i> component</b></li>
+                </ul>
+            </ul>
+            </section>
+
+            <section>
+                <h3>Example: State of a component</h3>
+<pre><code class="javascript" contenteditable data-trim>
+class GreetingDetail extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { name: 'Klaus' };
+    }
+
+    updateModel(event) {
+        this.setState({name: event.target.value});
+    }
+
+    render() {
+        return &lt;input value={this.state.name}
+            onChange={e => this.updateModel(e)} />
+    }
+   // ...
+}
+</code></pre>
+        </section>
+
+        <!-- <section>
+            <h3>React: Refs</h3>
+            <ul>
+                <li>When rendering you can get access to the underlying DOM element
+                <li>you get this reference passed into a function
+                <li>typically you store the reference into a class variable
+            </ul>
+<pre class="fragment"><code class="javascript" contenteditable data-trim>
+class HelloMessage extends React.Component {
+    render() {
+        return (
+            <div>
+                &lt;input ref={input => this.input = input} />
+                &lt;button
+                    onClick={() => this.input.focus()}>
+                    Focus
+                &lt;/button>
+            </div>);
+    }
+}
+</code></pre>
+        </section> -->
+
+            <section>
+                <h3>Lists and Keys</h3>
+                <ul>
+                    <li>No special synatx in JSX for lists
+                    <li>Instead use JavaScripts's <code>Array.map</code>
+                    <li>Elements of a List need unique key
+                </ul>
+<pre class="fragment"><code class="javascript" contenteditable data-trim>
+const greetings = [{
+    id: 0,
+    name: 'Olli',
+    greeting: 'Huhu'
+},
+{
+    id: 1,
+    name: 'Oma',
+    greeting: 'Hallo'
+}
+];
+const body = greetings.map(greeting =>
+    &lt;tr key={greeting.id}>
+        &lt;td>{greeting.name}</td>
+        &lt;td>{greeting.greeting}</td>
+    &lt;/tr>);
+</code></pre>
+        </section>
+
+        <section data-markdown>
+            <textarea data-template>
+## Smart and Dumb Components with React
+</textarea>
+</section>
+
+        <section>
+            <h3>Passing of State and Callbacks</h3>
+            <p class="fragment">
+                Both are passed via props
+            </p>
+<pre class="fragment"><code class="javascript" contenteditable data-trim>
+class GreetingController extends React.Component {
+    render() {
+        const {greetings} = this.state;
+        return (
+            <div>
+                &lt;GreetingMaster greetings={greetings}
+                    onAdd={() => this.setState({mode: MODE_DETAIL})}
+            </div>);
+    }
+    // ...
+}
+    </code></pre>
+    </section>
+    <section>
+        <h3>Passing Properties using Object-Spread</h3>
+        <ul>
+                <li>Passes <b>all</b> fields of an Object as individual Properties</li>
+        </ul>
+        <pre class="fragment"><code class="javascript" contenteditable data-trim>
+class GreetingController extends React.Component {
+
+    const greeting = { name: 'Klaus', greeting: 'Hello' };
+
+    render() {
+        return &lt;GreetingDetail {...greeting} />
+
+        // same as:
+        // &lt;GreetingDetail name='Klaus' greeting='Hello' />
+    }
+}
+        </code></pre>
+    </section>
+
+    <!-- <section data-markdown class="todo">
+        <textarea data-template>
+### React and TypeScript
+
+* https://twitter.com/NaveenS16/status/1023433663873048577
+
+* https://github.com/sw-yx/react-typescript-cheatsheet
+</textarea>
+</section> -->
+
+<section data-markdown>
+  <textarea data-template>
+### Learning More React
+
+1. https://reactjs.org/
+1. learn by doing: https://reactjs.org/tutorial/tutorial.html
+1. learn by step by step: https://reactjs.org/docs/hello-world.html
+</textarea>
+</section>
+
+
+
+			</div>
+
+		</div>
+
+		<script src="reveal.js/js/reveal.js"></script>
+		<script src="lib/jquery-2.2.4.js "></script>
+		<script>
+		  if (window.location.hostname.indexOf('localhost') !== -1) {
+		  } else {
+			// only applies to public version
+			$('.preparation').remove();
+			$('.todo').remove();
+			$('.local').remove();
+			$('.presenter').remove();
+	  
+		  }
+		  Reveal.addEventListener('ready', function (event) {
+			  // do we want this???
+			  $('li').addClass('fragment')
+	  
+			  // make all links open in new tab
+			  $('a').attr('target', '_blank')
+	  
+			if (window.location.hostname.indexOf('localhost') !== -1) {
+			  // only applies to presentation version
+			  Reveal.configure({ controls: false });
+			} else {
+			  // only applies to public version
+			  $('.fragment').removeClass('fragment');
+			}
+			// applies to all versions
+			$('code').attr('data-trim', true)
+			$('code').addClass('line-numbers');
+	  
+	  });
+		  // $('section').attr('data-background-image', "backgrounds/light-metal.jpg");
+		  // $('section').attr('data-background-image', "backgrounds/pink.jpg");
+		  // $('section').attr('data-background-image', "backgrounds/white.jpg");
+		// $('section').attr('data-background-image', "backgrounds/sky.jpg");
+		$('section').attr('data-background-image', "backgrounds/sky-winter.jpg");
+	  
+		</script>
+	  
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+                width: '100%',
+                height: '100%',
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true },
+					{ src: 'reveal.js/plugin/search/search.js', async: true },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'lib/js/line-numbers.js', async: true }
+
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
