@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Workshop</title>
+		<title>lit-element</title>
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -17,7 +17,7 @@
 		<!-- <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme"> -->
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="reveal.js/lib/css/monokai.css">
+        <link rel="stylesheet" href="reveal.js/lib/css/monokai.css">
 		<!-- <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"> -->
 
 		<!-- Printing and PDF exports -->
@@ -64,7 +64,7 @@
     }       
 
     a {
-      color: #888800 !important;
+      color: #222200 !important;
     }       
 
     .reveal h2,
@@ -83,6 +83,16 @@
       font-weight: bold;
     }
 
+    .reveal {
+        font-family: 'Calibri', sans-serif !important;
+    }
+
+    .reveal pre code {
+      max-height: 1000px !important;
+    }
+
+
+
   </style>
 
 	</head>
@@ -94,85 +104,125 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
-      <section>
-        <h2>Frontend Workshop</h2>
+<section data-markdown>
+    <textarea data-template>
+### But developers do not really like Polymer (=== Web Components?)
 
-        <div>
-          <a href="http://zeigermann.eu">Oliver Zeigermann</a> /
-          <a href="http://twitter.com/djcordhose">@DJCordhose</a>
-        </div>
-        <p style="clear: both">
-          Folien:
-            <a href="http://bit.ly/ab-fe">
-              http://bit.ly/ab-fe</a>
-        </p>
-      </section>
+<img src='img/js-frameworks-2018.png' height="470px">
+<small>
+https://2018.stateofjs.com/front-end-frameworks/conclusion  
+</small>
+    </textarea>
+</section>
 
-      <section data-markdown class="todo">
-          <textarea data-template>
-### Orga
+<section data-markdown
+    <textarea data-template>
+### Is Development for Web Components procedural and low-level?
 
-* Das hier clonen
-* Installation wie unten
-* Ich brauche unbedingt Internet wie alle anderen auch
+<h4 class="fragment">enter lit-element</h4>
 
-						</textarea>
-					</section>
+<p class="fragment">
+https://lit-element.polymer-project.org/
+<br>
+https://project-awesome.org/web-padawan/awesome-lit-html  
+</p>
+    
+</textarea>
+</section>
 
-					<section data-markdown class="todo">
-							<textarea data-template>
-### Code Samples Basics
-* Basic css
-* Canvas
-* Web Components
+<section>
+<h3>Web Component with lit-element</h3>
 
-### Lit-element
-* https://github.com/LarsDenBakker/lit-html-workshop
+<pre class="fragment"><code data-trim class="javascript">
+@customElement('my-element')
+class MyElement extends LitElement {
+    @property() greeting: string = 'Hello';
 
-### Ng Cheat Sheets
-* https://twitter.com/malcoded
+    render() {
+        return html`
+        &lt;input value="${this.greeting}" 
+          @keyup="${(event: any) => this.greeting = event.target.value}">
+        &lt;p>${this.greeting}, World&lt;/p>
+        &lt;input type="button" value="Clear" @click="${this.handleClick}">`;
+    }
 
-
-						</textarea>
-					</section>
-
-
-      <section data-markdown style="font-size: xx-large">
-          <textarea data-template>
-### Installation
-
-1. Git: https://git-scm.com/downloads
-2. Chrome Browser: https://www.google.com/chrome/
-3. Visual Studio Code: https://code.visualstudio.com/
-4. node.js (JavaScript außerhalb des Browsers): https://nodejs.org/en/ LTS
-5. yarn (dependency management): https://yarnpkg.com/en/docs/install
-6. npm Installation über proxy: https://www.freecodecamp.org/forum/t/npm-behind-a-proxy-server/19386
-7. web server: `npm install -g http-server` (gleich ein Test dafür, ob das mit der Installation klappt)
-  </textarea>
-  </section>
+    handleClick() {
+        this.greeting = '';
+    }
+}
+</code></pre>
   
-      <section data-markdown>
-          <textarea data-template>
-### Tag 1: Grundlagen ohne Laufzeit-Bibliotheken
-
-1. <a href='basics.html'>Web-Entwicklung mit JavaScript und TypeScript</a>
-1. <a href='wc.html'>Entwicklung mit Web Components ohne Abhängigkeiten</a>
-
-      </textarea>
-    </section>
-
+  <pre class="fragment"><code data-trim class="javascript">
+    // using the web component (like before)  
+    &lt;script src="./my-element-pure.js">&lt;/script>
+    &lt;my-element>&lt;/my-element>
+    </code></pre>
+    
+    <small>
+    <a href='https://lit-element.polymer-project.org/'>https://lit-element.polymer-project.org/</a>  
+    </small>
+      </section>
+    
     <section data-markdown>
       <textarea data-template>
-### Tag 2: Frameworks und Bibliotheken
+    ## Demo
+    
+    _how can a Web Component project look like?_
+    
+    * Web Components
+    * lit-element
+    * TypeScript
+    * optional parcel prod build
+    * lightweight dev server for ES6 modules (polyserve)
+    
+    ```javascript
+    git clone git@github.com:DJCordhose/lerna-wc-ts-monorepo-demo.git
+    cd lerna-wc-ts-monorepo-demo
+    yarn
+    yarn start 
+    ```
+    
+    <small>
+    http://localhost:8000/demo/index.html
+    </small>
+      </textarea>
+    </section>
+    
+<section data-markdown>
+    <textarea data-template>
+## Discussion
 
-1. <a href='lit.html'>Web Components mit lit-element</a>
-1. SPA Architektur
-1. react
-1. vue
-1. Angular
+_should you use Web Components?_
+
+</textarea>
+  </section>
+
+
+  <section data-markdown>
+      <textarea data-template>
+### Pro Web Components
+
+* use the standard
+* easy integration with native browser API
+* will exist in 20 years from now
+* low or zero memory footprint
 
   </textarea>
-</section>
+    </section>
+  
+  <section data-markdown>
+      <textarea data-template>
+### Contra Web Components
+
+* standard gurantees availabilty of technology, but not of community
+* polyfills for older browsers
+* for efficient component dev really only usable with lit-element (so: just another framework?)
+* still a lot of issues around ShadowDOM and CSS (https://dev.to/webpadawan/beyond-the-polyfills-how-web-components-affect-us-today-3j0a)
+
+  </textarea>
+    </section>
+
+      
 
 			</div>
 
@@ -225,7 +275,8 @@
 				progress: true,
 				center: true,
 				hash: true,
-				width: 1100,
+                width: '100%',
+                height: '100%',
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 

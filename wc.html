@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Web Components</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="reveal.js/css/reset.css">
+		<link rel="stylesheet" href="reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+		<!-- <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme"> -->
+
+		<!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="reveal.js/lib/css/monokai.css">
+		<!-- <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"> -->
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		  <style>
+    .weg:before {
+      content: 'Streichen?';
+    }
+
+    .weg {
+      color: red !important;
+    }
+
+    .todo:before {
+      content: 'TODO: ';
+    }
+
+    .todo {
+      color: red !important;
+    }
+
+    code span.line-number {
+      color: lightcoral;
+    }
+
+    .reveal {
+      -ms-touch-action: auto !important;
+      touch-action: auto !important;
+    }
+
+    .reveal {
+      color: black !important;
+    }       
+
+    a {
+      color: #222200 !important;
+    }       
+
+    .reveal h2,
+    .reveal h3,
+    .reveal h4 {
+      letter-spacing: 2px;
+                        font-family: 'Calibri', sans-serif;
+                          /* font-family: 'Times New Roman', Times, serif; */
+                          font-weight: bold;
+                          color: black;
+                          font-style: italic;
+                          letter-spacing: -2px;
+                          text-transform: none !important;
+    }
+    .reveal em {
+      font-weight: bold;
+    }
+
+    .reveal {
+        font-family: 'Calibri', sans-serif !important;
+    }
+
+    .reveal pre code {
+      max-height: 1000px !important;
+    }
+
+
+
+  </style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+<section data-markdown>
+<textarea data-template>
+### Web Components
+
+_A browser standard_
+
+* Custom Elements: your own HTML elements defined as classes
+* Shadom DOM: Encapsulation of parts of the DOM
+* HTML Template: DOM parts that are not rendered (long adopted)
+* HTML Import: v0, Dead
+
+https://developer.mozilla.org/en-US/docs/Web/Web_Components
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+### Are Web Components ready, yet?
+
+_Web Components Browser Compatibility_
+
+<img src='img/web-components-support.jpg' height="400px">
+
+https://www.webcomponents.org/
+
+https://caniuse.com/#search=Web%20components
+
+https://pwa-starter-kit.polymer-project.org/browser-support
+</textarea>
+</section>
+
+
+<section>
+<h4>Web Components</h4>
+
+<pre class="fragment"><code data-trim class="javascript">
+const template = `
+&lt;input id="in">
+&lt;p>&lt;span id="log"></span>, World</p>
+&lt;input id="btn" type="button" value="Clear">`
+</code></pre>
+
+<pre class="fragment"><code data-trim class="javascript">
+class MyElement extends HTMLElement {
+  constructor() {
+      super();
+      this.attachShadow({mode: 'open'});
+      this.shadowRoot.innerHTML = template;
+      this.input = this.shadowRoot.querySelector("#in");
+      this.log = this.shadowRoot.querySelector("#log");
+      this.button = this.shadowRoot.querySelector("#btn");
+  }
+
+  connectedCallback() {
+      this.input.addEventListener("keyup", event => this.model = event.target.value);
+      this.button.addEventListener("click", event => this.model = "");
+  }
+
+  set model(value) {
+    this.log.textContent = value;
+    this.input.value = value;
+  }
+
+}
+customElements.define('my-element', MyElement);
+</code></pre>
+  
+<pre class="fragment"><code data-trim class="javascript">
+&lt;script src="./my-element.js">&lt;/script>
+&lt;my-element>&lt;/my-element>
+</code></pre>
+<small>
+ <a href='code/webcomponents.html'>Try it out</a>   
+
+  </small>
+  </section>
+
+        <section data-markdown>
+          <textarea data-template>
+### Web Components for Libraries
+
+<img src='img/tesla-wc.png'>
+<small>
+https://twitter.com/alisonailea/status/1114203815211753472
+</small>
+                </textarea>
+      </section>
+
+<section data-markdown>
+  <textarea data-template>
+## Advanced: Defining an interface for a library
+
+* primitive data as either attributes or properties and keep in sync
+  * missing/wrong attribute (from markup) should fail gracefully (like standard HTML markup)
+* rich data as properties
+  * missing/wrong property (from call) should throw meaningful error
+
+<small>
+https://developers.google.com/web/fundamentals/web-components/best-practices
+</small>
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+### Github uses no framework
+
+<img src='img/wc-github.png' height="470px">
+<small>
+https://twitter.com/mislav/status/1022058279000842240
+<br>
+https://githubengineering.com/removing-jquery-from-github-frontend/  
+</small>
+  </textarea>
+</section>
+
+
+<section data-markdown>
+<textarea data-template>
+### Web Components Myths
+
+<a href='https://dev.to/bennypowers/lets-build-web-components-part-8-mythbusters-edition-3la'>
+<img src='img/wc-myths.jpg' height="520px">
+</a>
+<small>
+https://twitter.com/passle_/status/1097392253465776129
+<br>
+https://dev.to/bennypowers/lets-build-web-components-part-8-mythbusters-edition-3la
+<br>
+https://shoptalkshow.com/episodes/348/
+</small>
+</textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+## Discussion
+
+_should you use Web Components?_
+
+</textarea>
+  </section>
+
+
+  <section data-markdown>
+      <textarea data-template>
+### Pro Web Components
+
+* use the standard
+* easy integration with native browser API
+* will exist in 20 years from now
+* low or zero memory footprint
+
+  </textarea>
+    </section>
+  
+  <section data-markdown>
+      <textarea data-template>
+### Contra Web Components
+
+* standard gurantees availabilty of technology, but not of community
+* polyfills for older browsers
+* for efficient component dev really only usable with lit-element (so: just another framework?)
+* still a lot of issues around ShadowDOM and CSS (https://dev.to/webpadawan/beyond-the-polyfills-how-web-components-affect-us-today-3j0a)
+
+  </textarea>
+    </section>
+
+<section data-markdown>
+  <textarea data-template>
+## Advanced: Defining an interface for a library
+
+* primitive data as either attributes or properties and keep in sync
+  * missing/wrong attribute (from markup) should fail gracefully (like standard HTML markup)
+* rich data as properties
+  * missing/wrong property (from call) should throw meaningful error
+
+<small>
+https://developers.google.com/web/fundamentals/web-components/best-practices
+</small>
+
+</textarea>
+</section>
+
+
+
+			</div>
+
+		</div>
+
+		<script src="reveal.js/js/reveal.js"></script>
+		<script src="lib/jquery-2.2.4.js "></script>
+		<script>
+		  if (window.location.hostname.indexOf('localhost') !== -1) {
+		  } else {
+			// only applies to public version
+			$('.preparation').remove();
+			$('.todo').remove();
+			$('.local').remove();
+			$('.presenter').remove();
+	  
+		  }
+		  Reveal.addEventListener('ready', function (event) {
+			  // do we want this???
+			  $('.all-fragments li').addClass('fragment')
+	  
+			  // make all links open in new tab
+			  $('a').attr('target', '_blank')
+	  
+			if (window.location.hostname.indexOf('localhost') !== -1) {
+			  // only applies to presentation version
+			  Reveal.configure({ controls: false });
+			} else {
+			  // only applies to public version
+			  $('.fragment').removeClass('fragment');
+			}
+			// applies to all versions
+			$('code').attr('data-trim', true)
+			$('code').addClass('line-numbers');
+	  
+	  });
+		  // $('section').attr('data-background-image', "backgrounds/light-metal.jpg");
+		  // $('section').attr('data-background-image', "backgrounds/pink.jpg");
+		  // $('section').attr('data-background-image', "backgrounds/white.jpg");
+		// $('section').attr('data-background-image', "backgrounds/sky.jpg");
+		$('section').attr('data-background-image', "backgrounds/sky-winter.jpg");
+	  
+		</script>
+	  
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+                width: '100%',
+                height: '100%',
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true },
+					{ src: 'reveal.js/plugin/search/search.js', async: true },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'lib/js/line-numbers.js', async: true }
+
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

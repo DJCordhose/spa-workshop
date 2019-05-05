@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Workshop</title>
+		<title>Web Components</title>
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -17,7 +17,7 @@
 		<!-- <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme"> -->
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="reveal.js/lib/css/monokai.css">
+        <link rel="stylesheet" href="reveal.js/lib/css/monokai.css">
 		<!-- <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"> -->
 
 		<!-- Printing and PDF exports -->
@@ -64,7 +64,7 @@
     }       
 
     a {
-      color: #888800 !important;
+      color: #222200 !important;
     }       
 
     .reveal h2,
@@ -83,6 +83,16 @@
       font-weight: bold;
     }
 
+    .reveal {
+        font-family: 'Calibri', sans-serif !important;
+    }
+
+    .reveal pre code {
+      max-height: 1000px !important;
+    }
+
+
+
   </style>
 
 	</head>
@@ -94,85 +104,6 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
-      <section>
-        <h2>Frontend Workshop</h2>
-
-        <div>
-          <a href="http://zeigermann.eu">Oliver Zeigermann</a> /
-          <a href="http://twitter.com/djcordhose">@DJCordhose</a>
-        </div>
-        <p style="clear: both">
-          Folien:
-            <a href="http://bit.ly/ab-fe">
-              http://bit.ly/ab-fe</a>
-        </p>
-      </section>
-
-      <section data-markdown class="todo">
-          <textarea data-template>
-### Orga
-
-* Das hier clonen
-* Installation wie unten
-* Ich brauche unbedingt Internet wie alle anderen auch
-
-						</textarea>
-					</section>
-
-					<section data-markdown class="todo">
-							<textarea data-template>
-### Code Samples Basics
-* Basic css
-* Canvas
-* Web Components
-
-### Lit-element
-* https://github.com/LarsDenBakker/lit-html-workshop
-
-### Ng Cheat Sheets
-* https://twitter.com/malcoded
-
-
-						</textarea>
-					</section>
-
-
-      <section data-markdown style="font-size: xx-large">
-          <textarea data-template>
-### Installation
-
-1. Git: https://git-scm.com/downloads
-2. Chrome Browser: https://www.google.com/chrome/
-3. Visual Studio Code: https://code.visualstudio.com/
-4. node.js (JavaScript außerhalb des Browsers): https://nodejs.org/en/ LTS
-5. yarn (dependency management): https://yarnpkg.com/en/docs/install
-6. npm Installation über proxy: https://www.freecodecamp.org/forum/t/npm-behind-a-proxy-server/19386
-7. web server: `npm install -g http-server` (gleich ein Test dafür, ob das mit der Installation klappt)
-  </textarea>
-  </section>
-  
-      <section data-markdown>
-          <textarea data-template>
-### Tag 1: Grundlagen ohne Laufzeit-Bibliotheken
-
-1. <a href='basics.html'>Web-Entwicklung mit JavaScript und TypeScript</a>
-1. <a href='wc.html'>Entwicklung mit Web Components ohne Abhängigkeiten</a>
-
-      </textarea>
-    </section>
-
-    <section data-markdown>
-      <textarea data-template>
-### Tag 2: Frameworks und Bibliotheken
-
-1. <a href='lit.html'>Web Components mit lit-element</a>
-1. SPA Architektur
-1. react
-1. vue
-1. Angular
-
-  </textarea>
-</section>
 
 			</div>
 
@@ -225,7 +156,8 @@
 				progress: true,
 				center: true,
 				hash: true,
-				width: 1100,
+                width: '100%',
+                height: '100%',
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
