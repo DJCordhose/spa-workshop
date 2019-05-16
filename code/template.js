@@ -2,6 +2,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots
 // https://developers.google.com/web/fundamentals/web-components/customelements#shadowdom
 // https://developers.google.com/web/fundamentals/web-components/customelements#fromtemplate
+// https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode
+
 const template = document.createElement('template')
 template.innerHTML = `
 <style>

@@ -196,6 +196,48 @@ den Machern von Polymer könnte die Sache ganz anders aussehen. Dieser Talk bele
 doch nicht tot sind und welche Vorteile gegenüber den Frameworks React, Angular und Vue bekommen könnten.
  -->
 
+   
+  
+
+ <section data-markdown class='todo'>
+    <textarea data-template>
+      ### Lit-element
+      * https://github.com/LarsDenBakker/lit-html-workshop
+      
+      
+[]custom Event und Event Listener
+[]Web components from Microsoft... and they use LitElement and lit-html! https://t.co/7W9gpWyxWb (https://twitter.com/justinfagnani/status/1125687263382261760?s=03)
+[]Leicht hin und weg: This is also obviously a *massive* difference between LitElement (and other web components libraries) and frameworks (https://twitter.com/justinfagnani/status/1128338716060045313?s=03)
+</textarea>
+</section>
+
+<section data-markdown class='todo'>
+  <textarea data-template>
+### Beispiel für Lib, die in allen anderen Frameworks geht
+
+https://twitter.com/preetster/status/1121070209769492480?s=03
+https://wiredjs.com/
+</textarea>
+</section>
+
+<section data-markdown class='todo'>
+  <textarea data-template>
+### Lit Element rendering strategies explained
+
+* https://twitter.com/julienrenaux/status/1112640655166189568
+* https://julienrenaux.fr/2019/04/01/lit-element-rendering-strategies-explained/
+
+* change detection using comments: https://github.com/Polymer/lit-html/issues/748
+
+</textarea>
+</section>
+
+<section data-markdown class='todo'>
+<textarea data-template>
+https://dev.to/webpadawan/the-journey-of-web-components-wrong-ways-lacking-parts-and-promising-paths-1d5a
+</textarea>
+</section>
+
       <section>
         <h2>Web Components? Die sind doch tot, oder?</h2>
         <h3><a href="https://www.md-devdays.de/Act?id=1000079" target="_blank">
@@ -206,52 +248,15 @@ doch nicht tot sind und welche Vorteile gegenüber den Frameworks React, Angular
           <a href="http://twitter.com/djcordhose">@DJCordhose</a> /
         </div>
         <p style="clear: both">
-            <small>Slides: wc-md-intro
-              <a href="http://bit.ly/wc-md-intro">
-                http://bit.ly/wc-md-intro</a>
+            <small>Slides: <a href="http://bit.ly/md-wc">
+                http://bit.ly/md-wc</a>
             </small>
           </p>
       </section>
 
-      <section data-markdown class='todo'>
-          <textarea data-template>
-  
-      []custom Event und Event Listener
-      []Web components from Microsoft... and they use LitElement and lit-html! https://t.co/7W9gpWyxWb (https://twitter.com/justinfagnani/status/1125687263382261760?s=03)
-      []Leicht hin und weg: This is also obviously a *massive* difference between LitElement (and other web components libraries) and frameworks (https://twitter.com/justinfagnani/status/1128338716060045313?s=03)
-    </textarea>
-  </section>
-
-      <section data-markdown class='todo'>
-        <textarea data-template>
-### Beispiel für Lib, die in allen anderen Frameworks geht
-
-https://twitter.com/preetster/status/1121070209769492480?s=03
-      https://wiredjs.com/
-    </textarea>
-  </section>
-
-      <section data-markdown class='todo'>
-        <textarea data-template>
-### Lit Element rendering strategies explained
-
-* https://twitter.com/julienrenaux/status/1112640655166189568
-   * https://julienrenaux.fr/2019/04/01/lit-element-rendering-strategies-explained/
-
-* change detection using comments: https://github.com/Polymer/lit-html/issues/748
-
-    </textarea>
-  </section>
-
-  <section data-markdown class='todo'>
-    <textarea data-template>
-https://dev.to/webpadawan/the-journey-of-web-components-wrong-ways-lacking-parts-and-promising-paths-1d5a
-</textarea>
-</section>
-
       <section data-markdown>
         <textarea data-template>
-<!-- ### (Framework) Empires do not fall apart because of lack of power -->
+#### (Framework) Empires do not fall apart because of lack of power
 
 <img src='img/empires.png'>
 
@@ -288,6 +293,169 @@ https://twitter.com/alisonailea/status/1114203815211753472
 </small>
                 </textarea>
       </section>
+
+      <section data-markdown>
+          <textarea data-template>
+## But let us not get ahead of ourselves
+            </textarea>
+          </section>
+            
+
+<section data-markdown>
+  <textarea data-template>
+### What are Web Components?
+
+Standard for Components in Web Browser
+
+1. Templates
+1. Custom Elements
+1. Shadow DOM
+
+<p>
+<small>
+<a href='code/webcomponents.html'>Try it out in Edge Canary, Firefox, Chrome, Safari</a>   
+</small>
+</p>
+    </textarea>
+</section>
+
+<section>
+  <h3>Templates</h3>
+  
+  <pre class="fragment"><code data-trim class="javascript">
+// definition in template.js
+const template = document.createElement('template')
+template.innerHTML = `
+<style>
+:host {
+    color: green;
+}
+</style>
+<input id="in">
+<p><span id="log"></span>, World</p>
+<input id="btn" type="button" value="Clear">
+`
+export default template;
+</code></pre>
+
+  <pre class="fragment"><code data-trim class="javascript">
+// usage
+
+import template from './template.js'
+
+element.appendChild(template.content.cloneNode(true));
+    </code></pre>
+          </section>
+  
+
+<section data-markdown>
+  <textarea data-template>
+### Custom Elements
+
+<pre class="fragment"><code data-trim class="javascript">
+class MyElement extends HTMLElement {
+    static get observedAttributes() {
+        return ['greeting'];
+    }
+
+    constructor() {
+        super();
+        this.render();
+    }
+
+    connectedCallback() {
+        this.bind();
+        this.model = this.getAttribute("greeting");
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (name === "greeting") {
+          this.model = newValue;
+      }
+  }
+
+}
+</code></pre>
+<pre class="fragment"><code data-trim class="javascript">
+customElements.define('my-element', MyElement);      `
+</code></pre>
+    </textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+### Shadow DOM
+
+<pre class="fragment"><code data-trim class="javascript">
+// definition
+
+this.attachShadow({mode: 'open'});
+this.shadowRoot.appendChild(template.content.cloneNode(true)); // deep clone
+this.input = this.shadowRoot.querySelector("#in");
+</code></pre>
+<pre class="fragment"><code data-trim class="javascript">
+// elements in shadow dom are hidden
+
+const inputIsNull = document.querySelector('#in');
+console.log(inputIsNull);
+</code></pre>
+
+https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
+
+    </textarea>
+</section>
+  
+<section style="font-size: xx-large">
+  <h3>Complete Web Component</h3>
+    
+  <pre class="fragment"><code data-trim class="javascript">
+import template from './template.js'
+
+class MyElement extends HTMLElement {
+
+    static get observedAttributes() {
+        return ['greeting'];
+    }
+    constructor() {
+        super();
+        this.render();
+    }
+
+    connectedCallback() {
+        this.bind();
+        this.model = this.getAttribute("greeting");
+    }
+
+    bind() {
+        this.input.addEventListener("keyup", event => this.model = event.target.value);
+        this.button.addEventListener("click", event => {
+            this.model = "";
+            this.input.focus();
+        });
+    }
+
+    render() {
+        this.attachShadow({mode: 'open'});
+        this.shadowRoot.appendChild(template.content.cloneNode(true)); // deep clone
+        this.input = this.shadowRoot.querySelector("#in");
+        this.log = this.shadowRoot.querySelector("#log");
+        this.button = this.shadowRoot.querySelector("#btn");
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (name === "greeting") {
+            this.model = newValue;
+        }
+    }
+}
+  </code></pre>
+        </section>
+
+      <section data-markdown>
+          <textarea data-template>
+## But why?
+            </textarea>
+          </section>
 
       <section data-markdown>
         <textarea data-template>
@@ -333,52 +501,31 @@ https://pwa-starter-kit.polymer-project.org/browser-support
 </textarea>
 </section>
 
-<section style="font-size: xx-large">
-<h3>Barebone Web Components</h3>
+<section data-markdown>
+  <textarea data-template>
+### How to include and use a Web Component
 
 <pre class="fragment"><code data-trim class="javascript">
-const template = `
-&lt;input id="in">
-&lt;p>&lt;span id="log"></span>, World</p>
-&lt;input id="btn" type="button" value="Clear">`
-</code></pre>
-
-<pre class="fragment"><code data-trim class="javascript">
-class MyElement extends HTMLElement {
-  constructor() {
-      super();
-      this.attachShadow({mode: 'open'});
-      this.shadowRoot.innerHTML = template;
-      this.input = this.shadowRoot.querySelector("#in");
-      this.log = this.shadowRoot.querySelector("#log");
-      this.button = this.shadowRoot.querySelector("#btn");
-  }
-
-  connectedCallback() {
-      this.input.addEventListener("keyup", event => this.model = event.target.value);
-      this.button.addEventListener("click", event => this.model = "");
-  }
-
-  set model(value) {
-    this.log.textContent = value;
-    this.input.value = value;
-  }
-
-}
-customElements.define('my-element', MyElement);
+// module import
+&lt;script type="module" src="./my-element.js">&lt;/script>  
 </code></pre>
   
 <pre class="fragment"><code data-trim class="javascript">
-// from perspective of user  
-&lt;script src="./my-element-pure.js">&lt;/script>
-&lt;my-element>&lt;/my-element>
+// looks just like any other HTML element
+// values from pure are passed as attributes
+&lt;my-element greeting="Hiho">&lt;/my-element>
 </code></pre>
 
-  <small>
- <a href='frameworks/webcomponent-app-pure/'>Try it out in Edge Canary, Firefox, Chrome, Safari</a>   
+<pre class="fragment"><code data-trim class="javascript">
+// manipulate via attribute
+const greeter = document.querySelector('my-element');
+greeter.setAttribute('greeting', 'Hi');
+</code></pre>
 
-  </small>
-  </section>
+
+    </textarea>
+</section>
+  
 
 <section data-markdown>
     <textarea data-template>
@@ -797,6 +944,7 @@ $('section').attr('data-background-image', "backgrounds/sky.jpg");
       history: true,
       center: true,
       width: 1100,
+      height: 800,
 
       transition: 'slide', // none/fade/slide/convex/concave/zoom
 

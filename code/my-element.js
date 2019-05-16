@@ -1,7 +1,6 @@
 // https://www.webcomponents.org/
 // https://developers.google.com/web/fundamentals/architecture/building-components/
 
-
 // https://developer.mozilla.org/en-US/docs/Web/Web_Components
 //   https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements
 //   https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots
@@ -39,7 +38,7 @@ class MyElement extends HTMLElement {
     render() {
         // https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
         this.attachShadow({mode: 'open'});
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.appendChild(template.content.cloneNode(true)); // deep clone
         this.input = this.shadowRoot.querySelector("#in");
         this.log = this.shadowRoot.querySelector("#log");
         this.button = this.shadowRoot.querySelector("#btn");
