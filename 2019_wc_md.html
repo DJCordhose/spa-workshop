@@ -199,7 +199,7 @@ doch nicht tot sind und welche Vorteile gegenüber den Frameworks React, Angular
    
   
 
- <section data-markdown class='todo'>
+ <!-- <section data-markdown class='todo'>
     <textarea data-template>
       ### Lit-element
       * https://github.com/LarsDenBakker/lit-html-workshop
@@ -207,7 +207,6 @@ doch nicht tot sind und welche Vorteile gegenüber den Frameworks React, Angular
       
 []custom Event und Event Listener
 []Web components from Microsoft... and they use LitElement and lit-html! https://t.co/7W9gpWyxWb (https://twitter.com/justinfagnani/status/1125687263382261760?s=03)
-[]Leicht hin und weg: This is also obviously a *massive* difference between LitElement (and other web components libraries) and frameworks (https://twitter.com/justinfagnani/status/1128338716060045313?s=03)
 </textarea>
 </section>
 
@@ -236,7 +235,7 @@ https://wiredjs.com/
 <textarea data-template>
 https://dev.to/webpadawan/the-journey-of-web-components-wrong-ways-lacking-parts-and-promising-paths-1d5a
 </textarea>
-</section>
+</section> -->
 
       <section>
         <h2>Web Components? Die sind doch tot, oder?</h2>
@@ -253,6 +252,19 @@ https://dev.to/webpadawan/the-journey-of-web-components-wrong-ways-lacking-parts
             </small>
           </p>
       </section>
+
+      <section data-markdown>
+        <textarea data-template>
+### Dies ist ein Chess-Timer-Talk
+
+* Die Hälfte der Zeit spreche ich frontal
+* Die andere Hälfte gehört der Diskussion
+
+http://curry-on.org/2019/
+
+
+          </textarea>
+    </section>
 
       <section data-markdown>
         <textarea data-template>
@@ -311,11 +323,6 @@ Standard for Components in Web Browser
 1. Custom Elements
 1. Shadow DOM
 
-<p>
-<small>
-<a href='code/webcomponents.html'>Try it out in Edge Canary, Firefox, Chrome, Safari</a>   
-</small>
-</p>
     </textarea>
 </section>
 
@@ -399,9 +406,11 @@ this.input = this.shadowRoot.querySelector("#in");
 const inputIsNull = document.querySelector('#in');
 console.log(inputIsNull);
 </code></pre>
+<small>
 
 https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
 
+</small>
     </textarea>
 </section>
   
@@ -449,6 +458,12 @@ class MyElement extends HTMLElement {
     }
 }
   </code></pre>
+  <p>
+      <small>
+      <a href='code/webcomponents.html'>Try it out in Edge Canary, Firefox, Chrome, Safari</a>   
+      </small>
+      </p>
+      
         </section>
 
       <section data-markdown>
@@ -620,28 +635,23 @@ class MyElement extends LitElement {
 </code></pre>
   
   <pre class="fragment"><code data-trim class="javascript">
-    // using the web component (like before)  
-    &lt;script src="./my-element-pure.js">&lt;/script>
-    &lt;my-element>&lt;/my-element>
+// using the web component (like before)  
+&lt;script type="module" src="./my-element-pure.js">&lt;/script>
+&lt;my-element greeting="Hiho">&lt;/my-element>
+</code></pre>
+
+<pre class="fragment"><code data-trim class="javascript">
+// we can use properties or attributes for greeting
+const greeter = document.querySelector('my-element')
+greeter.greeting = 'Hi'
     </code></pre>
     
     <small>
-    <a href='https://lit-element.polymer-project.org/'>https://lit-element.polymer-project.org/</a>  
+        cd code/webcomponent-app-lit && yarn start      
     </small>
       </section>
-    
-      <section data-markdown>
-    <textarea data-template>
-    ### lit-element does not need hooks
-    
-    <img src='img/lit-element-vs-hooks.png' height="550px">
-    <small>
-    https://twitter.com/justinfagnani/status/1098324609084997632 
-    </small>
-    
-    </textarea>
-    </section>
-    
+
+      
     <section data-markdown>
       <textarea data-template>
     ### lit-element the new (old) React?
@@ -657,30 +667,36 @@ class MyElement extends LitElement {
     
     </textarea>
     </section>
+
+      <section data-markdown>
+    <textarea data-template>
+    ### lit-element does not need hooks
     
+    <img src='img/lit-element-vs-hooks.png' height="550px">
+    <small>
+    https://twitter.com/justinfagnani/status/1098324609084997632 
+    </small>
+    
+    </textarea>
+    </section>
+    
+
     <section data-markdown>
       <textarea data-template>
-    ## Demo
+### So, is lit-element just another framework?
+
+It is easy to navigate from and to lit-element and mix well with other web component libs
+
+<img src='img/lit-from-and-to.png' height="450px">
+
+<small>
+
+https://twitter.com/justinfagnani/status/1128338716060045313
+https://twitter.com/justinfagnani/status/1096872147845181440
+
+</small>
     
-    _how can a Web Component project look like?_
-    
-    * Web Components
-    * lit-element
-    * TypeScript
-    * optional parcel prod build
-    * lightweight dev server for ES6 modules (polyserve)
-    
-    ```javascript
-    git clone git@github.com:DJCordhose/lerna-wc-ts-monorepo-demo.git
-    cd lerna-wc-ts-monorepo-demo
-    yarn
-    yarn start 
-    ```
-    
-    <small>
-    http://localhost:8000/demo/index.html
-    </small>
-      </textarea>
+    </textarea>
     </section>
     
     <section data-markdown>
@@ -693,16 +709,6 @@ _coarse-grain components wrapping application part for composed SPA_
 * merely a thin wrapper over a complete application
 * might require same version of application framework
 * trust not an issue as no alien parts involved
-</textarea>
-</section>
-
-<section data-markdown class="todo">
-    <textarea data-template>
-### Web Components mix well
-
-Justin Fagnani (@justinfagnani) tweeted at 8:41 PM on Sat, Feb 16, 2019:
-You can freely intermix Polymer, LitElement and other web component libraries. Incremental is the way to go for large apps.
-(https://twitter.com/justinfagnani/status/1096872147845181440?s=03)
 </textarea>
 </section>
 
@@ -768,9 +774,8 @@ _create a custom element from an angular component_
 
 <img src='img/ng-elements-createElement.png'>
 
-<small>
 https://angular.io/guide/elements  
-</small>
+
 </textarea>
 </section>
 
@@ -780,15 +785,17 @@ https://angular.io/guide/elements
 
 * allows custom elements to be used by web apps built on other frameworks
 * currently Angular allows only a single version per browser window
-* goal (not reached February 2019): have the custom element contain a minimal, self-contained version of the Angular framework
+* goal (not reached May 2019): have the custom element contain a minimal, self-contained version of the Angular framework
 * `ngx-build-plus` can at least build many custom elements with shared angular lib
 
 <small>
+
 https://angular.io/guide/elements
 <br>
 ngconf 2018 on goals: https://www.youtube.com/watch?v=Z1gLFPLVJjY&t=4s
 <br>
 https://github.com/manfredsteyer/ngx-build-plus#advanced-example-externals-and-angular-elements
+
 </small>
 </textarea>
 </section>
@@ -847,7 +854,7 @@ Ich finde Custom Elements schön und gut, aber die Art+Weise wie ich die entwick
 </textarea>
 </section> -->
 
-<section data-markdown>
+<!-- <section data-markdown>
   <textarea data-template>
 ## Advanced: Defining an interface for a library
 
@@ -861,7 +868,7 @@ https://developers.google.com/web/fundamentals/web-components/best-practices
 </small>
 
 </textarea>
-</section>
+</section> -->
 
       <section>
         <h2>Wrap Up</h2>
@@ -869,8 +876,9 @@ https://developers.google.com/web/fundamentals/web-components/best-practices
         <ul>
             <li class="fragment">Web Components have many use cases
             <li class="fragment">Work with all common frameworks 
-            <li class="fragment">All recent browsers support natively 
-    
+            <li class="fragment">All recent browsers support natively
+            <li class="fragment">Can benefit from lit-element
+            <li class="fragment">Have a few obvious use cases
         </ul>
         <p>
                 <em>Web Components? Die sind doch tot, oder?</em>
