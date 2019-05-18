@@ -265,14 +265,10 @@ http://curry-on.org/2019/
 
           </textarea>
     </section> -->
-    <section data-markdown class="todo">
+    <!-- <section data-markdown class="todo">
       <textarea data-template>
-* Custom Events, Change nach außen feuern und dann oben fangen im direkten Listener
-* kein CSS von Außen bei Shadow DOM, zeigen mit globalen Styles ohne Wirkung auf Shadow DOM, aber Wirkung auf Top Level elemente (h1 als Demo)
-* CSS Variablen und wie man das Aussehen einer WC beinflussen kann,
-* Input von Nils    
   </textarea>
-</section>
+</section> -->
 
   <section data-markdown>
       <textarea data-template>
@@ -280,7 +276,7 @@ http://curry-on.org/2019/
 
 1. Introduction
 2. Applications
-3. Discussion
+3. Discussion (Chess-Timer)
 
         </textarea>
   </section>
@@ -331,16 +327,19 @@ https://twitter.com/alisonailea/status/1114203815211753472
             </textarea>
           </section>
             
-
 <section data-markdown>
   <textarea data-template>
-### What are Web Components?
+### What are Web Components v1?
 
-Standard for Components in Web Browser
+_A Standard for Components in Web Browsers_
 
-1. Templates
-1. Custom Elements
-1. Shadow DOM
+1. HTML Template: DOM parts that are not rendered (long adopted)
+1. Custom Elements: your own HTML elements defined as classes
+1. Shadom DOM: Encapsulation of parts of the DOM
+1. HTML Import: v0, Dead
+
+
+https://developer.mozilla.org/en-US/docs/Web/Web_Components
 
     </textarea>
 </section>
@@ -433,6 +432,32 @@ https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
     </textarea>
 </section>
   
+
+    <section data-markdown>
+  <textarea data-template>
+### Shadow DOM isolates styles
+
+* CSS selectors used inside Shadow DOM apply locally to your component
+* global CSS overrides host settings
+* inheritable CSS properties (background, color, font, line-height, etc.) pierce the shadow DOM boundary
+* inheritable styles can be reset using `all: initial;`
+* others styles can be passed as custom properties
+* slots can render elements into Shadow DOM
+
+<small>
+
+https://www.w3.org/TR/CSS21/propidx.html
+https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+https://developers.google.com/web/fundamentals/web-components/shadowdom#reset
+https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots
+
+</small>
+
+<a href='code/webcomponents.html'>We can demo all this if you want</a>   
+
+</textarea>
+</section>
+
 <section style="font-size: xx-large">
   <h3>Complete Web Component</h3>
     
@@ -484,6 +509,42 @@ class MyElement extends HTMLElement {
       </p>
       
         </section>
+
+    <section data-markdown>
+  <textarea data-template>
+### Sending and Receiving Events from a Custom Element
+
+<pre class="fragment"><code data-trim class="javascript">
+// sending
+
+set model(value) {
+  // ...
+  this.dispatchEvent(new CustomEvent('model-changed', {detail: value}));
+}
+
+</code></pre>
+<pre class="fragment"><code data-trim class="javascript">
+// receiving
+
+const greeter = document.querySelector('my-element');
+greeter.addEventListener('model-changed', (event) => console.log(event))
+</code></pre>
+<small>
+
+https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+</small>
+    </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+### Best Practices
+
+* https://w3ctag.github.io/webcomponents-design-guidelines/
+* https://developers.google.com/web/fundamentals/web-components/best-practices
+* https://github.com/webcomponents/gold-standard/wiki
+</textarea>
+</section>
 
       <section data-markdown>
           <textarea data-template>
@@ -560,7 +621,6 @@ greeter.setAttribute('greeting', 'Hi');
     </textarea>
 </section>
   
-
 <section data-markdown>
     <textarea data-template>
 ## Scenario II: Anti-Framework
@@ -614,7 +674,6 @@ https://shoptalkshow.com/episodes/348/
 </small>
 </textarea>
 </section>
-
 
 <section data-markdown
     <textarea data-template>
@@ -825,6 +884,8 @@ https://github.com/manfredsteyer/ngx-build-plus#advanced-example-externals-and-a
 
 _should you use Web Components?_
 
+Chess-Timer 50% : 50%
+
 </textarea>
   </section>
 
@@ -833,7 +894,7 @@ _should you use Web Components?_
       <textarea data-template>
 ### Pro Web Components
 
-* use the standard
+* standard
 * easy integration with native browser API
 * will exist in 20 years from now
 * low or zero memory footprint
@@ -845,11 +906,12 @@ _should you use Web Components?_
       <textarea data-template>
 ### Contra Web Components
 
-* standard gurantees availabilty of technology, but not of community
-* polyfills for older browsers
-* for efficient component dev really only usable with lit-element (so: just another framework?)
-* still a lot of issues around ShadowDOM and CSS (https://dev.to/webpadawan/beyond-the-polyfills-how-web-components-affect-us-today-3j0a)
-
+* standard guarantees availability of technology, but not of community
+* only polyfills for IE
+* for efficient app dev really only usable with lit-element or other framework (so: just another framework?)
+* Testing (and scraping) of elements in Shadow DOM?
+* still a lot of issues around Shadow DOM and CSS (https://dev.to/webpadawan/beyond-the-polyfills-how-web-components-affect-us-today-3j0a)
+* computing effective styles has been hard, and becomes even harder with Shadow DOM
   </textarea>
     </section>
 

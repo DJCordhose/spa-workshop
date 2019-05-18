@@ -8,11 +8,17 @@ const template = document.createElement('template')
 template.innerHTML = `
 <style>
 :host {
+    all: initial;
     color: green;
+}
+p {
+    background: var(--my-element-bg, #9E9E9E);
 }
 </style>
 <input id="in">
+<slot></slot>
 <p><span id="log"></span>, World</p>
 <input id="btn" type="button" value="Clear">
+<slot name="after"></slot>
 `
 export default template;

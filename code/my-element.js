@@ -55,6 +55,7 @@ class MyElement extends HTMLElement {
         this.log.textContent = value;
         this.input.value = value;
         this._model = value;
+        this.dispatchEvent(new CustomEvent('model-changed', {detail: value}));
     }
 
     get model() {
