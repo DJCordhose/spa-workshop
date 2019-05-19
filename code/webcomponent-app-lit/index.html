@@ -9,7 +9,16 @@
 
   </head>
   <body>
-    <my-element greeting="Hiho"></my-element>
+      <style>
+          p, my-element {
+            font-size: 24px;
+          }
+        </style>
+    <p>Hello</p>
+    <my-element greeting="Hiho" style="--my-element-bg: white">
+      <!-- <p>Special greetings to my Oma!</p> -->
+      <!-- <p slot='after'>And to Opa!</p> -->
+    </my-element>
     <script>
       setTimeout(function() {
           const greeter = document.querySelector('my-element');
