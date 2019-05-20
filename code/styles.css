@@ -1,0 +1,7 @@
+:host {
+    all: initial;
+    color: green;
+}
+p {
+    background: var(--my-element-bg, #9E9E9E);
+}

@@ -5,28 +5,18 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
     <title>Sandbox</title>
-     <script type="module" src="./my-element.js"></script>
-
   </head>
   <body>
       <style>
-          p, my-element {
+          p, my-controller {
             font-size: 24px;
+          }
+          :root {
+            --my-app-font-size: 36px
+
           }
         </style>
     <p>Hello</p>
-    <my-element greeting="Hiho" style="--my-element-bg: white">
-      <!-- <p>Special greetings to my Oma!</p> -->
-      <!-- <p slot='after'>And to Opa!</p> -->
-    </my-element>
-    <script>
-      setTimeout(function() {
-          const greeter = document.querySelector('my-element');
-          // both property and attribute work fine with lit-element
-          greeter.greeting = 'Hi'
-          // greeter.setAttribute('greeting', 'Hi');
-      }, 3000)
-  </script>
-  
+  <my-controller greeting='Huhu'></my-controller>
   </body>
 </html>

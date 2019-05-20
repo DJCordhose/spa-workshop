@@ -1,7 +1,7 @@
 import { LitElement, html, css, property, customElement } from 'lit-element'
 
 @customElement('my-element')
-class MyElement extends LitElement {
+export default class MyElement extends LitElement {
     @property() greeting: string = 'Hello';
 
     // https://lit-element.polymer-project.org/guide/styles
@@ -13,6 +13,7 @@ class MyElement extends LitElement {
         }
         p {
             background: var(--my-element-bg, #9E9E9E);
+            font-size: var(--my-app-font-size);
         }`;
       } 
 
