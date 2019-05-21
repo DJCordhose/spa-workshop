@@ -10,8 +10,9 @@ class ControllerElement extends LitElement {
     render() {
        return html`
        <div>
-       <p>Content</p>
-        <my-element .greeting=${this.greeting} style="--my-element-bg: white"></my-element>
+       <p>Content: ${this.greeting}</p>
+        <my-element .greeting=${this.greeting} 
+                    @model-changed="${(event: any) => this.greeting = event.detail}" style="--my-element-bg: white"></my-element>
       </div>
         `
     }

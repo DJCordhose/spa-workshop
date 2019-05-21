@@ -19,7 +19,7 @@ export default class MyElement extends LitElement {
 
     render() {
         return html`
-        <input value="${this.greeting}" @keyup="${(event: any) => this.greeting = event.target.value}">
+        <input value="${this.greeting}" @keyup="${(event: any) => this.handleChange(event.target.value)}">
         <slot></slot>
         <p>${this.greeting}, World</p>
         <input type="button" value="Clear" @click="${this.handleClick}">
@@ -27,7 +27,12 @@ export default class MyElement extends LitElement {
         `
     }
 
+    handleChange(newValue: string) {
+        this.greeting = newValue;
+        this.dispatchEvent(new CustomEvent('model-changed', {detail: this.greeting}));
+    }
+
     handleClick() {
-        this.greeting = '';
+        this.handleChange("");
     }
 }
