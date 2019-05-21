@@ -293,7 +293,7 @@ http://curry-on.org/2019/
 
 1. Introduction
 2. Applications
-3. Discussion (Chess-Timer)
+3. Discussion
 
         </textarea>
   </section>
@@ -571,7 +571,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 
       <section data-markdown>
         <textarea data-template>
-## Three Scenarios for Web Component to excel
+## Three Scenarios for Web Components to excel
 
 1. coarse-grain components for people to simply include in (static) HTML
 1. fine-grained components for application development
@@ -599,16 +599,20 @@ _coarse-grain components for people to simply include in (static) HTML_
 <textarea data-template>
 ### Are Web Components ready, yet?
 
-_Web Components Browser Compatibility_
+_Notice the absence of IE_
 
 <img src='img/web-components-support.jpg' height="400px">
 
 <small>
+
+Edge Canary has full support
+
 https://www.webcomponents.org/
 <br>
 https://caniuse.com/#search=Web%20components
 <br>
 https://pwa-starter-kit.polymer-project.org/browser-support
+
 </small>
 </textarea>
 </section>
@@ -656,6 +660,7 @@ _fine-grained components for application development_
 
 <img src='img/wc-github.png' height="470px">
 <small>
+
 https://twitter.com/mislav/status/1022058279000842240
 <br>
 https://githubengineering.com/removing-jquery-from-github-frontend/  
@@ -747,7 +752,7 @@ greeter.greeting = 'Hi'
       </section>
 
       
-    <section data-markdown>
+    <!-- <section data-markdown>
       <textarea data-template>
     ### lit-element the new (old) React?
     <img src='img/dan-hooks-dont-suck.jpg' height="330px">
@@ -761,15 +766,15 @@ greeter.greeting = 'Hi'
     </small>
     
     </textarea>
-    </section>
+    </section> -->
 
-    <section data-markdown>
+    <!-- <section data-markdown>
       <textarea data-template>
 ### lit-element allows for external templates
 
 https://github.com/Polymer/lit-html/issues/192
   </textarea>
-</section>
+</section> -->
 
 
       <!-- <section data-markdown>
@@ -870,7 +875,7 @@ import 'my-element';
 </textarea>
 </section>
 
-<section data-markdown>
+<!-- <section data-markdown>
     <textarea data-template>
 ### Angular Elements
 
@@ -903,14 +908,14 @@ https://github.com/manfredsteyer/ngx-build-plus#advanced-example-externals-and-a
 </small>
 </textarea>
 </section>
-
+ -->
 <section data-markdown>
     <textarea data-template>
 ## Discussion
 
 _should you use Web Components?_
 
-Chess-Timer 50% : 50%
+<!-- Chess-Timer 50% : 50% -->
 
 </textarea>
   </section>
@@ -938,7 +943,7 @@ Chess-Timer 50% : 50%
 * for efficient app dev really only usable with lit-element or other framework (so: just another framework?)
 * Testing (and scraping) of elements in Shadow DOM?
 * still a lot of issues around Shadow DOM and CSS (https://dev.to/webpadawan/beyond-the-polyfills-how-web-components-affect-us-today-3j0a)
-* computing effective styles has been hard, and becomes even harder with Shadow DOM
+* computing effective styles for humans has been hard, and becomes even harder with Shadow DOM
   </textarea>
     </section>
 
