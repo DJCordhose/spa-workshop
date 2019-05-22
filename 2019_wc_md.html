@@ -701,7 +701,7 @@ https://shoptalkshow.com/episodes/348/
     <textarea data-template>
 ### Is Development for Web Components procedural and low-level?
 
-<h4 class="fragment">enter lit-element</h4>
+<h4 class="fragment">enter lit-element, successor of Polymer</h4>
 
 <p class="fragment">
 https://lit-element.polymer-project.org/
@@ -927,7 +927,7 @@ _should you use Web Components?_
 
 * standard
 * easy integration with native browser API
-* will exist in 20 years from now
+* standard browser APIs should live longer than external frameworks
 * low or zero memory footprint
 * vanilla.js
 
@@ -1021,6 +1021,7 @@ https://developers.google.com/web/fundamentals/web-components/best-practices
     // uncomment for jax
     $('.jax').remove();
     if (isLocal) {
+      $('.remote').remove();
     } else {
       // only applies to public version
       $('.preparation').remove();
