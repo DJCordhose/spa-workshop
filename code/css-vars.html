@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS Variables</title>
+</head>
+
+
+<body>
+
+<ul>
+    <li><a href="https://twitter.com/micahgodbolt/status/1131626097349496833">
+        https://twitter.com/micahgodbolt/status/1131626097349496833</a>
+    <li>https://caniuse.com/#feat=css-variables</li>
+    <li>https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties</li>
+    <li>https://developer.mozilla.org/en-US/docs/Web/CSS/var</li>
+</ul>
+
+        <style>
+                #blue { --myVar: blue }
+                .red { --myVar: red }
+              </style>
+
+
+
+              <div style='--myVar: pink' >
+                Black
+                <div style='color: var(--myVar)'>Pink</div>
+                
+                <div id='blue' style='color: var(--myVar)'>
+                    Blue
+                  <div class='red'  style='color: var(--myVar)'>
+                      Red
+                  </div>
+                </div>
+              </div>    
+    <script>
+        
+    </script>
+</body>
+
+</html>
