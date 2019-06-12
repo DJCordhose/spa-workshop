@@ -20,7 +20,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: path.resolve("./dist_externals/index.html"),
-      template: "index.html"
+      template: "index-externals.html"
     })
   ],
   devServer: {
