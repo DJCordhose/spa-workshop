@@ -167,7 +167,8 @@
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = window.location.search.match(/print-pdf/gi) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    var isPrint = window.location.search.match( /print-pdf/gi );
+    link.href = isPrint ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
     document.getElementsByTagName('head')[0].appendChild(link);
   </script>
 
@@ -273,10 +274,10 @@ Nice to have:
         <textarea data-template>
 #### (Framework) Empires do not fall apart because of lack of power
 
-<img src='img/empires.png'>
+<img src='img/empires.png'><small>
 
-<small>
 https://twitter.com/jessfraz/status/1114542720301916161
+
 </small>
           </textarea>
     </section>
@@ -616,12 +617,10 @@ https://githubengineering.com/removing-jquery-from-github-frontend/
           super();
           this.render();
       }
-  
       connectedCallback() {
           this.bind();
           this.model = this.getAttribute("greeting");
       }
-  
       bind() {
           this.input.addEventListener("keyup", event => this.model = event.target.value);
           this.button.addEventListener("click", event => {
@@ -629,7 +628,6 @@ https://githubengineering.com/removing-jquery-from-github-frontend/
               this.input.focus();
           });
       }
-  
       render() {
           this.attachShadow({mode: 'open'});
           this.shadowRoot.appendChild(template.content.cloneNode(true)); // deep clone
@@ -637,7 +635,6 @@ https://githubengineering.com/removing-jquery-from-github-frontend/
           this.log = this.shadowRoot.querySelector("#log");
           this.button = this.shadowRoot.querySelector("#btn");
       }
-  
       attributeChangedCallback(name, oldValue, newValue) {
           if (name === "greeting") {
               this.model = newValue;
@@ -909,6 +906,7 @@ all of them at least try
   * all data passed as attributes
   * catching events needs complex code
   * might get fixed with React 17: https://github.com/facebook/react/issues/11347
+
 <small>
 
 https://custom-elements-everywhere.com/
@@ -1079,7 +1077,7 @@ Ich finde Custom Elements schön und gut, aber die Art+Weise wie ich die entwick
     // $('.weg').remove();
     // uncomment for jax
     $('.jax').remove();
-    if (isLocal) {
+    if (isLocal && !isPrint) {
       $('.remote').remove();
     } else {
       // only applies to public version
@@ -1096,7 +1094,7 @@ Ich finde Custom Elements schön und gut, aber die Art+Weise wie ich die entwick
         // make all links open in new tab
         $('a').attr('target', '_blank')
 
-      if (isLocal) {
+      if (isLocal && !isPrint) {
         // only applies to presentation version
         Reveal.configure({ controls: false });
       } else {
