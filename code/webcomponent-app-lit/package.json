@@ -4,6 +4,7 @@
   "scripts": {
     "build": "webpack -d",
     "prod": "webpack -p",
+    "ext": "webpack -p --config webpack.externals.config.js",
     "start": "webpack-dev-server --open"
   },
   "devDependencies": {
