@@ -264,9 +264,6 @@ https://dev.to/webpadawan/the-journey-of-web-components-wrong-ways-lacking-parts
       
     <section data-markdown class="todo">
       <textarea data-template>
-* Vaadin Components Library
-* Microsoft Web Components library
-
 Nice to have:
 * Redux version
   </textarea>
@@ -385,6 +382,29 @@ greeter.setAttribute('greeting', 'Hi');
 * Unclear if this will change in future
 </textarea>
 </section>
+
+<section data-markdown>
+    <textarea data-template>
+## Microsoft to the rescue?
+### Microsoft Graph Toolkit
+
+<a href='https://jsfiddle.net/metulev/9phqxLd5/'>
+<img src='img/ms-graph-wc.png'>
+</a>
+
+<small>
+
+https://developer.microsoft.com/en-us/graph
+<br>
+https://github.com/microsoftgraph/microsoft-graph-toolkit
+<br>
+Uses lit-html: https://twitter.com/justinfagnani/status/1125687263382261760
+
+<small>
+
+          </textarea>
+</section>
+    
 
 <!-- <section data-markdown>
     <textarea data-template>
@@ -555,43 +575,6 @@ https://hackernoon.com/how-to-turn-react-component-into-native-web-component-848
   * Angular not so much, but Angular app can expose Web Components using angular-elements
 </textarea>
 </section>
-
-<section data-markdown>
-    <textarea data-template>
-### Specialty: Angular Elements
-
-_create a custom element from an Angular component_
-
-<img src='img/ng-elements-createElement.png'>
-
-<small>
-
-https://angular.io/guide/elements  
-https://www.softwarearchitekt.at/post/2019/05/18/web-components-custom-elements-with-angular-ivy-in-6-steps.aspx
-
-</small>
-
-</textarea>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-### Angular Elements cont'd
-
-* allows custom elements to be used by web apps built on other frameworks
-* currently Angular allows only a single version per browser window
-* goal (not reached by June 2019): have the custom element contain a minimal, self-contained version of the Angular framework
-* `ngx-build-plus` can at least build many custom elements with shared angular lib
-
-<small>
-
-ngconf 2018 on goals: https://www.youtube.com/watch?v=Z1gLFPLVJjY&t=4s
-https://github.com/manfredsteyer/ngx-build-plus#advanced-example-externals-and-angular-elements
-
-</small>
-</textarea>
-</section>
-
             
 <section data-markdown>
     <textarea data-template>
@@ -966,14 +949,42 @@ https://vaadin.com/components/demo-apps/data-entry
           </textarea>
 </section>
 
-<section data-markdown class="todo">
+<section data-markdown>
     <textarea data-template>
-### Microsoft Web Components library using lit-html
+### Specialty: Angular Elements
 
-https://twitter.com/justinfagnani/status/1125687263382261760
-          </textarea>
+_create a custom element from an Angular component_
+
+<img src='img/ng-elements-createElement.png'>
+
+<small>
+
+https://angular.io/guide/elements  
+https://www.softwarearchitekt.at/post/2019/05/18/web-components-custom-elements-with-angular-ivy-in-6-steps.aspx
+
+</small>
+
+</textarea>
 </section>
-    
+
+<section data-markdown>
+  <textarea data-template>
+### Angular Elements cont'd
+
+* allows custom elements to be used by web apps built on other frameworks
+* currently Angular allows only a single version per browser window
+* goal (not reached by June 2019): have the custom element contain a minimal, self-contained version of the Angular framework
+* `ngx-build-plus` can at least build many custom elements with shared angular lib
+
+<small>
+
+ngconf 2018 on goals: https://www.youtube.com/watch?v=Z1gLFPLVJjY&t=4s
+https://github.com/manfredsteyer/ngx-build-plus#advanced-example-externals-and-angular-elements
+
+</small>
+</textarea>
+</section>
+
 <section data-markdown>
     <textarea data-template>
 ## Discussion
