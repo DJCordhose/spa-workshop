@@ -240,6 +240,11 @@ https://dev.to/webpadawan/the-journey-of-web-components-wrong-ways-lacking-parts
 </textarea>
 </section> -->
 
+<section data-markdown class="preparation">
+    <textarea data-template>
+* Demo nochmal durchgehen     
+</textarea>
+</section>
 
       <section>
         <h2>Web Components? Die sind doch tot, oder?</h2>
@@ -256,13 +261,14 @@ https://dev.to/webpadawan/the-journey-of-web-components-wrong-ways-lacking-parts
             </small>
           </p>
       </section>
+      
     <section data-markdown class="todo">
       <textarea data-template>
+* Vaadin Components Library
+* Microsoft Web Components library
 
-[]bit.ly
-[]Web Components mit lit element parent child
-[]Und generell mehr auf React / Angular Leute eingehen
-[]Angular Elements wieder dazu nehmen und auch https://www.softwarearchitekt.at/post/2019/05/18/web-components-custom-elements-with-angular-ivy-in-6-steps.aspx         
+Nice to have:
+* Redux version
   </textarea>
 </section>
 
@@ -550,15 +556,20 @@ https://hackernoon.com/how-to-turn-react-component-into-native-web-component-848
 </textarea>
 </section>
 
-<!-- <section data-markdown>
+<section data-markdown>
     <textarea data-template>
-### Angular Elements
+### Specialty: Angular Elements
 
-_create a custom element from an angular component_
+_create a custom element from an Angular component_
 
 <img src='img/ng-elements-createElement.png'>
 
+<small>
+
 https://angular.io/guide/elements  
+https://www.softwarearchitekt.at/post/2019/05/18/web-components-custom-elements-with-angular-ivy-in-6-steps.aspx
+
+</small>
 
 </textarea>
 </section>
@@ -569,21 +580,18 @@ https://angular.io/guide/elements
 
 * allows custom elements to be used by web apps built on other frameworks
 * currently Angular allows only a single version per browser window
-* goal (not reached May 2019): have the custom element contain a minimal, self-contained version of the Angular framework
+* goal (not reached by June 2019): have the custom element contain a minimal, self-contained version of the Angular framework
 * `ngx-build-plus` can at least build many custom elements with shared angular lib
 
 <small>
 
-https://angular.io/guide/elements
-<br>
 ngconf 2018 on goals: https://www.youtube.com/watch?v=Z1gLFPLVJjY&t=4s
-<br>
 https://github.com/manfredsteyer/ngx-build-plus#advanced-example-externals-and-angular-elements
 
 </small>
 </textarea>
 </section>
- -->
+
             
 <section data-markdown>
     <textarea data-template>
@@ -796,17 +804,23 @@ greeter.greeting = 'Hi'
     
       </section>
 
-    <section data-markdown class="todo">
+    <section data-markdown style="font-size: xx-large">
       <textarea data-template>
-### A short demo - lit-element with TypeScript
+## A short demo - lit-element with TypeScript
 
-Parent/Child, smart dumb
+_How does development feel like?_
 
-How does this feel?
+* Setup, tooling like any web project
+* lit-element / lit-html only dependencies
+* TypeScript allows for decorators
+* Styles per Component
+* Separation in Controller/Presentational (aka Smart/Dumb) 
+* Controller: `my-controller.ts` passes down greeting as property
+* Presentational: `my-element.ts`: dispatches custom element 
+* Does not need specialized dev tools, just native browser API
+* Would easily work with Redux
 
-<small>
-    cd code/webcomponent-app-lit && yarn start      
-</small>
+```cd code/webcomponent-app-lit && yarn start```      
 
   </textarea>
 </section>
@@ -932,17 +946,29 @@ https://twitter.com/alisonailea/status/1114203815211753472
           </textarea>
 </section>
 
-<section data-markdown class="todo">
+<section data-markdown>
     <textarea data-template>
 ### Vaadin Components Library
 
+<small>
+Core Components free
+<br>
+Commercial: Grid, Rich Text Editor, Charts, Dashboard, CRUD App
+</small>
+<img src='img/vaadin-invoice-editor-app-big.png' height="500px">
+<small>
+
 https://vaadin.com/components
+<br>
+https://vaadin.com/components/demo-apps/data-entry
+
+</small>
           </textarea>
 </section>
 
 <section data-markdown class="todo">
     <textarea data-template>
-### Microsoft Web Components library  using lit-html
+### Microsoft Web Components library using lit-html
 
 https://twitter.com/justinfagnani/status/1125687263382261760
           </textarea>

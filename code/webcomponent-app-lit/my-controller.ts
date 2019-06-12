@@ -1,7 +1,6 @@
 import { LitElement, html, property, customElement } from 'lit-element'
 
 import './my-element'
-import MyElement from './my-element'
 
 @customElement('my-controller')
 class ControllerElement extends LitElement {
