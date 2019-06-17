@@ -9,7 +9,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
   <!--<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">-->
@@ -81,13 +82,13 @@
     .reveal h3,
     .reveal h4 {
       letter-spacing: 2px;
-                        font-family: 'Calibri', sans-serif;
-                          /* font-family: 'Times New Roman', Times, serif; */
-                          font-weight: bold;
-                          color: black;
-                          font-style: italic;
-                          letter-spacing: -2px;
-                          text-transform: none !important;
+      font-family: 'Calibri', sans-serif;
+      /* font-family: 'Times New Roman', Times, serif; */
+      font-weight: bold;
+      color: black;
+      font-style: italic;
+      letter-spacing: -2px;
+      text-transform: none !important;
     }
 
     .reveal em {
@@ -158,8 +159,7 @@
 
     .reveal {
       color: black !important;
-    }       
-
+    }
   </style>
 
   <!-- Printing and PDF exports -->
@@ -182,7 +182,7 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
 
-<!--      
+      <!--      
 WJAX
 
 https://jax.de/web-development-javascript/mit-welchem-framework-soll-ich-meine-single-page-app-bauen/
@@ -201,30 +201,39 @@ Session.
 
       <section>
         <h2>Mit welchem Framework soll ich meine Single-Page-App bauen?</h2>
-        <h3><a href="https://jax.de/web-development-javascript/mit-welchem-framework-soll-ich-meine-single-page-app-bauen/" target="_blank">
-          WJAX, München, November 2019</a></h3>
+        <h3><a
+            href="https://jax.de/web-development-javascript/mit-welchem-framework-soll-ich-meine-single-page-app-bauen/"
+            target="_blank">
+            WJAX, München, November 2019</a></h3>
 
         <div>
           <a href="http://zeigermann.eu">Oliver Zeigermann</a> /
           <a href="http://twitter.com/djcordhose">@DJCordhose</a> /
         </div>
         <p style="clear: both">
-            <small>Slides: <a href="todo">
-                todo</a>
-            </small>
-          </p>
+          <small>Slides: <a href="todo">
+              todo</a>
+          </small>
+        </p>
       </section>
 
+      <section>
+        <h2>Alle guten Dinge sind drei...?</h2>
+        <img src="img/screenshot-all-frameworks-at-once.png" height="500px" />
+        <small><a
+            href="https://twitter.com/_developit/status/1139252558369828865?s=19">https://twitter.com/_developit/status/1139252558369828865?s=19</a>
+      </section></small>
+
       <section data-markdown class="todo">
-          <textarea data-template>
+        <textarea data-template>
 ### Grundsätze    
 
 * Was haben alle Frameworks gemeinsam: Apps aus Komponenten zusammen bauen        
 </textarea>
-</section>
+      </section>
 
-    <section data-markdown class="todo">
-      <textarea data-template>
+      <section data-markdown class="todo">
+        <textarea data-template>
 ### Frameworks
         
 * https://sebastiandedeyne.com/react-for-vue-developers/
@@ -233,26 +242,27 @@ Session.
   * https://medium.com/mug/web-components-with-stencil-js-is-it-the-best-way-to-create-reusable-ui-elements-in-2018-7916e8f973e8
 
   </textarea>
-</section>
+      </section>
 
       <section class="todo">
         <h2>Wrap Up</h2>
         <p><em>Fazit TODO</em></p>
         <ul>
-            <li class="fragment">Todo
+          <li class="fragment">Todo
         </ul>
         <p>
-                <em>Mit welchem Framework soll ich meine Single-Page-App bauen?</em>
+          <em>Mit welchem Framework soll ich meine Single-Page-App bauen?</em>
+          <br>
+          <br>
+          <small>
+            <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a
+              href="http://twitter.com/djcordhose">@DJCordhose</a>
             <br>
-            <br>
-            <small>
-        <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
-            <br>
-    <a href="todo">
-      todo</a>
-    </small>
+            <a href="todo">
+              todo</a>
+          </small>
         </p>
-    </section>
+      </section>
 
 
     </div>
@@ -263,8 +273,8 @@ Session.
   <script src="reveal.js/js/reveal.js "></script>
   <script src="lib/jquery-2.2.4.js "></script>
   <script>
-        const isLocal = window.location.hostname.indexOf('localhost') !== -1 || 
-                    window.location.hostname.indexOf('127.0.0.1') !== -1;
+    const isLocal = window.location.hostname.indexOf('localhost') !== -1 ||
+      window.location.hostname.indexOf('127.0.0.1') !== -1;
 
     // $('.weg').remove();
     // uncomment for jax
@@ -280,11 +290,11 @@ Session.
 
     }
     Reveal.addEventListener('ready', function (event) {
-        // do we want this???
-        $('li').addClass('fragment')
+      // do we want this???
+      $('li').addClass('fragment')
 
-        // make all links open in new tab
-        $('a').attr('target', '_blank')
+      // make all links open in new tab
+      $('a').attr('target', '_blank')
 
       if (isLocal) {
         // only applies to presentation version
@@ -299,8 +309,8 @@ Session.
     // $('section').attr('data-background-image', "backgrounds/light-metal.jpg ");
     // $('section').attr('data-background-image', "backgrounds/pink.jpg ");
     // $('section').attr('data-background-image', "backgrounds/white.jpg ");
-//    $('section').attr('data-background-image', "backgrounds/code.jpg ");
-$('section').attr('data-background-image', "backgrounds/sky.jpg");
+    //    $('section').attr('data-background-image', "backgrounds/code.jpg ");
+    $('section').attr('data-background-image', "backgrounds/sky.jpg");
 
   </script>
 
