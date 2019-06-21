@@ -247,7 +247,7 @@ https://dev.to/webpadawan/the-journey-of-web-components-wrong-ways-lacking-parts
 </textarea>
 </section>
 
-      <section>
+      <section class="local">
         <h2>Web Components? Die sind doch tot, oder?</h2>
         <h3><a href="https://www.enterjs.de/single?id=8377&webcomponents-die-sind-doch-tot%2C-oder" target="_blank">
           enterjs, Darmstadt, 2019</a></h3>
@@ -263,16 +263,30 @@ https://dev.to/webpadawan/the-journey-of-web-components-wrong-ways-lacking-parts
           </p>
       </section>
 
+      <section class="remote">
+        <h2>Web Components? Dead, aren't they?</h2>
+        <h3><a href="https://www.enterjs.de/single?id=8377&webcomponents-die-sind-doch-tot%2C-oder" target="_blank">
+          enterjs, Darmstadt, 2019</a></h3>
+
+        <div>
+          <a href="http://zeigermann.eu">Oliver Zeigermann</a> /
+          <a href="http://twitter.com/djcordhose">@DJCordhose</a> /
+        </div>
+        <p style="clear: both">
+            <small>Slides: <a href="http://bit.ly/wc-enterjs">
+              http://bit.ly/wc-enterjs</a>
+            </small>
+          </p>
+      </section>
+
+
     <section data-markdown class="todo">
       <textarea data-template>
 
 * Shopify: https://twitter.com/justinfagnani/status/1141529803486404609        
 * https://twitter.com/freezydorito/status/1141441661295349767
-
-* https://web.dev/web-components-io-2019
-  * https://twitter.com/Rich_Harris/status/1141186166089244674
-  * https://github.com/material-components/material-components-web-components
-    * https://material-components.github.io/material-components-web-components/demos/index.html
+* https://github.com/material-components/material-components-web-components
+  * https://material-components.github.io/material-components-web-components/demos/index.html
   </textarea>
 </section>
       
@@ -282,6 +296,72 @@ Nice to have:
 * Redux version
   </textarea>
 </section> -->
+
+<section data-markdown>
+    <textarea data-template>
+### What is this all about?
+
+* I did jQuery, Angular.js, Backbone, Angular, and React and liked most of it
+* Have learned some Vue this week and also like that
+* I also had a positive experience with Web Components: A generic form library https://github.com/floreysoft/formsey-components
+* Lately I have seen many angry tweets from framework-people towards Web Components
+* But only few reflect critically
+* Let's give it a fair Chance
+* Evaluate fairly after that
+
+</small>
+      </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+## Are we Framework people becoming too sure of ourselves?
+</textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+### Kent C. Dodds
+
+<img src='img/kent-c-web-components-1.png' height="200px">
+
+<img src='img/kent-c-web-components.png' height="200px">
+
+<small>
+
+https://twitter.com/kentcdodds/status/1114525325956767744
+</small>
+      </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+### Rich Harris and Tom Dale
+
+<img src='img/tom-dale-wc.png' height="500px">
+
+<small>
+
+https://twitter.com/tomdale/status/1141694062820564992
+https://twitter.com/Rich_Harris/status/1141689227299737601
+</small>
+      </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+### Mark Dalgleish
+
+<img src='img/mark-dalgleish-wc.png' height="500px">
+
+<small>
+
+https://twitter.com/markdalgleish/status/1141859603816181760
+</small>
+      </textarea>
+</section>
+
+
 
       <section data-markdown>
         <textarea data-template>
@@ -295,21 +375,6 @@ https://twitter.com/jessfraz/status/1114542720301916161
           </textarea>
     </section>
 
-
-      <section data-markdown>
-          <textarea data-template>
-### Are we Framework people becoming too sure of ourselves?
-
-<img src='img/kent-c-web-components-1.png' height="200px">
-
-<img src='img/kent-c-web-components.png' height="200px">
-
-<small>
-
-https://twitter.com/kentcdodds/status/1114525325956767744
-</small>
-            </textarea>
-      </section>
 
 <section data-markdown>
     <textarea data-template>
@@ -576,6 +641,20 @@ https://hackernoon.com/how-to-turn-react-component-into-native-web-component-848
 
 <section data-markdown>
     <textarea data-template>
+### Direct Export of Web Component from Framework
+
+* Vue: https://github.com/vuejs/vue-web-component-wrapper
+* Angular Elements: https://angular.io/guide/elements
+  * https://www.softwarearchitekt.at/post/2019/05/18/web-components-custom-elements-with-angular-ivy-in-6-steps.aspx
+  * https://github.com/manfredsteyer/ngx-build-plus#advanced-example-externals-and-angular-elements
+  * ngconf 2018 on goals: https://www.youtube.com/watch?v=Z1gLFPLVJjY&t=4s
+</small>
+
+</textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
 ### Does this work well?
 
 * does not isolate completely
@@ -836,6 +915,20 @@ https://twitter.com/DJCordhose/status/1102607582567559169
     </section>
 
 
+  </textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+#### Scope of lit-element
+
+<img src='img/lit-element-scope.png' height="500px">
+
+<small>
+https://twitter.com/justinfagnani/status/1141725951266414592
+</small>
+  </textarea>
+</section>
 
     <!-- <section data-markdown>
       <textarea data-template>
@@ -876,6 +969,20 @@ https://twitter.com/justinfagnani/status/1096872147845181440
     
     </textarea>
     </section>
+<section data-markdown>
+    <textarea data-template>
+#### Web Components is not something a framework should use, it is instead of a framework
+
+<img src='img/lit-not-a-framework.png' height="500px">
+
+<small>
+
+https://twitter.com/justinfagnani/status/1141723154827472896
+  </small>
+      </textarea>
+</section>
+
+
 
 <section data-markdown>
     <textarea data-template>
@@ -959,26 +1066,30 @@ https://vaadin.com/components/demo-apps/data-entry
 </small>
           </textarea>
 </section>
-
-<section data-markdown>
+<section data-markdown style="font-size: xx-large">
     <textarea data-template>
-### Specialty: Angular Elements
+### Ionic / Stencil
 
-_create a custom element from an Angular component_
+<img src='img/ioinic-components.png' height="250px">
 
-<img src='img/ng-elements-createElement.png'>
+* Ionic 4 based on Web Components
+* Web Components solve compatibility and future safety
+* But nothing else
+* Low level API sucks 
+* Stencil: Let a compiler build WC from a nice API
+* Style similar to React, lit-element
+* TypeScript support
 
 <small>
 
-https://angular.io/guide/elements  
-https://www.softwarearchitekt.at/post/2019/05/18/web-components-custom-elements-with-angular-ivy-in-6-steps.aspx
-
+https://ionicframework.com/docs/intro#ionic-framework-v4-
+<br>
+https://stenciljs.com/
 </small>
-
 </textarea>
 </section>
 
-<section data-markdown>
+<!-- <section data-markdown>
   <textarea data-template>
 ### Angular Elements cont'd
 
@@ -994,7 +1105,7 @@ https://github.com/manfredsteyer/ngx-build-plus#advanced-example-externals-and-a
 
 </small>
 </textarea>
-</section>
+</section> -->
 
 <section data-markdown>
     <textarea data-template>
