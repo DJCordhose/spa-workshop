@@ -397,13 +397,14 @@ https://twitter.com/markdalgleish/status/1141859603816181760
     <textarea data-template>
 ### Many referring to this one article
 
+https://dev.to/richharris/why-i-don-t-use-web-components-2cia
+
 * but this is well balanced: "Nor am I saying that you shouldn't use web components. They do have valid use cases. I'm just explaining why I don't."
 * and describes a specific use case: Why "Svelte doesn't compile to custom elements by default"
 * did people really read it for what it was?
 
 <small>
 
-https://dev.to/richharris/why-i-don-t-use-web-components-2cia
 https://twitter.com/Rich_Harris/status/1141689227299737601
 https://twitter.com/Rich_Harris/status/1142037579312881665
 https://twitter.com/Rich_Harris/status/1142457203925901313
@@ -478,14 +479,14 @@ https://pwa-starter-kit.polymer-project.org/browser-support
   <textarea data-template>
 ### How to include and use a Web Component
 
-<pre class="fragment"><code data-trim class="javascript">
+<pre class="fragment"><code data-trim class="html">
 // module import
 &lt;script type="module" src="./my-element.js">&lt;/script>  
 </code></pre>
   
-<pre class="fragment"><code data-trim class="javascript">
+<pre class="fragment"><code data-trim class="html">
 // looks just like any other HTML element
-// values from pure are passed as attributes
+// values from pure HTML are passed as attributes (strings)
 // tolerant to errors
 &lt;my-element greeting="Hiho">&lt;/my-element>
 </code></pre>
@@ -630,17 +631,20 @@ customElements.define('my-element', MyElement);      `
 ### Shadow DOM isolates markup
 
 <pre class="fragment"><code data-trim class="javascript">
-// definition
+// definition in render
 
-this.attachShadow({mode: 'open'});
-this.shadowRoot.appendChild(template.content.cloneNode(true)); // deep clone
-this.input = this.shadowRoot.querySelector("#in");
+render() {
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.appendChild(template.content.cloneNode(true)); // deep clone
+    this.input = this.shadowRoot.querySelector("#in");
+}
 </code></pre>
 <pre class="fragment"><code data-trim class="javascript">
 // elements in shadow dom are hidden
 
 const inputIsNull = document.querySelector('#in');
 console.log(inputIsNull);
+// null
 </code></pre>
 <small>
 
@@ -650,14 +654,13 @@ https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
     </textarea>
 </section>
 
-    <section data-markdown>
+    <!-- <section data-markdown>
   <textarea data-template>
 ### Shadow DOM isolates style
 
 * CSS selectors used inside Shadow DOM apply locally to your component
 * global CSS overrides host settings
 * inheritable CSS properties (background, color, font, line-height, etc.) pierce the shadow DOM boundary
-<!-- * inheritable styles can be reset using `all: initial;` -->
 * others styles can be passed as custom properties
 * slots can render elements into Shadow DOM
 
@@ -670,10 +673,8 @@ https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_
 
 </small>
 
-<!-- <a href='code/webcomponents.html'>We can demo all this if you want to</a>    -->
-
 </textarea>
-</section>
+</section> -->
 
   
 <section>
@@ -733,8 +734,8 @@ https://hackernoon.com/how-to-turn-react-component-into-native-web-component-848
   * might take long to load
   * service worker might help after first page impression
 * not all frameworks support more than one version of framework in the same app
-  * react pretty cool about this
-  * Angular not so much, but Angular app can expose Web Components using angular-elements
+  <!-- * react pretty cool about this
+  * Angular not so much, but Angular app can expose Web Components using angular-elements -->
 </textarea>
 </section>
             
@@ -969,14 +970,15 @@ _How does development feel like?_
     <section data-markdown>
       <textarea data-template>
 ### lit-element the new (old) React?
-<img src='img/dan-hooks-dont-suck.jpg' height="330px">
-<img src='img/wc-like-react.jpg' height="330px">            
+<!-- <img src='img/dan-hooks-dont-suck.jpg' height="330px"> -->
+<img src='img/wc-like-react.jpg' height="550px">            
 
 <small>
 
-https://twitter.com/dan_abramov/status/1096784072943300608
-https://twitter.com/wincent/status/1097112307572899840
 https://twitter.com/DJCordhose/status/1102607582567559169
+
+<!-- https://twitter.com/dan_abramov/status/1096784072943300608
+https://twitter.com/wincent/status/1097112307572899840 -->
 
 </small>
     
@@ -987,7 +989,7 @@ https://twitter.com/DJCordhose/status/1102607582567559169
   </textarea>
 </section>
 
-<section data-markdown>
+<!-- <section data-markdown>
 <textarea data-template>
 #### Scope of lit-element
 
@@ -997,7 +999,7 @@ https://twitter.com/DJCordhose/status/1102607582567559169
 https://twitter.com/justinfagnani/status/1141725951266414592
 </small>
   </textarea>
-</section>
+</section> -->
 
     <!-- <section data-markdown>
       <textarea data-template>
@@ -1062,6 +1064,19 @@ _independent of framework_
 </section>
 
 <section data-markdown>
+    <textarea data-template>
+### Web Components libraries at Tesla
+
+<img src='img/tesla-wc.png'>
+<small>
+
+https://twitter.com/alisonailea/status/1114203815211753472
+</small>
+          </textarea>
+</section>
+
+
+<!-- <section data-markdown>
   <textarea data-template>
 ## Defining an interface for a library
 
@@ -1081,7 +1096,7 @@ https://github.com/webcomponents/gold-standard/wiki
 
 </textarea>
 </section>
-
+ -->
 
 <section data-markdown>
     <textarea data-template>
@@ -1102,18 +1117,6 @@ https://custom-elements-everywhere.com/
     
 </small>
 </textarea>
-</section>
-
-<section data-markdown>
-    <textarea data-template>
-### Web Components libraries at Tesla
-
-<img src='img/tesla-wc.png'>
-<small>
-
-https://twitter.com/alisonailea/status/1114203815211753472
-</small>
-          </textarea>
 </section>
 
 <section data-markdown>
@@ -1325,6 +1328,7 @@ Ich finde Custom Elements schön und gut, aber die Art+Weise wie ich die entwick
     // $('section').attr('data-background-image', "backgrounds/white.jpg ");
 //    $('section').attr('data-background-image', "backgrounds/code.jpg ");
 $('section').attr('data-background-image', "backgrounds/sky.jpg");
+// $('section').attr('data-background-image', "backgrounds/blue-sky-clouds.jpg");
 
   </script>
 
