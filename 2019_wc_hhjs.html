@@ -247,6 +247,12 @@ cd code/webcomponent-app-lit && yarn start
 </textarea>
 </section> -->
 
+<!-- <section data-markdown class="todo">
+  <textarea data-template>
+
+</textarea>
+</section> -->
+  
       <section>
         <h2>Web Components? Dead, aren't they?</h2>
         <h3>hh.js, 2019</a></h3>
@@ -256,40 +262,29 @@ cd code/webcomponent-app-lit && yarn start
           <a href="http://twitter.com/djcordhose">@DJCordhose</a> /
         </div>
         <p style="clear: both">
-            <small>Slides: <a href="http://bit.ly/wc-hh-js">
-              http://bit.ly/wc-hh-js</a>
+            <small>Slides: <a href="http://bit.ly/wc-hhjs">
+              http://bit.ly/wc-hhjs</a>
             </small>
           </p>
       </section>
 
 
-    <section data-markdown class="todo">
-      <textarea data-template>
-* kürzen auf 20 Minuten
-* Bei Frameworks anstatt alle einzeln, oder nur unter sortieren: https://open-wc.org/faq/component-libraries.html
-* Pros: https://dev.to/ionic/why-we-use-web-components-2c1i
-* Cons: https://dev.to/richharris/why-i-don-t-use-web-components-2cia
-
-  </textarea>
-</section>
-      
-<section data-markdown>
+<section data-markdown class="fragments">
     <textarea data-template>
 ### What is this all about?
 
 * I did jQuery, Angular.js, Backbone, Angular, and React and liked most of it
-* Have learned some Vue this week and also like that
+* Have learned some Vue recently and also like that
 * I also had a positive experience with Web Components: A generic form library https://github.com/floreysoft/formsey-components
 * Lately I have seen many angry tweets from framework-people towards Web Components
 * But only few reflect critically
 * Let's give it a fair Chance
-* Evaluate fairly after that
 
 </small>
       </textarea>
 </section>
 
-      <section data-markdown>
+      <!-- <section data-markdown>
         <textarea data-template>
 #### (Framework) Empires do not fall apart because of lack of power
 
@@ -300,7 +295,7 @@ https://twitter.com/jessfraz/status/1114542720301916161
 </small>
           </textarea>
     </section>
-
+ -->
 
 <section data-markdown>
     <textarea data-template>
@@ -585,7 +580,7 @@ https://hackernoon.com/how-to-turn-react-component-into-native-web-component-848
 </small>
 </section>
 
-<section data-markdown>
+<!-- <section data-markdown>
     <textarea data-template>
 ### Direct Export of Web Component from Framework
 
@@ -597,7 +592,7 @@ https://hackernoon.com/how-to-turn-react-component-into-native-web-component-848
 </small>
 
 </textarea>
-</section>
+</section> -->
 
 <section data-markdown>
     <textarea data-template>
@@ -716,7 +711,7 @@ element.appendChild(template.content.cloneNode(true));
     </code></pre>
           </section>
           
-      <section data-markdown>
+      <!-- <section data-markdown>
     <textarea data-template>
 ### Sending and Receiving Events from a Custom Element
   
@@ -739,9 +734,9 @@ greeter.addEventListener('model-changed', (event) => console.log(event))
   https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
   </small>
       </textarea>
-  </section>
+  </section> -->
   
-<section data-markdown>
+<!-- <section data-markdown>
     <textarea data-template>
 ### But developers do not really like Polymer (=== Web Components?)
 
@@ -752,7 +747,7 @@ https://2018.stateofjs.com/front-end-frameworks/conclusion
 
 </small>
     </textarea>
-</section>
+</section> -->
 
 <!-- <section data-markdown>
 <textarea data-template>
@@ -916,7 +911,7 @@ https://twitter.com/justinfagnani/status/1096872147845181440
     
     </textarea>
     </section>
-<section data-markdown>
+<!-- <section data-markdown>
     <textarea data-template>
 #### Web Components is not something a framework should use, it is instead of a framework
 
@@ -927,7 +922,7 @@ https://twitter.com/justinfagnani/status/1096872147845181440
 https://twitter.com/justinfagnani/status/1141723154827472896
   </small>
       </textarea>
-</section>
+</section> -->
 
 
 
@@ -996,6 +991,25 @@ https://custom-elements-everywhere.com/
 </section>
 
 <section data-markdown>
+  <textarea data-template>
+### Web Component libraries
+
+* SAP (UI5 Web Components)
+* SalesForce (Lightning Web Components)
+* Vaadin Components Library
+* Ionic / Stencil
+
+<small>
+https://open-wc.org/faq/component-libraries.html
+<br>
+https://ionicframework.com/docs/intro#ionic-framework-v4-
+<br>
+https://stenciljs.com/
+</small>
+</textarea>
+</section>
+
+<!-- <section data-markdown>
     <textarea data-template>
 ### Vaadin Components Library
 
@@ -1029,9 +1043,9 @@ https://material-components.github.io/material-components-web-components/demos/i
     
   </small>
               </textarea>
-    </section>
+    </section> -->
 
-<section data-markdown style="font-size: xx-large">
+<!-- <section data-markdown style="font-size: xx-large">
     <textarea data-template>
 ### Ionic / Stencil
 
@@ -1052,7 +1066,7 @@ https://ionicframework.com/docs/intro#ionic-framework-v4-
 https://stenciljs.com/
 </small>
 </textarea>
-</section>
+</section> -->
 
 <!-- <section data-markdown>
   <textarea data-template>
@@ -1078,11 +1092,43 @@ https://github.com/manfredsteyer/ngx-build-plus#advanced-example-externals-and-a
 
 _should you use Web Components?_
 
+* Con: https://dev.to/richharris/why-i-don-t-use-web-components-2cia
+* Pro: https://dev.to/ionic/why-we-use-web-components-2c1i
+
 </textarea>
   </section>
 
 
-  <section data-markdown>
+  <section data-markdown  style="font-size: xx-large" class="fragments">
+    <textarea data-template>
+### Wrap Up
+
+_Pro_
+* vanilla.js
+* easy integration with native browser API
+* standard browser APIs should live longer than external frameworks
+
+_Con_
+* standard guarantees availability of technology, but not of community
+* for efficient large scale / business app dev really only usable with lit-element or other framework (so: just another framework?)
+* still a lot of issues around Shadow DOM and CSS (https://dev.to/webpadawan/beyond-the-polyfills-how-web-components-affect-us-today-3j0a)
+
+<p>
+  <em>Web Components? Dead, aren't they?</em>
+<br>
+<small>
+<a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
+<br>
+<a href="http://bit.ly/wc-hhjs">
+http://bit.ly/wc-hhjs</a>
+</small>
+</p>
+
+</textarea>
+  </section>
+
+
+  <!-- <section data-markdown>
       <textarea data-template>
 ### Pro Web Components
 
@@ -1096,8 +1142,8 @@ _most important use cases have been shown here already_
 
   </textarea>
     </section>
-  
-  <section data-markdown style="font-size: xx-large">
+   -->
+  <!-- <section data-markdown style="font-size: xx-large">
       <textarea data-template>
 ### Contra Web Components
 
@@ -1111,7 +1157,7 @@ _most important use cases have been shown here already_
 * SVGs need work-arounds (https://stackoverflow.com/a/40436185/1756489)
 * not a great target for frameworks (https://dev.to/richharris/why-i-don-t-use-web-components-2cia)
   </textarea>
-    </section>
+    </section> -->
 
 <!-- <section data-markdown class="todo">
     <textarea data-template>
@@ -1132,29 +1178,6 @@ Ich finde Custom Elements schön und gut, aber die Art+Weise wie ich die entwick
 </textarea>
 </section> -->
 
-      <section>
-        <h2>Wrap Up</h2>
-        <!-- <h4><em>Feel free to say hello after the talk</em></h4> -->
-        <!-- <p><em>Web Components are and will be a thing</em></p> -->
-        <ul>
-            <li class="fragment">There is no wrong or right 
-            <li class="fragment">Web Components (more or less) work with all common frameworks 
-            <li class="fragment">All recent browsers support natively
-            <li class="fragment">Can benefit from lit-element (or other libs inside of Web Components)
-            <li class="fragment">Have obvious use cases
-            <li class="fragment">Have obvious issues
-                  </ul>
-        <p>
-                <em>Web Components? Dead, aren't they?</em>
-            <br>
-            <small>
-        <a href="http://zeigermann.eu">Oliver Zeigermann</a> / <a href="http://twitter.com/djcordhose">@DJCordhose</a>
-            <br>
-    <a href="http://bit.ly/wc-enterjs">
-      http://bit.ly/wc-enterjs</a>
-    </small>
-        </p>
-    </section>
 
 
     </div>
@@ -1183,7 +1206,7 @@ Ich finde Custom Elements schön und gut, aber die Art+Weise wie ich die entwick
     }
     Reveal.addEventListener('ready', function (event) {
         // do we want this???
-        $('li').addClass('fragment')
+        $('.fragments li').addClass('fragment')
 
         // make all links open in new tab
         $('a').attr('target', '_blank')
