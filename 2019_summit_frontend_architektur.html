@@ -190,7 +190,7 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
 
-      <!-- 
+      <!--
 Moderne Frontend-Architektur für Eure Single-Page Application
 
 https://software-architecture-summit.de/softwarearchitektur/moderne-frontend-architektur-fuer-eure-single-page-application/
@@ -217,7 +217,7 @@ draufklatschen.
       <section>
         <h2>Moderne Frontend-Architektur für Eure Single-Page Application</h2>
         <h3><a href='https://software-architecture-summit.de/softwarearchitektur/moderne-frontend-architektur-fuer-eure-single-page-application/'>
-          Software Architecture Summit 2019 
+          Software Architecture Summit 2019
           </a></h3>
 
         <div>
@@ -227,7 +227,7 @@ draufklatschen.
         </div>
         <div>
           <a href="https://www.embarc.de/">Stefan Zörner</a> /
-          <a href="https://twitter.com/StefanZoerner">@nStefanZoerner</a> /
+          <a href="https://twitter.com/StefanZoerner">@StefanZoerner</a> /
           <a href="https://www.embarc.de/">embarc GmbH</a>
         </div>
         <p style="clear: both">
@@ -240,7 +240,7 @@ draufklatschen.
 
       <section data-markdown class="todo" style="font-size: x-large">
           <textarea data-template>
-Olli            
+Olli
 * http://bit.ly/summit-2019-spa
 * Inhalten von Spicker als neue Grafiken oder einfach Text herauskopieren
 
@@ -294,10 +294,10 @@ _Worauf wir uns konzentrieren_
 1. Äußere Architektur
 1. Welches Framework?
 1. Innere Architektur
-  
+
   </textarea>
         </section>
-  
+
       <section data-markdown>
         <textarea data-template>
 ## Teil I: Motivation / Herleitung / Hintergrund
@@ -309,13 +309,13 @@ _Worauf wir uns konzentrieren_
         <textarea data-template>
 ### Moderne Frontend-Architektur === SPA
 
-A single-page application (SPA) is a web application that interacts 
-with the user by dynamically rewriting the current page rather than loading entire new pages from a server. 
+A single-page application (SPA) is a web application that interacts
+with the user by dynamically rewriting the current page rather than loading entire new pages from a server.
 
 This approach avoids interruption of the user experience between successive pages.
 <small>
 
-https://en.wikipedia.org/wiki/Single-page_application  
+https://en.wikipedia.org/wiki/Single-page_application
 </small>
             </textarea>
       </section>
@@ -323,7 +323,7 @@ https://en.wikipedia.org/wiki/Single-page_application
 
       <section data-markdown>
         <textarea data-template>
-#### "Alle" reden von SPA... aber:            
+#### "Alle" reden von SPA... aber:
   ### Warum eigentlich nicht klassisch?
 
   <img src='img/webapp_arch01_classic.png' height="500px">
@@ -335,13 +335,13 @@ https://en.wikipedia.org/wiki/Single-page_application
 
       <section data-markdown>
         <textarea data-template>
-#### "Alle" reden von SPA... aber:            
+#### "Alle" reden von SPA... aber:
   ### Warum eigentlich nicht klassisch?
-    
+
 <img src='img/classic/double-submit.jpg' class='part'>
-    
+
   Double Submit
-    
+
                 </textarea>
       </section>
 
@@ -349,9 +349,9 @@ https://en.wikipedia.org/wiki/Single-page_application
           <textarea data-template>
 ### Eventual Consistency
 
-Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit Inkonsistenzen  
+Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit Inkonsistenzen
   <img src='img/sync.jpg' height="450px">
-  
+
   <small>
   https://twitter.com/venzann/status/1101345314814885888
   <br>
@@ -359,16 +359,16 @@ Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit
   </small>
               </textarea>
         </section>
-  
+
 
       <section data-markdown>
         <textarea data-template>
   ### Warum eigentlich nicht klassisch?
-    
+
   <video controls src="img/classic/roundtrips.mp4" type="video/mp4" class='part'></video>
-  
+
   Round Trips für jede Kleinigkeit
-    
+
                 </textarea>
       </section>
 
@@ -376,10 +376,10 @@ Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit
         <textarea data-template>
 ### Warum eigentlich nicht klassisch...
   #### ...mit "ein bisschen" JavaScript?
-      
-  <img src='img/webapp_arch_02_jquery.png' height="500px">  
 
-😱 
+  <img src='img/webapp_arch_02_jquery.png' height="500px">
+
+😱
 
                   </textarea>
       </section>
@@ -388,15 +388,15 @@ Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit
         <textarea data-template>
 #### Sauberste Lösung:
   ### Single-Page-Anwendung
-        
-  <img src='img/webapp_arch_03_spa.png'  height="500px">  
-  
+
+  <img src='img/webapp_arch_03_spa.png'  height="500px">
+
                     </textarea>
       </section>
 
       <section data-markdown>
         <textarea data-template>
-### Nicht für jeden Satz an Anforderungen sind SPAs ideal 
+### Nicht für jeden Satz an Anforderungen sind SPAs ideal
 
 * Soll die Seite auch ohne JavaScript laufen?
 * Spielt man hauptssächlich Inhalte aus
@@ -407,7 +407,7 @@ Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit
 
       <section data-markdown>
         <textarea data-template>
-### Ist das ein Kandidat für eine SPA? 
+### Ist das ein Kandidat für eine SPA?
 
 <img src='img/spa_or_not_spa_01_spon.png' height="600">
 
@@ -415,7 +415,7 @@ Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit
       </section>
       <section data-markdown>
         <textarea data-template>
-### Ist das ein Kandidat für eine SPA? 
+### Ist das ein Kandidat für eine SPA?
 
 <img src='img/spa_or_not_spa_02_outlook-and-skype.png' height="600">
 
@@ -423,7 +423,7 @@ Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit
       </section>
       <section data-markdown>
         <textarea data-template>
-### Ist das ein Kandidat für eine SPA? 
+### Ist das ein Kandidat für eine SPA?
 
 <img src='img/spa_or_not_spa_03_github.png' height="600">
 
@@ -446,12 +446,12 @@ Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit
  * 15 Minuten
 
 *  Stufe 1: Anforderungen für eigenes Projekt aufnehmen - jeder für sich (Siehe Spicker, Seite 1)
-* 
+*
 *  Stufe 2: Mit Nachbarn austauschen
 </textarea>
 </section>
 
-  
+
       <section data-markdown>
         <textarea data-template>
 ## Teil II: Äußere Architektur
@@ -460,7 +460,7 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
 </textarea>
       </section>
 
-      
+
       <section data-markdown>
         <textarea data-template>
 
@@ -473,13 +473,13 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
 
       <section data-markdown>
           <textarea data-template>
-  
-  
+
+
 <img src='img/spicker-integration.png'>
-  
+
                 </textarea>
         </section>
-  
+
       <section>
         <h3>Prominentes Beispiel für Klassische Links: Outlook Online</h3>
         <a href="https://outlook.live.com/mail" target="_blank">
@@ -600,7 +600,7 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
           </textarea>
   </section>
 
-  
+
     <section data-markdown>
       <textarea data-template>
 ### TL'DR
@@ -609,7 +609,7 @@ Welches Framework soll ich nehmen?
 
 * Angular: erzwingt Einheitlichkeit über viele Teams
 * React: maximale Flexibilität
-* Web Components: keine Abhängigkeiten          
+* Web Components: keine Abhängigkeiten
 * Vue: Frontendler (UI Developer) lieben es
 
 _Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es Geschmack und persönliche Erfahrung_
@@ -622,45 +622,45 @@ _Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es
         <textarea data-template>
 ## Teil IV: Innere Architektur
 
-Wie setzen sich Anwendungsteile aus Komponenten zusammen und wie kommunizieren diese miteinander? 
+Wie setzen sich Anwendungsteile aus Komponenten zusammen und wie kommunizieren diese miteinander?
 </textarea>
       </section>
 
       <section data-markdown>
           <textarea data-template>
 <img src='img/spicker-komponente.png'>
-    
+
                 </textarea>
         </section>
 
         <section data-markdown>
             <textarea data-template>
-### Arten von Komponenten           
+### Arten von Komponenten
 
 _Anwendungsteile setzen sich aus zwei Arten von Komponenten zusammen_
 
-1. Container Components (aka Smart Components) 
+1. Container Components (aka Smart Components)
    * enthalten Logik
-   * Meist spezifisch für Anwendungsfall         
+   * Meist spezifisch für Anwendungsfall
    * Nicht wiederverwendbar
 1. Presentational Components (aka Dumb Components)
    * Darstellung
    * keine nennenswerte Logik
    * Komponenten-Bibliotheken enthalten vor allem wiederverwendbare Presentational Components
-              
+
                   </textarea>
           </section>
 
           <section data-markdown>
               <textarea data-template>
     <img src='img/spicker-hierarchien.png'>
-        
+
                     </textarea>
             </section>
-              
+
       <section data-markdown class="todo" style="font-size: x-large">
         <textarea data-template>
-### Stefan: eine oder beide Grafiken auf einen Zettel auf dem die Leute dann die Komponenten einzeichnen          
+### Stefan: eine oder beide Grafiken auf einen Zettel auf dem die Leute dann die Komponenten einzeichnen
 ### Übung 4: Kommunikation in Smart-/Dumb-Components
 
 
@@ -671,22 +671,22 @@ https://www.bahn.de
 
 1. Übung 4: 15 Minuten
 
-1. 
+1.
 Anhand eines Screenshots von bahn.de mit Verbindungssuche
-2. 
-Im Team 
-3. 
+2.
+Im Team
+3.
 Arbeitsblatt 2 Bilder nicht aufgeklappt, nicht aufgeklappt
-4. 
+4.
 Aufgabe: einzeichnen wo sind die Komponenten? Welcher Art ist welche Komponente? Wo sitzt Logik und wie funktioniert die Kommunination?
 
-  1. 
+  1.
 Hierarchie komplett einzeichnen
-  2. 
+  2.
 Workshop Beispiel Smart/Dumb: bahn.de Rückfahrt hinzufügen
-5. 
+5.
 Spannende Teile im Plenum diskutieren
-6. 
+6.
 Mögliche Lösung div Struktur zeigen, interpretieren und bewerten
 
 
@@ -726,10 +726,10 @@ https://www.bahn.de
           </div>
           <div>
             <a href="https://www.embarc.de/">Stefan Zörner</a> /
-            <a href="https://twitter.com/StefanZoerner">@nStefanZoerner</a> /
+            <a href="https://twitter.com/StefanZoerner">@StefanZoerner</a> /
             <a href="https://www.embarc.de/">embarc GmbH</a>
           </div>
-  
+
         <p>
           <a href="http://bit.ly/summit-2019-spa">
             http://bit.ly/summit-2019-spa</a>
@@ -746,7 +746,7 @@ https://www.bahn.de
     // $('.weg').remove();
     // uncomment for jax
     // $('.jax').remove();
-    const isLocal = window.location.hostname.indexOf('localhost') !== -1 || 
+    const isLocal = window.location.hostname.indexOf('localhost') !== -1 ||
                     window.location.hostname.indexOf('127.0.0.1') !== -1;
 
     if (isLocal) {
