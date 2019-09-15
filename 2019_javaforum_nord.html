@@ -195,6 +195,8 @@
 
 Moderne Frontend-Architektur für Single-Page Applications
 
+45 min
+
 Architektur verstehen wir als die Summe der wichtigen Entscheidungen. Das sind die Entscheidungen die ein Projekt scheitern lassen können.
 
 Anhand von typischen Anforderungen an ein Single-Page Application (SPA) Projekt gehen wir durch die Auswahl des Frameworks (oder keines), 
@@ -207,10 +209,15 @@ In dieser interaktiven Session lernst du einen Prozess kennen, mit dem du die An
 
        -->
 
+       <section data-markdown class="todo">
+        <textarea data-template>
+</textarea>
+</section>
+
 
       <section>
         <h2>Moderne Frontend-Architektur für Single-Page Applications</h2>
-        <h3><a href='https://software-architecture-summit.de/softwarearchitektur/moderne-frontend-architektur-fuer-eure-single-page-application/'>
+        <h3><a href='https://javaforumnord.de/site/2019/page/timetable'>
           Java Forum Nord 2019 
           </a></h3>
 
@@ -227,24 +234,8 @@ In dieser interaktiven Session lernst du einen Prozess kennen, mit dem du die An
         </p>
       </section>
 
-      <section data-markdown class="todo">
-          <textarea data-template>
-* http://bit.ly/javaforum-nord-2019-spa
-* fertige Folien vom Summit übernehmen ohne Übungen
-* kürzen
-</textarea>
-</section>
-
-<section data-markdown>
-    <textarea data-template>
-
-Single-Page Applications (SPAs) verschieben den Schwerpunkt einer Anwendung in Richtung Browser. Wie gehen Sie mit den
-daraus resultierenden architektonischen Herausforderungen um?
-</textarea>
-</section>
-
-      <section data-markdown>
-          <textarea data-template>
+    <section data-markdown>
+        <textarea data-template>
 
 ## Architektur
 * Summe der wichtigen Entscheidungen
@@ -255,282 +246,148 @@ _Worauf wir uns konzentrieren_
 </section>
 
 <section>
-    <h2>Hat Frontend überhaupt etwas mit Architektur zu tun?</h2>
-    <p>Zitate</p>
-    <ul>
-      <li class="fragment">
-        <em>Frontend-Architektur? Ich dachte sowas gibt es gar nicht</em>
-      </li>
-      <li class="fragment">
-        <em>Das Frontend kloppen wir am Ende einfach irgendwie drauf</em>
-      </li>
-      <li class="fragment">
-        <em>Architektur für ein bisschen CSS-Pixel-Geschubse?</em>
-      </li>
-    </ul>
-  </section>
+  <h2>Hat Frontend überhaupt etwas mit Architektur zu tun?</h2>
+  <p>Zitate</p>
+  <ul>
+    <li class="fragment">
+      <em>Frontend-Architektur? Ich dachte sowas gibt es gar nicht</em>
+    </li>
+    <li class="fragment">
+      <em>Das Frontend kloppen wir am Ende einfach irgendwie drauf</em>
+    </li>
+    <li class="fragment">
+      <em>Architektur für ein bisschen CSS-Pixel-Geschubse?</em>
+    </li>
+  </ul>
+</section>
 
-      <section data-markdown>
-          <textarea data-template>
+    <section data-markdown>
+        <textarea data-template>
 ## Unser Plan für heute
 
 1. Motivation / Herleitung / Hintergrund
 1. Äußere Architektur
 1. Welches Framework?
 1. Innere Architektur
-  
-  </textarea>
-        </section>
-  
-      <section data-markdown>
-        <textarea data-template>
-## Teil I: Motivation / Herleitung / Hintergrund
 
 </textarea>
       </section>
 
-      <section data-markdown>
-        <textarea data-template>
+    <section data-markdown>
+      <textarea data-template>
+## Teil I: Motivation / Herleitung / Hintergrund
+
+</textarea>
+    </section>
+
+    <section data-markdown>
+      <textarea data-template>
 ### Moderne Frontend-Architektur === SPA
 
-A single-page application (SPA) is a web application that interacts 
-with the user by dynamically rewriting the current page rather than loading entire new pages from a server. 
+A single-page application (SPA) is a web application that interacts
+with the user by dynamically rewriting the current page rather than loading entire new pages from a server.
 
 This approach avoids interruption of the user experience between successive pages.
 <small>
 
-https://en.wikipedia.org/wiki/Single-page_application  
+https://en.wikipedia.org/wiki/Single-page_application
+</small>
+          </textarea>
+    </section>
+
+
+    <section data-markdown>
+      <textarea data-template>
+#### "Alle" reden von SPA... aber:
+### Warum eigentlich nicht klassisch?
+
+<img src='img/webapp_arch01_classic.png' height="500px">
+
+Ganz einfach ?!
+
+        </textarea>
+    </section>
+
+    <section data-markdown>
+      <textarea data-template>
+#### "Alle" reden von SPA... aber:
+### Warum eigentlich nicht klassisch?
+
+<img src='img/classic/double-submit.jpg' class='part'>
+
+Double Submit
+
+              </textarea>
+    </section>
+
+    <!-- <section data-markdown>
+        <textarea data-template>
+### Eventual Consistency
+
+Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit Inkonsistenzen
+
+<img src='img/sync.jpg' height="650px">
+
+<small>
+
+  https://twitter.com/venzann/status/1101345314814885888
+<br>
+By http://www.europecomics.com/serie/imbattable/
 </small>
             </textarea>
       </section>
+ -->
 
+    <section data-markdown>
+      <textarea data-template>
+### Warum eigentlich nicht klassisch?
 
-      <section data-markdown>
-        <textarea data-template>
-#### "Alle" reden von SPA... aber:            
-  ### Warum eigentlich nicht klassisch?
+<video controls src="img/classic/roundtrips.mp4" type="video/mp4" class='part'></video>
 
-  <img src='img/webapp_arch01_classic.png' height="500px">
+Round Trips für jede Kleinigkeit
 
-  Ganz einfach ?!
-
-          </textarea>
-      </section>
-
-      <section data-markdown>
-        <textarea data-template>
-#### "Alle" reden von SPA... aber:            
-  ### Warum eigentlich nicht klassisch?
-    
-<img src='img/classic/double-submit.jpg' class='part'>
-    
-  Double Submit
-    
-                </textarea>
-      </section>
-
-      <section data-markdown>
-          <textarea data-template>
-### Eventual Consistency
-
-Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit Inkonsistenzen  
-  <img src='img/sync.jpg' height="450px">
-  
-  <small>
-  https://twitter.com/venzann/status/1101345314814885888
-  <br>
-  By http://www.europecomics.com/serie/imbattable/
-  </small>
               </textarea>
-        </section>
-  
+    </section>
 
-      <section data-markdown>
-        <textarea data-template>
-  ### Warum eigentlich nicht klassisch?
-    
-  <video controls src="img/classic/roundtrips.mp4" type="video/mp4" class='part'></video>
-  
-  Round Trips für jede Kleinigkeit
-    
-                </textarea>
-      </section>
-
-      <section data-markdown>
-        <textarea data-template>
+    <section data-markdown>
+      <textarea data-template>
 ### Warum eigentlich nicht klassisch...
-  #### ...mit "ein bisschen" JavaScript?
-      
-  <img src='img/webapp_arch_02_jquery.png' height="500px">  
+#### ...mit "ein bisschen" JavaScript?
 
-😱 
+<img src='img/webapp_arch_02_jquery.png' height="500px">
+
+😱
+
+                </textarea>
+    </section>
+
+    <section data-markdown>
+      <textarea data-template>
+#### Sauberste Lösung:
+### Single-Page-Anwendung
+
+<img src='img/webapp_arch_03_spa.png'  height="500px">
 
                   </textarea>
-      </section>
+    </section>
 
-      <section data-markdown>
-        <textarea data-template>
-#### Sauberste Lösung:
-  ### Single-Page-Anwendung
-        
-  <img src='img/webapp_arch_03_spa.png'  height="500px">  
-  
-                    </textarea>
-      </section>
-
-      <section data-markdown>
-        <textarea data-template>
-### Nicht für jeden Satz an Anforderungen sind SPAs ideal 
-
-* Soll die Seite auch ohne JavaScript laufen?
-* Spielt man hauptssächlich Inhalte aus
-* Hat die Seite wenig oder keine interaktiven Elemente?
-
-            </textarea>
-      </section>
-
-      <section data-markdown>
-        <textarea data-template>
-### Ist das ein Kandidat für eine SPA? 
-
-<img src='img/spa_or_not_spa_01_spon.png' height="600">
-
-            </textarea>
-      </section>
-      <section data-markdown>
-        <textarea data-template>
-### Ist das ein Kandidat für eine SPA? 
-
-<img src='img/spa_or_not_spa_02_outlook-and-skype.png' height="600">
-
-            </textarea>
-      </section>
-      <section data-markdown>
-        <textarea data-template>
-### Ist das ein Kandidat für eine SPA? 
-
-<img src='img/spa_or_not_spa_03_github.png' height="600">
-
-            </textarea>
-      </section>
-
-      <section data-markdown>
-        <textarea data-template>
+  <section data-markdown>
+    <textarea data-template>
 <img src='img/spicker-anforderungen.png' height="900">
 
-            </textarea>
-      </section>
+        </textarea>
+  </section>
 
-      <section data-markdown class="todo">
-          <textarea data-template>
-## Übung 1: Ermitteln Sie Ihre Anforderungen
 
-### An Stefan: Hier brauchen wir einen Zettel mit den Anforderungen zum ankreuzen, Siehe Spicker, Seite 1
-
- * 15 Minuten
-
-*  Stufe 1: Anforderungen für eigenes Projekt aufnehmen - jeder für sich (Siehe Spicker, Seite 1)
-* 
-*  Stufe 2: Mit Nachbarn austauschen
-</textarea>
-</section>
-
-  
-      <section data-markdown>
+    <section data-markdown>
         <textarea data-template>
-## Teil II: Äußere Architektur
+### Interaktion: UX ist die Stärke von SPAs
 
-_Zerlegen in Teile und Integration in eine konsistente Anwendung_
-</textarea>
-      </section>
+<p>
+<img src='img/icons/check.png' height="256">
+</p>
 
-      
-      <section data-markdown>
-        <textarea data-template>
-
-
-<img src='img/spicker-zerlegung.png' >
-
-              </textarea>
-      </section>
-
-
-      <section data-markdown>
-          <textarea data-template>
-  
-  
-<img src='img/spicker-integration.png'>
-  
-                </textarea>
-        </section>
-  
-      <section>
-        <h3>Prominentes Beispiel für Klassische Links: Outlook Online</h3>
-        <a href="https://outlook.live.com/mail" target="_blank">
-          <img src="img/screenshot-outlook-mit-highlight.png" height="550">
-        </a>
-      </section>
-
-      <section>
-        <video controls src="video/outlook.mp4" type="video/mp4" height="600px"></video>
-        <p>
-          <small>UX-Schwächen, unterschiedliche Technologien, jede App wird anders dargestellt
-            <br> Wechsel der App dauert (Service Workers können die Zeit ab 2. Aufruf vermindern)</small>
-        </p>
-      </section>
-
-      <section>
-        <h3>Prominentes Beispiel für Majestic Modular Monoliths: Google Docs</h3>
-        <img src="img/screenshot-google-docs-comment.png" height="500px">
-        <p>
-          <small>Keine architekturbedingten UX Probleme</small>
-        </p>
-      </section>
-
-      <section style="background: url(img/mc-badge.png) no-repeat right top;">
-        <h3>Prominentes Beispiel für Micro Components: Spotify</h3>
-        <img src="img/screenshot-spotify.png" height="450px">
-        <p>
-          <small>
-            <a href="https://www.quora.com/What-is-the-technology-stack-behind-the-Spotify-web-client/answer/Andreas-Blixt" target="_blank">https://www.quora.com/What-is-the-technology-stack-behind-the-Spotify-web-client/answer/Andreas-Blixt</a>
-            <br>
-            <a href="https://www.quora.com/How-are-Spotify-Web-Player-components-developed" target="_blank">https://www.quora.com/How-are-Spotify-Web-Player-components-developed</a>
-            <br>
-            <a href="https://www.reddit.com/r/reactjs/comments/5sgkro/til_spotify_is_using_reactredux_in_their_web_app/" target="_blank">https://www.reddit.com/r/reactjs/comments/5sgkro/til_spotify_is_using_reactredux_in_their_web_app/</a>
-          </small>
-        </p>
-
-      </section>
-
-      <section style="background: url(img/mc-badge.png) no-repeat right top;">
-        <video controls src="video/micro_frontend_spotify.mp4" type="video/mp4" height="600px"></video>
-        <p>
-          <small>überraschende UX Schwächen, Apps nur gleichzeitig dargestellt, aber nicht komplett integriert</small>
-        </p>
-      </section>
-
-      <section>
-        <h3>In komplexen Szenarien muss man Kompromisse machen</h3>
-        <video controls poster="video/good-cheap-fast.jpg" src="video/good-cheap-fast.mp4" type="video/mp4"></video>
-        <p>
-          <small>
-            <a href="https://twitter.com/missingcloudltd/status/826203153934729218" target="_blank">
-              https://twitter.com/missingcloudltd/status/826203153934729218
-            </a>
-          </small>
-        </p>
-      </section>
-
-      <section data-markdown class="todo">
-          <textarea data-template>
-## Übung 2: Welche Option passt am besten zu den Anforderungen Ihrer Anwendung?
-
-### Stefan
-
-
-1. Übung 2: 15 Minuten
-
-1. Für die Anwendung aus Übung 1 die richtige aus den 3 Optionen für Äußere Architektur wählen (siehe Spicker Seite 2)
+_Habt ihr eine passende Anwendung?_
 
 
 </textarea>
@@ -538,420 +395,398 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
 
 <section data-markdown>
     <textarea data-template>
+### Nicht für jeden Satz an Anforderungen sind SPAs ideal
+
+* Soll die Seite auch ohne JavaScript laufen?
+* Spielt man hauptssächlich Inhalte aus
+* Hat die Seite wenig oder keine interaktiven Elemente?
+* Ist UX ohnehin nicht weiter wichtig
+
+        </textarea>
+  </section>
+
+  <section data-markdown>
+    <textarea data-template>
+### Ist das ein Kandidat für eine SPA?
+
+<img src='img/spa_or_not_spa_01_spon.png' height="600">
+
+        </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+### Ist das ein Kandidat für eine SPA?
+
+<img src='img/spa_or_not_spa_02_outlook-and-skype.png' height="600">
+
+        </textarea>
+  </section>
+  <section data-markdown>
+    <textarea data-template>
+### Ist das ein Kandidat für eine SPA?
+
+<img src='img/spa_or_not_spa_03_github.png' height="600">
+
+        </textarea>
+  </section>
+
+    <section data-markdown>
+      <textarea data-template>
+## Teil II: Äußere Architektur
+
+_Zerlegen in Teile und Integration in eine konsistente Anwendung_
+</textarea>
+    </section>
 
 
-<img src='img/spicker-empfehlung.png'>
+    <section data-markdown>
+      <textarea data-template>
+
+        ### Zerlegung und Zusammenspiel
+
+        * Große Anwendungen erfordern es, dass mehrere Teams diese gemeinsam entwickeln.
+        * Die Anwendungsteile sollen sich zu einer möglichst schlüssigen Anwendung zusammensetzen lassen.
+
+
+         <p>
+         <img src='img/spicker/Zerlegung_Zusammenspiel1.png' height="300" >
+         </p>
+
+
+        *Formel:* Zusammensetzen = Integration der Teile + Kommunikation zwischen Teilen
+
+      </textarea>
+    </section>
+
+
+    <section data-markdown>
+        <textarea data-template>
+
+
+<img src='img/spicker-integration.png' height="900px">
+
+              </textarea>
+      </section>
+
+    <section>
+      <h3>Prominentes Beispiel für Klassische Links: Outlook Online</h3>
+      <a href="https://outlook.live.com/mail" target="_blank">
+        <img src="img/screenshot-outlook-mit-highlight.png" height="550">
+      </a>
+    </section>
+
+    <section>
+      <video controls src="video/outlook.mp4" type="video/mp4" height="600px"></video>
+      <p>
+        <small>UX-Schwächen, unterschiedliche Technologien, jede App wird anders dargestellt
+          <br> Wechsel der App dauert (Service Workers können die Zeit ab 2. Aufruf vermindern)</small>
+      </p>
+    </section>
+
+    <section>
+      <h3>Prominentes Beispiel für Majestic Modular Monoliths: Google Docs</h3>
+      <img src="img/screenshot-google-docs-comment.png" height="500px">
+      <p>
+        <small>Keine architekturbedingten UX Probleme</small>
+      </p>
+    </section>
+
+    <section style="background: url(img/mc-badge.png) no-repeat right top;">
+      <h3>Prominentes Beispiel für Micro Components: Spotify</h3>
+      <img src="img/screenshot-spotify.png" height="450px">
+      <p>
+        <small>
+          <a href="https://www.quora.com/What-is-the-technology-stack-behind-the-Spotify-web-client/answer/Andreas-Blixt" target="_blank">https://www.quora.com/What-is-the-technology-stack-behind-the-Spotify-web-client/answer/Andreas-Blixt</a>
+          <br>
+          <a href="https://www.quora.com/How-are-Spotify-Web-Player-components-developed" target="_blank">https://www.quora.com/How-are-Spotify-Web-Player-components-developed</a>
+          <br>
+          <a href="https://www.reddit.com/r/reactjs/comments/5sgkro/til_spotify_is_using_reactredux_in_their_web_app/" target="_blank">https://www.reddit.com/r/reactjs/comments/5sgkro/til_spotify_is_using_reactredux_in_their_web_app/</a>
+        </small>
+      </p>
+
+    </section>
+
+    <section style="background: url(img/mc-badge.png) no-repeat right top;">
+      <video controls src="video/micro_frontend_spotify.mp4" type="video/mp4" height="600px"></video>
+      <p>
+        <small>überraschende UX Schwächen, Apps nur gleichzeitig dargestellt, aber nicht komplett integriert</small>
+      </p>
+    </section>
+
+<section data-markdown>
+  <textarea data-template>
+  ### Unsere Empfehlung
+
+  * So lange die Anwendung überschaubar bleibt und in einem Team entwickelt werden kann **"Modularer Monolith"**.
+  * Dann Kombination mit **"Micro Components"** wenn viele Teile gleichzeitig dargestellt werden sollen ...
+  * ... oder andernfalls **"Klassische Links"**.
+
+  <p>
+  <img src='img/icons/quality.png' height="256">
+  </p>
+
+        </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+## Teil III: Welches Framework?
+
+</textarea>
+  </section>
+
+  <section data-markdown>
+    <textarea data-template>
+
+### Framework-Vergleich
+
+* Grundsätzlich folgen alle Frameworks einem Komponenten-basierten Ansatz.
+* Bzgl. mancher Aspekte stellen sie sich jedoch unterschiedlich dar.
+* Die folgenden Skalen geben für wichtige Unterschiede unsere Einschätzung wieder.
+
+<p>
+<img src='img/framework-icons/angular-icon_200px.png' height="200">
+<img src='img/framework-icons/react-icon_200px.png' height="180">
+<img src='img/framework-icons/vue-icon_200px.png' height="180">
+<img src='img/framework-icons/wc-icon_200px.png' height="200">
+</p>
+
+
 
           </textarea>
   </section>
 
   <section data-markdown>
       <textarea data-template>
-## Teil III: Welches Framework?
+  ### Interaktion: Welche Anforderungen haben Sie an ein SPA-Framework?
 
-</textarea>
-    </section>
+  * Ich zeige nacheinander typische Anforderungen an SPAs
+  * Bitte melden, wenn ihr die auch habt
+  * Dazu zeige ich eine (aus meiner Sicht) unvoreingenommene Bewertung pro Framework 
+  * Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?
+  * Am Ende Umfrage per Hände: wessen Framework passt anhand meiner Skalen zu den Anforderungen?
 
-    <section data-markdown class="todo">
-        <textarea data-template>
-## Übung 3: Welche Anforderungen haben Sie an ein SPA-Framework?
+  <p>
+  <img src='img/icons/levels.png' height="256">
+  </p>
 
-### An Stefan: Hier brauchen wir einen Zettel für die leeren Skalen
+  </textarea>
+  </section>
 
-1. Anhand der Schieberegler: welches Framework passt am besten
-2. Leute kriegen Handout  mit Skalen zum Eintragen Ihrer Anforderungen (ohne konkrete Frameworks eingetragen). — ggf. weitere Anforderungen selber hinzufügen
-3. Wir stellen „Werte“ für Frameworks vor (aus Spicker) und sammeln weitere Infos aus dem Plenum ein.
 
-</textarea>
+
+<section data-markdown>
+    <textarea data-template>
+### Framework-Vergleich
+
+#### Skala #1: "Reife"
+
+Seit wann ist das Framework seriös nutzbar?
+<p>
+<img src='img/spicker/Skala_1.png' width="1500" class="fragment">
+</p>
+          </textarea>
 </section>
 
 <section data-markdown>
     <textarea data-template>
+### Framework-Vergleich
 
+#### Skala #2: "Konformität"
 
-<img src='img/spicker-frameworks.png'>
-
+Wie nah ist das Framework an Browser- und Web-Standards?
+<p>
+<img src='img/spicker/Skala_2.png' width="1500" class="fragment">
+</p>
           </textarea>
-  </section>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+### Framework-Vergleich
+
+#### Skala #3: "Führung"
+
+Wie stark leitet das Framework Sie bei der Entwicklung (opinionated)?
+<p>
+<img src='img/spicker/Skala_3.png' width="1500" class="fragment">
+</p>
+          </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+### Framework-Vergleich
+
+#### Skala #4: "Resonanz"
+
+Wie stark müssen Sie auf Weiterentwicklungen im Framework reagieren?
+<p>
+<img src='img/spicker/Skala_4.png' width="1500" class="fragment">
+</p>
+          </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+### Framework-Vergleich
+
+#### Skala #5: "Hypothek"
+
+Wie viel bindet man sich mit einem Framework ans Bein? Kann man das Framework noch selbst warten im Notfall?
+<p>
+<img src='img/spicker/Skala_5.png' width="1500" class="fragment">
+</p>
+          </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+### Framework-Vergleich
+
+#### Skala #6: "Reichhaltigkeit"
+
+Wie vollständig ist das Framework für ein typisches großes Vorhaben?
+<p>
+<img src='img/spicker/Skala_6.png' width="1500" class="fragment">
+</p>
+          </textarea>
+</section>
+
+<section data-markdown>
+    <textarea data-template>
+### Interaktion: Welche Anforderungen haben Sie an ein SPA-Framework?
+
+1. Welches ist euer Lieblingsframework?
+  * Angular
+  * React
+  * Web Components
+  * Vue
+2. Am Ende Umfrage per Hände: wessen Framework passt anhand meiner Skalen zu den Anforderungen?
+
+<p>
+<img src='img/icons/levels.png' height="256">
+</p>
+
+</textarea>
+</section>
 
 
 <section data-markdown>
     <textarea data-template>
-
-
-<img src='img/spicker-framework-vergleich.png'>
-
-          </textarea>
-  </section>
-
-  
-    <section data-markdown>
-      <textarea data-template>
-### TL'DR
-
-Welches Framework soll ich nehmen?
+### TL'DR: Welches Framework soll ich nehmen?
 
 * Angular: erzwingt Einheitlichkeit über viele Teams
 * React: maximale Flexibilität
-* Web Components: keine Abhängigkeiten          
+* Web Components: keine Abhängigkeiten
 * Vue: Frontendler (UI Developer) lieben es
 
 _Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es Geschmack und persönliche Erfahrung_
 
+<p>
+<img src='img/icons/quality.png' height="256">
+</p>
+
+
+</textarea>
+  </section>
+  
+
+<section data-markdown>
+      <textarea data-template>
+## Teil IV: Innere Architektur
+
+Wie setzen sich Anwendungsteile aus Komponenten zusammen und wie kommunizieren diese miteinander?
 </textarea>
     </section>
 
-
-<section data-markdown>
-        <textarea data-template>
-## Teil IV: Innere Architektur
-
-</textarea>
-      </section>
-
-      <section data-markdown class="todo" style="font-size: x-large">
-        <textarea data-template>
-### Stefan: eine oder beide Grafiken auf einen Zettel auf dem die Leute dann die Komponenten einzeichnen          
-### Übung 4: Kommunikation in Smart-/Dumb-Components
-
-
-<img src='img/bahn-smart-dumb.png' height="200px">
-<img src='img/bahn-smart-dumb-calender.png' height="200px">
-
-
-1. Übung 4: 15 Minuten
-
-1. 
-Anhand eines Screenshots von bahn.de mit Verbindungssuche
-2. 
-Im Team 
-3. 
-Arbeitsblatt 2 Bilder nicht aufgeklappt, nicht aufgeklappt
-4. 
-Aufgabe: einzeichnen wo sind die Komponenten? Welcher Art ist welche Komponente? Wo sitzt Logik und wie funktioniert die Kommunination?
-
-  1. 
-Hierarchie komplett einzeichnen
-  2. 
-Workshop Beispiel Smart/Dumb: bahn.de Rückfahrt hinzufügen
-5. 
-Spannende Teile im Plenum diskutieren
-6. 
-Mögliche Lösung div Struktur zeigen, interpretieren und bewerten
-
-
-            </textarea>
-      </section>
-
-
-      <section data-markdown>
-        <textarea data-template>
-  <img src='img/komponente.png' height="650">
-  
-              </textarea>
-      </section>
-
-      <section data-markdown data-background="img/xing.png"
-        style="background-color:white;margin:0px;border:1px solid darkgray;background-color:lightblue">
-        ### Fallbeispiel: XING
-
-        Wo sehen wir Komponenten?
-      </section>
-
-      <section data-markdown data-transition="none">
-        <textarea data-template>
-### Komposition von Komponenten
-
-<img src='img/xing-komponenten.png' height="600">
-                </textarea>
-      </section>
-
-      <section data-markdown data-transition="none">
-        <textarea data-template>
-### Komposition von Komponenten
-
-<img src='img/smart-dumb-1.png' height="600">
-                </textarea>
-      </section>
-
-      <section data-markdown data-transition="none">
-        <textarea data-template>
-### Komposition von Komponenten
-
-<img src='img/smart-dumb-2.png' height="600">
-                </textarea>
-      </section>
-
-      <section data-markdown data-transition="none">
-        <textarea data-template>
-### Komposition von Komponenten
-
-<img src='img/smart-dumb-3.png' height="600">
-                </textarea>
-      </section>
-
-      <section data-markdown data-transition="none">
-        <textarea data-template>
-### Kommunikation zwischen beliebigen Anwendungsteilen
-
-<img src='img/datenfluss-1.png' height="550">
-
-                  </textarea>
-      </section>
-      <section data-markdown data-markdown data-transition="none">
-        <textarea data-template>
-### Kommunikation zwischen beliebigen Anwendungsteilen
-
-<img src='img/datenfluss-2.png' height="550">
-
-                  </textarea>
-      </section>
-      <section data-markdown data-markdown data-transition="none">
-        <textarea data-template>
-### Kommunikation zwischen beliebigen Anwendungsteilen
-
-<img src='img/datenfluss-3.png' height="550">
-
-                  </textarea>
-      </section>
-      <section data-markdown data-markdown data-transition="none">
-        <textarea data-template>
-### Kommunikation zwischen beliebigen Anwendungsteilen
-
-<img src='img/datenfluss-4.png' height="550">
-
-Klarer Daten- und Kontroll-Fluss    
-                  </textarea>
-      </section>
-      <section data-markdown>
+    <section data-markdown>
         <textarea data-template>
 
-### Reaktiver Renderzyklus
- <img src='img/render-zyklus.png' height="550">
-                    </textarea>
-      </section>
+        ### Komponenten
 
-      <section data-markdown data-background="img/xing.png"
-        style="background-color:white;margin:0px;border:1px solid darkgray;background-color:lightblue">
-        ### Fallbeispiel: XING
+        In allen Frameworks setzen sich die Anwendungsteile aus Komponenten zusammen.
 
-        Wo sehen wir Komponenten?
-        Wie würden wir die Anwendungsteile in Smart/Dumb zerteilen?
-      </section>
+        <img src='img/spicker/spicker-komponente.png' >
 
-      <section data-background="img/screenhot-xing-global-state_anzahl-kontakte.png">
-      </section>
-
-      <section data-background="img/screenhot-xing-global-state_profilfoto.png">
-      </section>
-
-      <section data-background="img/screenhot-xing-global-state_anzahl-nachrichten.png">
-      </section>
-
-
-      <section>
-        <h3>Smart und Dumb Components</h3>
-        <h2>Grenzen</h2>
-        <!-- <p style="color: #2aa198">Hauptsächlich mit wachsenden und langlebigen Anwendungen</p>
-
-        <ul>
-          <li>"Gott-Komponenten": Zustand und Logik wandern über die Zeit der Entwicklung in der Hierarchie herauf
-          <li>Verteilter, veränderlicher Zustand macht die Anwendung schwer zu verstehen und zu warten
-            <ul>
-              <li>Wo soll der Zustand gehalten werden?</li>
-              <li>In welchem Zustand ist die Anwendung?
-            </ul>
-          </li>
-          <li>Vermischung von Framework und UI/Business Logik (Kopplung an das Framework)
-          <li>Offene Fragen
-            <ul>
-              <li>Wie behandelt man asynchronen Code?
-              <li>Wie initialisiert man die Anwendung?
-              <li>Wie tests man UI/Business Logik?
-            </ul>
-          </li>
-        </ul> -->
-      </section>
-
-      <section>
-        <!-- <h3>Smart und Dumb Components</h3>
-        <h2>Grenzen</h2> -->
-        <h3>Problem 1: Über Komponenten verteilter Zustand</h3>
-        <img src="img/verteilter-zustand.png" class='part' />
-        <p>Wo muss ich nach Fehlern suchen? Wo ist die Logik?</p>
-        <p>In welchem Zustand ist meine Anwendung?</p>
-      </section>
-
-      <section>
-        <!-- <h3>Smart und Dumb Components</h3>
-        <h2>Grenzen</h2> -->
-        <h3>Problem 2: Getrennte Komponentenhierarchien</h3>
-        <img src="img/zwei-komponenten-hierarchien.png" class='part' />
-        <p>Geht entweder nicht oder "Gott-Komponente" entsteht</p>
-      </section>
-
-      <section>
-        <!-- <h3>Smart und Dumb Components</h3>
-        <h2>Grenzen</h2> -->
-
-        <h3>Problem 3: Gemeinsamer ("globaler") Zustand</h3>
-        <img src="img/gemeinsam-genutzter-state.png" class='part' />
-        <p>Wie kommt Zustand von ganz oben nach ganz unten? </p>
-      </section>
-
-      <section>
-        <!-- <h3>Smart und Dumb Components</h3>
-        <h2>Grenzen</h2> -->
-
-        <h3>Problem 4: UI und Logik vermischt</h3>
-        <img src="img/ui-und-logic-vermischt.png" class='part' />
-        <p>Wiederverwendung? Framework-unabhängigkeit? Testbarkeit?</p>
-        <p>Wie, wo und wann wird die Anwendung initialisiert?</p>
-      </section>
-
-      <section data-markdown class="local">
-        <textarea data-template>
-# Olli
-            </textarea>
-      </section>
-
-      <section data-markdown>
-        <textarea data-template>
-### Data Layer – transmit and manage data
-
-<img src='img/js-data-layer-2018.png' height="500px">
-
-https://2018.stateofjs.com/data-layer/conclusion/
-
-      </textarea>
-      </section>
-
-      <section data-markdown data-transition="none">
-        <textarea data-template>
-### Redux/ngrx/vuex/MobX
- 
-  <img src='img/redux-1.png' height="550">
-                      </textarea>
-      </section>
-      <section data-markdown data-transition="none">
-        <textarea data-template>
-### Redux/ngrx/vuex/MobX
- 
-  <img src='img/redux-2.png' height="550">
-                      </textarea>
-      </section>
-      <section data-markdown data-transition="none">
-        <textarea data-template>
-### Redux/ngrx/vuex/MobX
- 
-  <img src='img/redux-3.png' height="550">
-                      </textarea>
-      </section>
-      <section data-markdown data-transition="none">
-        <textarea data-template>
-### Redux/ngrx/vuex/MobX
- 
-  <img src='img/redux-4.png' height="550">
-                      </textarea>
-      </section>
-      <section data-markdown data-transition="none">
-        <textarea data-template>
-### Redux/ngrx/vuex/MobX
- 
-  <img src='img/redux-5.png' height="550">
-                      </textarea>
-      </section>
-
-      <section data-markdown>
-        <textarea data-template>
-## Teil IV: Umsetzung
-
-</textarea>
-      </section>
-
-
-      <section data-markdown>
-        <textarea data-template>
-### TypeScript für Geschäftsanwendungen
-
-_Alle Frameworks arbeiten gut mit TypeScript_
-
-<img src='img/typescript.jpg' height="400px">
-
-<small>
-https://www.typescriptlang.org/
-</small>
-
-</textarea>
-      </section>
-
-      <section>
-        <h3>Basics</h3>
-        <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
-// variables can have type information
-let foo: string;
-foo = 'yo';
-// Error: Type 'number' is not assignable to type 'string'.
-foo = 10;
-</code></pre>
-        <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
-
-// types can be inferred (return type)
-function sayIt(what: string) {
-  return `Saying: ${what}`;
-}
-const said: string = sayIt(obj);
-
-</code></pre>
-        <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
-class Sayer {
-  what: string; // mandatory
-
-  constructor(what: string) {
-      this.what = what;
-  }
-
-  // return type if you want to
-  sayIt(): string {
-      return `Saying: ${this.what}`;
-  }
-}
-</code></pre>
-      </section>
-
-      <section data-markdown>
-        <textarea data-template>
-#### Verhalten wie aus Java gewohnt            
-
-<img src='img/screenshot-typescript.png' class='part'>
-
-Probleme werden zur Entwicklungszeit sichtbar
-<br>
-Show References geht verlässlich
-<br>
-Refactoring möglich
+        Diese können Template, Logik und Zustand kapseln.
 
               </textarea>
       </section>
 
-      <section>
-        <h2>Vielen Dank!</h2>
-        <h3>Es gibt Architektur-Ansätze für große und wartbare SPA Anwendungen</h3>
-        <p>
-          <a href="http://zeigermann.eu ">Oliver Zeigermann</a> /
-          <a href="http://twitter.com/djcordhose ">@DJCordhose</a> /
+      <section data-markdown>
+          <textarea data-template>
+### Arten von Komponenten
+
+_Anwendungsteile setzen sich aus zwei Arten von Komponenten zusammen_
+
+1. Container Components (aka Smart Components)
+ * enthalten Logik
+ * Meist spezifisch für Anwendungsfall
+ * Nicht wiederverwendbar
+1. Presentational Components (aka Dumb Components)
+ * Darstellung
+ * keine nennenswerte Logik
+ * Komponenten-Bibliotheken enthalten vor allem wiederverwendbare Presentational Components
+
+                </textarea>
+        </section>
+
+        <section data-markdown>
+            <textarea data-template>
+
+            ### Klarer Daten- und Kontrollfluss zwischen den Komponenten
+
+            <img src='img/spicker/spicker-hierarchien.png'>
+
+                  </textarea>
+          </section>
+
+    <section data-markdown>
+      <textarea data-template>
+
+<img src='img/spicker-fragen.png' height="900px">
+
+</textarea>
+    </section>
+
+    <section data-markdown>
+      <textarea data-template>
+
+      ### Zum Mitnehmen und Nachlesen
+
+      Wissen auf den Punkt.
+      Stark verdichtet liefern diese Referenzkarten kompaktes Wissen, Check-Listen und Rezepte für Ihre Projekte!
+
+      <p>
+      <img src='img/spicker/Spicker_9_Vorschaubild3er.jpg' height="350">
+      </p>
+
+      #### Architektur-Spicker Ausgabe Nr. 9: Moderne Frontend-Architektur
+
+      * 4 Seiten in Farbe. Hier auf dem Java Forum Nord für jeden auf Papier gedruckt.
+      * Oder online zum Download:   <a href="https://www.embarc.de/architektur-spicker/">
+          https://www.embarc.de/architektur-spicker/</a>
+
+    </textarea>
+
+
+    </section>
+
+    <section>
+      <h2>Vielen Dank!</h2>
+      <h3>Moderne Frontend-Architektur für Single-Page Applications, Java Forum Nord 2019</h3>
+      <div>
+          <a href="http://zeigermann.eu">Oliver Zeigermann</a> /
+          <a href="http://twitter.com/djcordhose">@DJCordhose</a> /
           <a href="https://www.embarc.de/ ">embarc GmbH</a>
-        </p>
-        <p>
-          <a href="https://nilshartmann.net ">Nils Hartmann</a> /
-          <a href="http://twitter.com/nilshartmann ">@nilshartmann</a>
-        </p>
+        </div>
 
-        <p>
-          <a href="http://bit.ly/jax-spa">
-            http://bit.ly/jax-spa</a>
-        </p>
-      </section>
+      <p>
+        <a href="http://bit.ly/javaforum-nord-2019-spa">
+          http://bit.ly/javaforum-nord-2019-spa</a>
+      </p>
+    </section>
 
     </div>
 
