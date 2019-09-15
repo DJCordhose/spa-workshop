@@ -267,8 +267,8 @@ _Worauf wir uns konzentrieren_
 
 1. Motivation / Herleitung / Hintergrund
 1. Äußere Architektur
-1. Welches Framework?
 1. Innere Architektur
+1. Welches Framework?
 
 </textarea>
       </section>
@@ -528,9 +528,60 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
         </textarea>
 </section>
 
+
+<section data-markdown>
+      <textarea data-template>
+## Teil III: Innere Architektur
+
+Wie setzen sich Anwendungsteile aus Komponenten zusammen und wie kommunizieren diese miteinander?
+</textarea>
+    </section>
+
+    <section data-markdown>
+        <textarea data-template>
+
+        ### Komponenten
+
+        In allen Frameworks setzen sich die Anwendungsteile aus Komponenten zusammen.
+
+        <img src='img/spicker/spicker-komponente.png' >
+
+        Diese können Template, Logik und Zustand kapseln.
+
+              </textarea>
+      </section>
+
+      <section data-markdown>
+          <textarea data-template>
+### Arten von Komponenten
+
+_Anwendungsteile setzen sich aus zwei Arten von Komponenten zusammen_
+
+1. Container Components (aka Smart Components)
+ * enthalten Logik
+ * Meist spezifisch für Anwendungsfall
+ * Nicht wiederverwendbar
+1. Presentational Components (aka Dumb Components)
+ * Darstellung
+ * keine nennenswerte Logik
+ * Komponenten-Bibliotheken enthalten vor allem wiederverwendbare Presentational Components
+
+                </textarea>
+        </section>
+
+        <section data-markdown>
+            <textarea data-template>
+
+            ### Klarer Daten- und Kontrollfluss zwischen den Komponenten
+
+            <img src='img/spicker/spicker-hierarchien.png'>
+
+                  </textarea>
+          </section>
+
 <section data-markdown>
     <textarea data-template>
-## Teil III: Welches Framework?
+## Teil IV: Welches Framework?
 
 </textarea>
   </section>
@@ -691,56 +742,6 @@ _Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es
 </textarea>
   </section>
   
-
-<section data-markdown>
-      <textarea data-template>
-## Teil IV: Innere Architektur
-
-Wie setzen sich Anwendungsteile aus Komponenten zusammen und wie kommunizieren diese miteinander?
-</textarea>
-    </section>
-
-    <section data-markdown>
-        <textarea data-template>
-
-        ### Komponenten
-
-        In allen Frameworks setzen sich die Anwendungsteile aus Komponenten zusammen.
-
-        <img src='img/spicker/spicker-komponente.png' >
-
-        Diese können Template, Logik und Zustand kapseln.
-
-              </textarea>
-      </section>
-
-      <section data-markdown>
-          <textarea data-template>
-### Arten von Komponenten
-
-_Anwendungsteile setzen sich aus zwei Arten von Komponenten zusammen_
-
-1. Container Components (aka Smart Components)
- * enthalten Logik
- * Meist spezifisch für Anwendungsfall
- * Nicht wiederverwendbar
-1. Presentational Components (aka Dumb Components)
- * Darstellung
- * keine nennenswerte Logik
- * Komponenten-Bibliotheken enthalten vor allem wiederverwendbare Presentational Components
-
-                </textarea>
-        </section>
-
-        <section data-markdown>
-            <textarea data-template>
-
-            ### Klarer Daten- und Kontrollfluss zwischen den Komponenten
-
-            <img src='img/spicker/spicker-hierarchien.png'>
-
-                  </textarea>
-          </section>
 
     <section data-markdown>
       <textarea data-template>
