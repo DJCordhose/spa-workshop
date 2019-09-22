@@ -209,10 +209,10 @@ In dieser interaktiven Session lernst du einen Prozess kennen, mit dem du die An
 
        -->
 
-       <section data-markdown class="todo">
+       <!-- <section data-markdown class="todo">
         <textarea data-template>
 </textarea>
-</section>
+</section> -->
 
 
       <section>
@@ -373,7 +373,7 @@ Round Trips für jede Kleinigkeit
 
   <section data-markdown>
     <textarea data-template>
-<img src='img/spicker-anforderungen.png' height="900">
+<img src='img/spicker-anforderungen.png' height="800">
 
         </textarea>
   </section>
@@ -466,7 +466,7 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
         <textarea data-template>
 
 
-<img src='img/spicker-integration.png' height="900px">
+<img src='img/spicker-integration.png' height="750px">
 
               </textarea>
       </section>
@@ -556,7 +556,7 @@ Wie setzen sich Anwendungsteile aus Komponenten zusammen und wie kommunizieren d
               </textarea>
       </section>
 
-      <section data-markdown>
+      <section data-markdown class="fragments">
           <textarea data-template>
 ### Arten von Komponenten
 
@@ -579,7 +579,7 @@ _Anwendungsteile setzen sich aus zwei Arten von Komponenten zusammen_
 
             ### Klarer Daten- und Kontrollfluss zwischen den Komponenten
 
-            <img src='img/spicker/spicker-hierarchien.png'>
+            <img src='img/spicker/spicker-hierarchien.png' height="550">
 
                   </textarea>
           </section>
@@ -751,12 +751,12 @@ _Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es
     <section data-markdown>
       <textarea data-template>
 
-<img src='img/spicker-fragen.png' height="900px">
+<img src='img/spicker-fragen.png' height="750px">
 
 </textarea>
     </section>
 
-    <section data-markdown>
+    <section data-markdown style="font-size: xx-large">
       <textarea data-template>
 
       ### Zum Mitnehmen und Nachlesen
@@ -818,8 +818,8 @@ _Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es
     }
     Reveal.addEventListener('ready', function (event) {
       // do we want this???
-      $('.fragment li').addClass('fragment')
-      $('.no-fragment li').removeClass('fragment')
+      $('.fragments li').addClass('fragment')
+      $('.no-fragments li').removeClass('fragment')
 
       // make all links open in new tab
       $('a').attr('target', '_blank')
