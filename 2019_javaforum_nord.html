@@ -373,13 +373,13 @@ Round Trips für jede Kleinigkeit
 
   <section data-markdown>
     <textarea data-template>
-<img src='img/spicker-anforderungen.png' height="800">
+<img src='img/spicker-anforderungen.png' height="750">
 
         </textarea>
   </section>
 
 
-  <section data-markdown>
+  <section data-markdown class="fragments">
       <textarea data-template>
   ### Nicht für jeden Satz an Anforderungen sind SPAs ideal
   
@@ -421,7 +421,7 @@ Round Trips für jede Kleinigkeit
 ### Interaktion: UX ist die Stärke von SPAs
 
 * Habt ihr eine passende Anwendung?
-* Fragen nun sehr willkommen
+<!-- * Fragen nun sehr willkommen -->
 * Hände heben 
   1. Wer hat eine passende Anwendung?
   1. Wer hat sicher keine? 
@@ -465,11 +465,20 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
     <section data-markdown>
         <textarea data-template>
 
-
 <img src='img/spicker-integration.png' height="750px">
 
               </textarea>
       </section>
+
+      <section data-markdown>
+        <textarea data-template>
+## Integration über Links
+
+<img src='img/spicker/integration-links.png'>
+
+              </textarea>
+      </section>
+
 
     <section>
       <h3>Prominentes Beispiel für Klassische Links: Outlook Online</h3>
@@ -482,8 +491,19 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
       <video controls src="video/outlook.mp4" type="video/mp4" height="600px"></video>
       <p>
         <small>UX-Schwächen, unterschiedliche Technologien, jede App wird anders dargestellt
-          <br> Wechsel der App dauert (Service Workers können die Zeit ab 2. Aufruf vermindern)</small>
+          <br> Wechsel der App dauert (Service Workers können die Zeit ab 2. Aufruf vermindern)
+          <br>Umstellung auf React fortlaufend
+        </small>
       </p>
+    </section>
+
+    <section data-markdown>
+      <textarea data-template>
+## Modularer Monolith
+
+<img src='img/spicker/integration-monolith.png'>
+
+            </textarea>
     </section>
 
     <section>
@@ -494,13 +514,25 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
       </p>
     </section>
 
+    <section data-markdown>
+      <textarea data-template>
+  ## Micro Components
+
+<img src='img/spicker/integration-micro-components.png'>
+
+            </textarea>
+    </section>
+
     <section style="background: url(img/mc-badge.png) no-repeat right top;">
       <h3>Prominentes Beispiel für Micro Components: Spotify mobile App</h3>
       <img src="img/screenshot-spotify.png" height="450px">
       <p>
           <small>
               Dies gilt nur für die App, der Web Player ist seit einiger Zeit als React-Monolith gebaut: 
-          http://labs.spotify.com/2019/03/25/building-spotifys-new-web-player/
+              <a href="http://labs.spotify.com/2019/03/25/building-spotifys-new-web-player/" target="_blank">
+                http://labs.spotify.com/2019/03/25/building-spotifys-new-web-player/</a>
+
+          
           <!-- <a href="https://www.quora.com/What-is-the-technology-stack-behind-the-Spotify-web-client/answer/Andreas-Blixt" target="_blank">https://www.quora.com/What-is-the-technology-stack-behind-the-Spotify-web-client/answer/Andreas-Blixt</a>
           <br>
           <a href="https://www.quora.com/How-are-Spotify-Web-Player-components-developed" target="_blank">https://www.quora.com/How-are-Spotify-Web-Player-components-developed</a>
@@ -516,6 +548,15 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
       <p>
         <small>überraschende UX Schwächen, Apps nur gleichzeitig dargestellt, aber nicht komplett integriert</small>
       </p>
+    </section>
+
+    <section data-markdown>
+      <textarea data-template>
+
+
+<img src='img/spicker-integration.png' height="750px">
+
+            </textarea>
     </section>
 
 <section data-markdown>
@@ -560,7 +601,7 @@ Wie setzen sich Anwendungsteile aus Komponenten zusammen und wie kommunizieren d
           <textarea data-template>
 ### Arten von Komponenten
 
-_Anwendungsteile setzen sich aus zwei Arten von Komponenten zusammen_
+_Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
 
 1. Container Components (aka Smart Components)
  * enthalten Logik
@@ -575,6 +616,14 @@ _Anwendungsteile setzen sich aus zwei Arten von Komponenten zusammen_
         </section>
 
         <section data-markdown>
+          <textarea data-template>
+
+<img src='img/bahn-smart-dumb.png' height="750">
+
+                </textarea>
+        </section>
+      
+        <section data-markdown>
             <textarea data-template>
 
             ### Klarer Daten- und Kontrollfluss zwischen den Komponenten
@@ -583,6 +632,23 @@ _Anwendungsteile setzen sich aus zwei Arten von Komponenten zusammen_
 
                   </textarea>
           </section>
+
+          <section data-markdown>
+            <textarea data-template>
+  
+  <img src='img/bahn-smart-dumb-calender.png' height="750">
+  
+                  </textarea>
+          </section>
+  
+        <!-- <section data-markdown>
+          <textarea data-template>
+
+<img src='img/bahn-komponenten.png' height="750">
+
+                </textarea>
+        </section> -->
+      
 
 <section data-markdown>
     <textarea data-template>
@@ -614,7 +680,15 @@ _Anwendungsteile setzen sich aus zwei Arten von Komponenten zusammen_
 
   <section data-markdown>
       <textarea data-template>
-  ### Interaktion: Welche Anforderungen haben Sie an ein SPA-Framework?
+    
+<img src='img/moderne-fronten.jpg' height="750">
+    
+            </textarea>
+    </section>
+    
+  <section data-markdown>
+      <textarea data-template>
+  ### Interaktion: Welche Anforderungen hast du an ein SPA-Framework?
 
   * Ich zeige nacheinander typische Anforderungen an SPAs
   * Bitte melden, wenn ihr die auch habt
@@ -623,13 +697,11 @@ _Anwendungsteile setzen sich aus zwei Arten von Komponenten zusammen_
   * Am Ende Umfrage per Hände: wessen Framework passt anhand meiner Skalen zu den Anforderungen?
 
   <p>
-  <img src='img/icons/levels.png' height="256">
+  <img src='img/icons/levels.png' height="150">
   </p>
 
   </textarea>
   </section>
-
-
 
 <section data-markdown>
     <textarea data-template>
@@ -641,6 +713,10 @@ Seit wann ist das Framework seriös nutzbar?
 <p>
 <img src='img/spicker/Skala_1.png' width="1500" class="fragment">
 </p>
+<ol>
+<li>Habt ihr die Anforderung?
+<li class="fragment">Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?</li>
+</ol>
           </textarea>
 </section>
 
@@ -654,7 +730,11 @@ Wie nah ist das Framework an Browser- und Web-Standards?
 <p>
 <img src='img/spicker/Skala_2.png' width="1500" class="fragment">
 </p>
-          </textarea>
+<ol>
+    <li>Habt ihr die Anforderung?
+    <li class="fragment">Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?</li>
+</ol>
+              </textarea>
 </section>
 
 <section data-markdown>
@@ -663,11 +743,15 @@ Wie nah ist das Framework an Browser- und Web-Standards?
 
 #### Skala #3: "Führung"
 
-Wie stark leitet das Framework Sie bei der Entwicklung (opinionated)?
+Wie stark leitet das Framework bei der Entwicklung (opinionated)?
 <p>
 <img src='img/spicker/Skala_3.png' width="1500" class="fragment">
 </p>
-          </textarea>
+<ol>
+    <li>Habt ihr die Anforderung?
+    <li class="fragment">Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?</li>
+</ol>
+              </textarea>
 </section>
 
 <section data-markdown>
@@ -676,11 +760,15 @@ Wie stark leitet das Framework Sie bei der Entwicklung (opinionated)?
 
 #### Skala #4: "Resonanz"
 
-Wie stark müssen Sie auf Weiterentwicklungen im Framework reagieren?
+Wie stark muss man auf Weiterentwicklungen im Framework reagieren?
 <p>
 <img src='img/spicker/Skala_4.png' width="1500" class="fragment">
 </p>
-          </textarea>
+<ol>
+    <li>Habt ihr die Anforderung?
+    <li class="fragment">Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?</li>
+</ol>
+              </textarea>
 </section>
 
 <section data-markdown>
@@ -693,7 +781,11 @@ Wie viel bindet man sich mit einem Framework ans Bein? Kann man das Framework no
 <p>
 <img src='img/spicker/Skala_5.png' width="1500" class="fragment">
 </p>
-          </textarea>
+<ol>
+    <li>Habt ihr die Anforderung?
+    <li class="fragment">Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?</li>
+</ol>
+              </textarea>
 </section>
 
 <section data-markdown>
@@ -706,29 +798,32 @@ Wie vollständig ist das Framework für ein typisches großes Vorhaben?
 <p>
 <img src='img/spicker/Skala_6.png' width="1500" class="fragment">
 </p>
-          </textarea>
+<ol>
+<li>Habt ihr die Anforderung?
+<li class="fragment">Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?</li>
+</ol>
+              </textarea>
 </section>
 
-<section data-markdown>
+<section data-markdown class="fragments">
     <textarea data-template>
-### Interaktion: Welche Anforderungen haben Sie an ein SPA-Framework?
+### Interaktion: Welche Anforderungen hast du an ein SPA-Framework?
 
 1. Welches ist euer Lieblingsframework?
   * Angular
   * React
   * Web Components
   * Vue
-2. Am Ende Umfrage per Hände: wessen Framework passt anhand meiner Skalen zu den Anforderungen?
+2. Wessen Framework passt anhand meiner Skalen zu den Anforderungen?
 
 <p>
-<img src='img/icons/levels.png' height="256">
+<img src='img/icons/levels.png' height="150">
 </p>
 
 </textarea>
 </section>
 
-
-<section data-markdown>
+<!-- <section data-markdown class="fragments">
     <textarea data-template>
 ### TL'DR: Welches Framework soll ich nehmen?
 
@@ -745,7 +840,7 @@ _Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es
 
 
 </textarea>
-  </section>
+  </section> -->
   
 
     <section data-markdown>
