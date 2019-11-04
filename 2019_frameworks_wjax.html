@@ -199,20 +199,6 @@ Wahl dastehen lassen. Welche das sind und was unsere persönlichen Erfahrungen u
 Session.
 -->
 
-
-<section data-markdown class="todo">
-    <textarea data-template>
-### Ablauf
-
-  Erst alle Frameworks vorstellen
-  Bisschen Anforderungen am Anfang
-  Bisschen Code für alle zeigen, damit man ein Gefühl dafür kriegt
-  Und dann diskutieren
-  Evtl mit den Leuten
-  Oder wir
-</textarea>
-  </section>
-
       <section>
         <h2>Mit welchem Framework soll ich meine Single-Page-App bauen?</h2>
         <h3><a
@@ -395,20 +381,78 @@ Round Trips für jede Kleinigkeit
   <section data-markdown>
       <textarea data-template>
 ## Teil II: Was alle Frameworks gemeinsam haben         
+
+Kriterien, die man zur Auswahl eines Frameworks zu Grunde legen kann, die aber von ALLEN Frameworks nahezu identisch gut unterstützt werden und die deswegen nicht in den Skalen enthalten sind
+
 </textarea>
     </section>
 
 <section data-markdown>
-<textarea data-template>
-### Kriterien, die man zur Auswahl eines Frameworks zu Grunde legen kann, die aber von ALLEN Frameworks nahezu identisch gut unterstützt werden und die deswegen nicht in den Skalen enthalten sind
+    <textarea data-template>
+### TypeScript für Geschäftsanwendungen
 
-* TypeScript
-* IDE Unterstützung (Code Completion, Wizards etc)
-* Deklaratives Rendering        
+_Alle Frameworks arbeiten gut mit TypeScript_
+
+<img src='img/typescript.jpg' height="400px">
+
+<br>
+<small>
+
+https://www.typescriptlang.org/
+
+</small>
+
 </textarea>
-</section>
+  </section>
 
+  <section>
+    <h3>Basics</h3>
+    <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
+// variables can have type information
+let foo: string;
+foo = 'yo';
+// Error: Type 'number' is not assignable to type 'string'.
+foo = 10;
+</code></pre>
+    <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
 
+// types can be inferred (return type)
+function sayIt(what: string) {
+return `Saying: ${what}`;
+}
+const said: string = sayIt(obj);
+
+</code></pre>
+    <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
+class Sayer {
+what: string; // mandatory
+
+constructor(what: string) {
+  this.what = what;
+}
+
+// return type if you want to
+sayIt(): string {
+  return `Saying: ${this.what}`;
+}
+}
+</code></pre>
+  </section>
+
+  <section data-markdown>
+    <textarea data-template>
+#### Verhalten wie aus Java gewohnt            
+
+<img src='img/screenshot-typescript.png' class='part'>
+
+Probleme werden zur Entwicklungszeit sichtbar
+<br>
+Show References geht verlässlich
+<br>
+Refactoring möglich
+
+          </textarea>
+  </section>
 
 <section data-markdown>
     <textarea data-template>
@@ -429,6 +473,98 @@ Round Trips für jede Kleinigkeit
 ## Teil III: Entscheidende Unterschiede         
 </textarea>
     </section>
+
+    <section data-markdown>
+        <textarea data-template>
+### Annual Survey among JS Developers
+
+_Caution_: no distinction between Angular.js (1) and Angular (2-x)
+
+<img src='img/js-frameworks-2018.png' height="500px">
+
+<small>
+
+https://2018.stateofjs.com/front-end-frameworks/conclusion
+</small>
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+### React
+
+* nur rendering-lib
+* konservativ weiterentwickelt
+* freie Wahl des Stils 
+* Facebook selbst bevorzugte functional, nun Hooks 
+
+<br>
+<small>
+
+https://reactjs.org/
+
+</small>
+<br>
+<img src='img/framework-icons/react-icon_200px.png' height="100">
+
+    </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+### Angular
+
+* komplettes Framework
+* Klassen mit Dekoratoren (Annotations)
+* schlaue Leute haben (hoffentlich) die richtigen Entscheidungen für uns gefällt
+
+<small>
+
+https://angular.io/
+
+</small>
+<br>
+<img src='img/framework-icons/angular-icon_200px.png' height="100">
+
+
+    </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+### Vue.js
+
+* Ansatz und Template Syntax an Angular.js 1 angelehnt
+* leicht zu erlernen
+* Templates beherrschbar von Frontend (HTML/CSS) Leuten
+
+<small>
+
+https://vuejs.org/    
+</small>
+<br>
+<img src='img/framework-icons/vue-icon_200px.png' height="100">
+    
+    
+    </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+### Web Components
+
+* Standard Browser-API
+* Komponenten sind technisch isoliert (nicht auf JS Ebene)
+* optional lit-element für reactives Rendering (wie klassisches React)
+
+<br>
+<img src='img/framework-icons/wc-icon_200px.png' height="100">
+
+
+</textarea>
+      </section>
+    
 
     <section data-markdown>
         <textarea data-template>
@@ -460,6 +596,8 @@ _bitte Hände heben_
 
 </textarea>
 </section>
+
+
 
 <section data-markdown>
     <textarea data-template>
@@ -655,7 +793,13 @@ _Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es
   </textarea>
   </section>
 
-  
+  <section data-markdown class="todo">
+      <textarea data-template>
+        <p>🎅🤶</p>
+    <a href="https://reactbuch.de"><img src='img/react-buch-v2.png' style="max-height: 650px;">    </a>
+      </textarea>
+    </section>
+
     <section>
       <h2>Vielen Dank!</h2>
       <h3>Mit welchem Framework soll ich meine Single-Page-App bauen? WJAX 2019</h3>
@@ -677,15 +821,6 @@ _Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es
 ## Von hier an nur Material      
 </textarea>
   </section>
-
-
-
-      <section data-markdown class="todo">
-        <textarea data-template>
-          <p>🎅🤶</p>
-      <a href="https://reactbuch.de"><img src='img/react-buch-v2.png' style="max-height: 650px;">    </a>
-        </textarea>
-      </section>
 
       <section class="todo">
         <h3>Lass uns mal ein JavaScript Frontend bauen</h3>
