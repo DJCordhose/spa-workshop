@@ -570,111 +570,6 @@ https://2018.stateofjs.com/front-end-frameworks/conclusion
 
       <section data-markdown>
         <textarea data-template>
-### Angular
-
-* komplettes Framework
-* Klassen mit Dekoratoren (Annotations)
-* schlaue Leute haben (hoffentlich) die richtigen Entscheidungen für uns gefällt
-
-<small>
-
-https://angular.io/
-
-</small>
-<br>
-<img src='img/framework-icons/angular-icon_200px.png' height="100">
-
-
-    </textarea>
-      </section>
-
-
-      <section>
-        <h3>Code Sample: Intermediate Dumb Component</h3>
-        <pre><code data-trim contenteditable class="javascript">
-@Component({
-  selector: 'app-container',
-  template: `<div class='contaner-layout'>
-    <app-title [titles]='titles'>
-        <h1>Hello!</h1>
-    </app-title>
-    <app-button (send)='send.emit()' title='Search'></app-button>
-</div>`
-})
-export class Container {
-  @Input() titles;
-  @Output() send = new EventEmitter();
-
-  // optionally call this, if you need intermediate processing
-  // private buttonSend() {
-    //   this.send.emit();
-    // } 
-}
-        </code></pre>
-        <p>Usage from Smart Component</p>
-        <pre><code data-trim contenteditable>
-<app-container [titles]='titles' (send)='clicked()'></app-container>
-            </code></pre>
-            </section>
-
-    <section>
-        <h2>Button</h2>
-        <h3>Button: Leaf Level Dumb Component</h3>
-        <pre><code data-trim contenteditable class="javascript">
-@Component({
-  selector: 'app-button',
-  template: `<button (click)='send.emit()'>{{title}}</button>`
-})
-export class ButtonComponent {
-  @Input() private title = '';
-  @Output() send = new EventEmitter();
-}
-            </code></pre>
-            </section>
-
-      <section data-markdown>
-        <textarea data-template>
-### React
-
-* nur rendering-lib
-* konservativ weiterentwickelt
-* freie Wahl des Stils 
-* Facebook selbst bevorzugte functional, nun Hooks 
-
-<br>
-<small>
-
-https://reactjs.org/
-
-</small>
-<br>
-<img src='img/framework-icons/react-icon_200px.png' height="100">
-
-    </textarea>
-      </section>
-
-
-      <section data-markdown>
-        <textarea data-template>
-### Vue.js
-
-* Ansatz und Template Syntax an Angular.js 1 angelehnt
-* leicht zu erlernen
-* Templates beherrschbar von Frontend (HTML/CSS) Leuten
-
-<small>
-
-https://vuejs.org/    
-</small>
-<br>
-<img src='img/framework-icons/vue-icon_200px.png' height="100">
-    
-    
-    </textarea>
-      </section>
-
-      <section data-markdown>
-        <textarea data-template>
 ### Web Components
 
 * Standard Browser-API
@@ -783,6 +678,111 @@ greeter.greeting = 'Hi'
   </code></pre>
   
     </section>
+
+      <section data-markdown>
+        <textarea data-template>
+### Angular
+
+* komplettes Framework
+* Klassen mit Dekoratoren (Annotations)
+* schlaue Leute haben (hoffentlich) die richtigen Entscheidungen für uns gefällt
+
+<small>
+
+https://angular.io/
+
+</small>
+<br>
+<img src='img/framework-icons/angular-icon_200px.png' height="100">
+
+
+    </textarea>
+      </section>
+
+
+      <section>
+        <h3>Code Sample: Intermediate Dumb Component</h3>
+        <pre><code data-trim contenteditable class="javascript">
+@Component({
+  selector: 'app-container',
+  template: `<div class='contaner-layout'>
+    <app-title [titles]='titles'>
+        <h1>Hello!</h1>
+    </app-title>
+    <app-button (send)='send.emit()' title='Search'></app-button>
+</div>`
+})
+export class Container {
+  @Input() titles;
+  @Output() send = new EventEmitter();
+
+  // optionally call this, if you need intermediate processing
+  // private buttonSend() {
+    //   this.send.emit();
+    // } 
+}
+        </code></pre>
+        <p>Usage from Smart Component</p>
+        <pre><code data-trim contenteditable>
+<app-container [titles]='titles' (send)='clicked()'></app-container>
+            </code></pre>
+            </section>
+
+    <section>
+        <h2>Button</h2>
+        <h3>Button: Leaf Level Dumb Component</h3>
+        <pre><code data-trim contenteditable class="javascript">
+@Component({
+  selector: 'app-button',
+  template: `<button (click)='send.emit()'>{{title}}</button>`
+})
+export class ButtonComponent {
+  @Input() private title = '';
+  @Output() send = new EventEmitter();
+}
+            </code></pre>
+            </section>
+
+      <section data-markdown>
+        <textarea data-template>
+### React
+
+* nur rendering-lib
+* konservativ weiterentwickelt
+* freie Wahl des Stils 
+* Facebook selbst bevorzugte functional, nun Hooks 
+
+<br>
+<small>
+
+https://reactjs.org/
+
+</small>
+<br>
+<img src='img/framework-icons/react-icon_200px.png' height="100">
+
+    </textarea>
+      </section>
+
+
+      <section data-markdown>
+        <textarea data-template>
+### Vue.js
+
+* Ansatz und Template Syntax an Angular.js 1 angelehnt
+* leicht zu erlernen
+* Templates beherrschbar von Frontend (HTML/CSS) Leuten
+
+<small>
+
+https://vuejs.org/    
+</small>
+<br>
+<img src='img/framework-icons/vue-icon_200px.png' height="100">
+    
+    
+    </textarea>
+      </section>
 
 <section data-markdown>
     <textarea data-template>
