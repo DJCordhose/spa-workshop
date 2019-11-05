@@ -875,58 +875,58 @@ https://vuejs.org/
       <section>
           <h3>Code Sample</h3>
     
-          <pre><code data-trim contenteditable class="javascript fragment">
+          <pre><code data-trim contenteditable class="html fragment">
 // Button.vue (Dumb Component)            
 &lt;template>
   &lt;button @click="$emit('on:click')">{{label}}&lt;/button>
 &lt;/template>
   
 &lt;script>
-  export default {
-    name: "Button",
-    props: ["label"]
-  };
+export default {
+  name: "Button",
+  props: ["label"]
+};
 &lt;/script>
-  
+
 &lt;style scoped>
-  button {
-    padding: 1rem;
-  }
+button {
+  padding: 1rem;
+}
 &lt;/style>            
           </code></pre>
         </section>
       <section>
       <h3>Code Sample</h3>
 
-      <pre><code data-trim contenteditable class="javascript fragment">
-        // SearchField.vue
-        &lt;template>
-          &lt;div id="search-field">
-            &lt;input v-model="searchString" />
-            &lt;Button @on:click="search" label="Search" /> 
-            &lt;Button @on:click="clear" label="Clear" /> 
-          &lt;/div>
-        &lt;/template>
-          
-        &lt;script>
-          export default {
-            name: "search-field",
-            components: { Button  },            
-            data() {
-              return { searchString: "" }
-            },
-            methods: {
-              search() { this.$emit("search", this.searchString); },
-              clear() { this.searchString = ""; }
-            }
-          };
-        &lt;/script>
-          
-        &lt;style scoped>
-          input, button {
-            padding: 1rem;
-          }
-      &lt;/style>        
+      <pre><code data-trim contenteditable class="html fragment">
+// SearchField.vue
+&lt;template>
+  &lt;div id="search-field">
+    &lt;input v-model="searchString" />
+    &lt;Button @on:click="search" label="Search" /> 
+    &lt;Button @on:click="clear" label="Clear" /> 
+  &lt;/div>
+&lt;/template>
+  
+&lt;script>
+  export default {
+    name: "search-field",
+    components: { Button  },            
+    data() {
+      return { searchString: "" }
+    },
+    methods: {
+      search() { this.$emit("search", this.searchString); },
+      clear() { this.searchString = ""; }
+    }
+  };
+&lt;/script>
+  
+&lt;style scoped>
+  input, button {
+    padding: 1rem;
+  }
+&lt;/style>        
     </code></pre>
   
         </section>
