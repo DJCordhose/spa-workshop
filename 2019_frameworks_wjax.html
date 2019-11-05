@@ -219,7 +219,7 @@ Session.
             </p>
           </section>
 
-    <section data-markdown>
+    <!-- <section data-markdown>
         <textarea data-template>
 
 ## Architektur
@@ -244,7 +244,7 @@ _Worauf wir uns konzentrieren_
       <em>Architektur für ein bisschen CSS-Pixel-Geschubse?</em>
     </li>
   </ul>
-</section>
+</section> -->
 
 <section data-markdown class="todo">
     <textarea data-template>
@@ -252,8 +252,6 @@ _Worauf wir uns konzentrieren_
   If UI is no challenge, why do systems like Linux run more smoothly and are used for production than Windows or even Mac OS?
 </textarea>
   </section>
-
-
 
     <section data-markdown>
         <textarea data-template>
@@ -468,11 +466,91 @@ Refactoring möglich
           </textarea>
   </section>
 
+
+  <section data-markdown class="fragments">
+    <textarea data-template>
+### Arten von Komponenten
+
+_Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
+
+1. Container Components (aka Smart Components)
+* enthalten Logik
+* Meist spezifisch für Anwendungsfall
+* Nicht wiederverwendbar
+1. Presentational Components (aka Dumb Components)
+* Darstellung
+* keine nennenswerte Logik
+* Komponenten-Bibliotheken enthalten vor allem wiederverwendbare Presentational Components
+
+          </textarea>
+  </section>
+
+  <section data-markdown>
+    <textarea data-template>
+
+<img src='img/bahn-smart-dumb.png' height="750">
+
+          </textarea>
+  </section>
+
+  <section data-markdown>
+      <textarea data-template>
+
+      ### Klarer Daten- und Kontrollfluss zwischen den Komponenten
+
+      <img src='img/spicker/spicker-hierarchien.png' height="550">
+
+            </textarea>
+    </section>
+
+    <section data-markdown>
+      <textarea data-template>
+
+<img src='img/bahn-smart-dumb-calender.png' height="750">
+
+            </textarea>
+    </section>
+
   <section data-markdown>
       <textarea data-template>
 ## Teil III: Entscheidende Unterschiede         
 </textarea>
     </section>
+
+    
+
+    <section data-markdown>
+      <textarea data-template>
+<img src='img/dalgleish-framework-twitter.png' height="850">
+
+<small>          
+https://twitter.com/markdalgleish/status/1144223814256979968
+</small>
+</textarea>
+    </section>
+
+
+<section data-markdown class="fragments">
+  <textarea data-template>
+### Welches ist euer Lieblingsframework?
+
+_bitte Hände heben_
+1. Angular
+1. React
+1. Web Components
+1. Vue
+1. Ein anderes
+
+<p>
+<img src='img/framework-icons/angular-icon_200px.png' height="200">
+<img src='img/framework-icons/react-icon_200px.png' height="180">
+<img src='img/framework-icons/vue-icon_200px.png' height="180">
+<img src='img/framework-icons/wc-icon_200px.png' height="200">
+</p>
+
+</textarea>
+</section>
+
 
     <section data-markdown>
         <textarea data-template>
@@ -489,6 +567,70 @@ https://2018.stateofjs.com/front-end-frameworks/conclusion
 
         </textarea>
       </section>
+
+      <section data-markdown>
+        <textarea data-template>
+### Angular
+
+* komplettes Framework
+* Klassen mit Dekoratoren (Annotations)
+* schlaue Leute haben (hoffentlich) die richtigen Entscheidungen für uns gefällt
+
+<small>
+
+https://angular.io/
+
+</small>
+<br>
+<img src='img/framework-icons/angular-icon_200px.png' height="100">
+
+
+    </textarea>
+      </section>
+
+
+      <section>
+        <h3>Code Sample: Intermediate Dumb Component</h3>
+        <pre><code data-trim contenteditable class="javascript">
+@Component({
+  selector: 'app-container',
+  template: `<div class='contaner-layout'>
+    <app-title [titles]='titles'>
+        <h1>Hello!</h1>
+    </app-title>
+    <app-button (send)='send.emit()' title='Search'></app-button>
+</div>`
+})
+export class Container {
+  @Input() titles;
+  @Output() send = new EventEmitter();
+
+  // optionally call this, if you need intermediate processing
+  // private buttonSend() {
+    //   this.send.emit();
+    // } 
+}
+        </code></pre>
+        <p>Usage from Smart Component</p>
+        <pre><code data-trim contenteditable>
+<app-container [titles]='titles' (send)='clicked()'></app-container>
+            </code></pre>
+            </section>
+
+    <section>
+        <h2>Button</h2>
+        <h3>Button: Leaf Level Dumb Component</h3>
+        <pre><code data-trim contenteditable class="javascript">
+@Component({
+  selector: 'app-button',
+  template: `<button (click)='send.emit()'>{{title}}</button>`
+})
+export class ButtonComponent {
+  @Input() private title = '';
+  @Output() send = new EventEmitter();
+}
+            </code></pre>
+            </section>
 
       <section data-markdown>
         <textarea data-template>
@@ -511,25 +653,6 @@ https://reactjs.org/
     </textarea>
       </section>
 
-      <section data-markdown>
-        <textarea data-template>
-### Angular
-
-* komplettes Framework
-* Klassen mit Dekoratoren (Annotations)
-* schlaue Leute haben (hoffentlich) die richtigen Entscheidungen für uns gefällt
-
-<small>
-
-https://angular.io/
-
-</small>
-<br>
-<img src='img/framework-icons/angular-icon_200px.png' height="100">
-
-
-    </textarea>
-      </section>
 
       <section data-markdown>
         <textarea data-template>
@@ -564,40 +687,102 @@ https://vuejs.org/
 
 </textarea>
       </section>
-    
 
-    <section data-markdown>
-        <textarea data-template>
-<img src='img/dalgleish-framework-twitter.png' height="850">
+<section>
+<h4>Web Components</h4>
 
-<small>          
-https://twitter.com/markdalgleish/status/1144223814256979968
-</small>
-</textarea>
-      </section>
+<pre class="fragment"><code data-trim class="javascript">
+const template = `
+&lt;input id="in">
+&lt;p>&lt;span id="log"></span>, World</p>
+&lt;input id="btn" type="button" value="Clear">`
+</code></pre>
 
+<pre class="fragment"><code data-trim class="javascript">
+class MyElement extends HTMLElement {
+  constructor() {
+      super();
+      this.attachShadow({mode: 'open'});
+      this.shadowRoot.innerHTML = template;
+      this.input = this.shadowRoot.querySelector("#in");
+      this.log = this.shadowRoot.querySelector("#log");
+      this.button = this.shadowRoot.querySelector("#btn");
+  }
 
-<section data-markdown class="fragments">
-    <textarea data-template>
-### Welches ist euer Lieblingsframework?
+  connectedCallback() {
+      this.input.addEventListener("keyup", event => this.model = event.target.value);
+      this.button.addEventListener("click", event => this.model = "");
+  }
 
-_bitte Hände heben_
-1. Angular
-1. React
-1. Web Components
-1. Vue
+  set model(value) {
+    this.log.textContent = value;
+    this.input.value = value;
+  }
 
-<p>
-<img src='img/framework-icons/angular-icon_200px.png' height="200">
-<img src='img/framework-icons/react-icon_200px.png' height="180">
-<img src='img/framework-icons/vue-icon_200px.png' height="180">
-<img src='img/framework-icons/wc-icon_200px.png' height="200">
+}
+customElements.define('my-element', MyElement);
+</code></pre>
+  
+<pre class="fragment"><code data-trim class="javascript">
+&lt;script src="./my-element.js">&lt;/script>
+&lt;my-element>&lt;/my-element>
+</code></pre>
+<small>
+ <a href='code/webcomponents.html'>Try it out</a>   
+
+  </small>
+  </section>
+
+  <section data-markdown
+  <textarea data-template>
+### Is Development for Web Components procedural and low-level?
+
+<h4 class="fragment">enter lit-element, successor of Polymer</h4>
+
+<p class="fragment">
+https://lit-element.polymer-project.org/
+<br>
+https://project-awesome.org/web-padawan/awesome-lit-html  
 </p>
-
+  
 </textarea>
 </section>
 
+<section>
+<h3>Web Components with lit-element</h3>
 
+<pre class="fragment"><code data-trim class="javascript">
+@customElement('my-element')
+class MyElement extends LitElement {
+  @property() greeting: string = 'Hello';
+
+  render() {
+      return html`
+      &lt;input value="${this.greeting}" 
+        @keyup="${(event: any) => this.greeting = event.target.value}">
+      &lt;p>${this.greeting}, World&lt;/p>
+      &lt;input type="button" value="Clear" @click="${this.handleClick}">`;
+  }
+
+  handleClick() {
+      this.greeting = '';
+  }
+}
+</code></pre>
+
+<pre class="fragment"><code data-trim class="javascript">
+// using the web component (like before)  
+&lt;script type="module" src="./my-element-pure.js">&lt;/script>
+&lt;my-element greeting="Hiho">&lt;/my-element>
+</code></pre>
+
+<pre class="fragment"><code data-trim class="javascript">
+// we can use properties or attributes for greeting
+const greeter = document.querySelector('my-element')
+greeter.greeting = 'Hi'
+  </code></pre>
+  
+    </section>
 
 <section data-markdown>
     <textarea data-template>
