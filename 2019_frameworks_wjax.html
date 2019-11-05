@@ -160,6 +160,15 @@
     .reveal {
       color: black !important;
     }
+
+    .part {
+      height: 500px;
+    }
+
+    .full {
+      height: 650px;
+    }
+
   </style>
 
   <!-- Printing and PDF exports -->
@@ -207,6 +216,10 @@ Session.
             WJAX, München, November 2019</a></h3>
 
             <div>
+              <a href="https://nilshartmann.net">Nils Hartmann</a> /
+              <a href="https://twitter.com/nilshartmann">@nilshartmann</a>
+            </div>
+            <div>
               <a href="http://zeigermann.eu">Oliver Zeigermann</a> /
               <a href="http://twitter.com/djcordhose">@DJCordhose</a> /
               <a href="https://www.embarc.de/ ">embarc GmbH</a>
@@ -219,6 +232,13 @@ Session.
             </p>
           </section>
 
+          <section data-markdown>
+            <textarea data-template>
+              <p>🎅🤶</p>
+          <a href="https://reactbuch.de"><img src='img/react-buch-v2.png' style="max-height: 650px;">    </a>
+            </textarea>
+          </section>
+      
     <!-- <section data-markdown>
         <textarea data-template>
 
@@ -246,12 +266,47 @@ _Worauf wir uns konzentrieren_
   </ul>
 </section> -->
 
-<section data-markdown class="todo">
+<!-- <section data-markdown class="todo">
     <textarea data-template>
 
   If UI is no challenge, why do systems like Linux run more smoothly and are used for production than Windows or even Mac OS?
 </textarea>
   </section>
+ -->
+
+     
+
+ <section data-markdown>
+  <textarea data-template>
+<img src='img/dalgleish-framework-twitter.png' height="850">
+
+<small>          
+https://twitter.com/markdalgleish/status/1144223814256979968
+</small>
+</textarea>
+</section>
+
+
+<section data-markdown class="fragments">
+<textarea data-template>
+### Welches ist euer Lieblingsframework?
+
+_bitte Hände heben_
+1. Angular
+1. React
+1. Web Components
+1. Vue
+1. Ein anderes
+
+<p>
+<img src='img/framework-icons/angular-icon_200px.png' height="200">
+<img src='img/framework-icons/react-icon_200px.png' height="180">
+<img src='img/framework-icons/vue-icon_200px.png' height="180">
+<img src='img/framework-icons/wc-icon_200px.png' height="200">
+</p>
+
+</textarea>
+</section>
 
     <section data-markdown>
         <textarea data-template>
@@ -260,7 +315,7 @@ _Worauf wir uns konzentrieren_
 1. Motivation / Herleitung / Hintergrund
 1. Was haben alle SPAs Frameworks gemeinsam
 1. Entscheidende Unterschiede
-1. Was meinen eigentlich Nils und Olli
+<!-- 1. Was meinen eigentlich Nils und Olli -->
 </textarea>
       </section>
 
@@ -318,7 +373,7 @@ Double Submit
               </textarea>
     </section>
 
-    <section data-markdown>
+    <!-- <section data-markdown>
         <textarea data-template>
 ### Eventual Consistency
 
@@ -333,7 +388,7 @@ Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit
 By http://www.europecomics.com/serie/imbattable/
 </small>
             </textarea>
-      </section>
+      </section> -->
 
 
     <section data-markdown>
@@ -369,18 +424,25 @@ Round Trips für jede Kleinigkeit
                   </textarea>
     </section>
 
-  <section data-markdown>
+  <!-- <section data-markdown>
     <textarea data-template>
 <img src='img/spicker-anforderungen.png' height="750">
 
         </textarea>
-  </section>
+  </section> -->
+
+  <section data-markdown class="local">
+      <textarea data-template>
+# Olli
+        </textarea>
+    </section>
+
 
   <section data-markdown>
       <textarea data-template>
 ## Teil II: Was alle Frameworks gemeinsam haben         
 
-Kriterien, die man zur Auswahl eines Frameworks zu Grunde legen kann, die aber von ALLEN Frameworks nahezu identisch gut unterstützt werden und die deswegen nicht in den Skalen enthalten sind
+<!-- Kriterien, die man zur Auswahl eines Frameworks zu Grunde legen kann, die aber von ALLEN Frameworks nahezu identisch gut unterstützt werden und die deswegen nicht in den Skalen enthalten sind -->
 
 </textarea>
     </section>
@@ -416,23 +478,23 @@ foo = 10;
 
 // types can be inferred (return type)
 function sayIt(what: string) {
-return `Saying: ${what}`;
+  return `Saying: ${what}`;
 }
 const said: string = sayIt(obj);
 
 </code></pre>
     <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
 class Sayer {
-what: string; // mandatory
+  what: string; // mandatory
 
-constructor(what: string) {
-  this.what = what;
-}
+  constructor(what: string) {
+    this.what = what;
+  }
 
-// return type if you want to
-sayIt(): string {
-  return `Saying: ${this.what}`;
-}
+  // return type if you want to
+  sayIt(): string {
+    return `Saying: ${this.what}`;
+  }
 }
 </code></pre>
   </section>
@@ -474,13 +536,13 @@ Refactoring möglich
 _Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
 
 1. Container Components (aka Smart Components)
-* enthalten Logik
-* Meist spezifisch für Anwendungsfall
-* Nicht wiederverwendbar
+  * enthalten Logik
+  * Meist spezifisch für Anwendungsfall
+  * Nicht wiederverwendbar
 1. Presentational Components (aka Dumb Components)
-* Darstellung
-* keine nennenswerte Logik
-* Komponenten-Bibliotheken enthalten vor allem wiederverwendbare Presentational Components
+  * Darstellung
+  * keine nennenswerte Logik
+  * Komponenten-Bibliotheken enthalten vor allem wiederverwendbare Presentational Components
 
           </textarea>
   </section>
@@ -517,42 +579,7 @@ _Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
 </textarea>
     </section>
 
-    
-
-    <section data-markdown>
-      <textarea data-template>
-<img src='img/dalgleish-framework-twitter.png' height="850">
-
-<small>          
-https://twitter.com/markdalgleish/status/1144223814256979968
-</small>
-</textarea>
-    </section>
-
-
-<section data-markdown class="fragments">
-  <textarea data-template>
-### Welches ist euer Lieblingsframework?
-
-_bitte Hände heben_
-1. Angular
-1. React
-1. Web Components
-1. Vue
-1. Ein anderes
-
-<p>
-<img src='img/framework-icons/angular-icon_200px.png' height="200">
-<img src='img/framework-icons/react-icon_200px.png' height="180">
-<img src='img/framework-icons/vue-icon_200px.png' height="180">
-<img src='img/framework-icons/wc-icon_200px.png' height="200">
-</p>
-
-</textarea>
-</section>
-
-
-    <section data-markdown>
+    <!-- <section data-markdown>
         <textarea data-template>
 ### Annual Survey among JS Developers
 
@@ -566,7 +593,22 @@ https://2018.stateofjs.com/front-end-frameworks/conclusion
 </small>
 
         </textarea>
-      </section>
+      </section> -->
+
+<section data-markdown>
+<textarea data-template>
+### Unsere Kandidaten
+
+<p>
+<img src='img/framework-icons/angular-icon_200px.png' height="200">
+<img src='img/framework-icons/react-icon_200px.png' height="180">
+<img src='img/framework-icons/vue-icon_200px.png' height="180">
+<img src='img/framework-icons/wc-icon_200px.png' height="200">
+</p>
+
+</textarea>
+</section>
+
 
       <section data-markdown>
         <textarea data-template>
@@ -619,32 +661,30 @@ customElements.define('my-element', MyElement);
 </code></pre>
   
 <pre class="fragment"><code data-trim class="javascript">
+// usage from html file  
 &lt;script src="./my-element.js">&lt;/script>
 &lt;my-element>&lt;/my-element>
 </code></pre>
 <small>
- <a href='code/webcomponents.html'>Try it out</a>   
-
+ 
   </small>
   </section>
 
   <section data-markdown
   <textarea data-template>
-### Is Development for Web Components procedural and low-level?
+### Sind Web Components immer prozedural und low-level?
 
-<h4 class="fragment">enter lit-element, successor of Polymer</h4>
+<h4 class="fragment">lit-element, Nachfolger Polymer</h4>
 
 <p class="fragment">
 https://lit-element.polymer-project.org/
-<br>
-https://project-awesome.org/web-padawan/awesome-lit-html  
 </p>
   
 </textarea>
 </section>
 
 <section>
-<h3>Web Components with lit-element</h3>
+<h3>Web Components mit lit-element</h3>
 
 <pre class="fragment"><code data-trim class="javascript">
 @customElement('my-element')
@@ -686,6 +726,7 @@ greeter.greeting = 'Hi'
 * komplettes Framework
 * Klassen mit Dekoratoren (Annotations)
 * schlaue Leute haben (hoffentlich) die richtigen Entscheidungen für uns gefällt
+* DI und Services, ähnliches Programmiermodell wie bei Java
 
 <small>
 
@@ -699,39 +740,10 @@ https://angular.io/
     </textarea>
       </section>
 
-
       <section>
-        <h3>Code Sample: Intermediate Dumb Component</h3>
-        <pre><code data-trim contenteditable class="javascript">
-@Component({
-  selector: 'app-container',
-  template: `<div class='contaner-layout'>
-    <app-title [titles]='titles'>
-        <h1>Hello!</h1>
-    </app-title>
-    <app-button (send)='send.emit()' title='Search'></app-button>
-</div>`
-})
-export class Container {
-  @Input() titles;
-  @Output() send = new EventEmitter();
-
-  // optionally call this, if you need intermediate processing
-  // private buttonSend() {
-    //   this.send.emit();
-    // } 
-}
-        </code></pre>
-        <p>Usage from Smart Component</p>
-        <pre><code data-trim contenteditable>
-<app-container [titles]='titles' (send)='clicked()'></app-container>
-            </code></pre>
-            </section>
-
-    <section>
-        <h2>Button</h2>
-        <h3>Button: Leaf Level Dumb Component</h3>
-        <pre><code data-trim contenteditable class="javascript">
+        <h3>Code Sample</h3>
+          <pre><code data-trim contenteditable class="javascript fragment">
+// Leaf Dumb Component            
 @Component({
   selector: 'app-button',
   template: `<button (click)='send.emit()'>{{title}}</button>`
@@ -740,17 +752,40 @@ export class ButtonComponent {
   @Input() private title = '';
   @Output() send = new EventEmitter();
 }
+              </code></pre>
+
+        <pre><code data-trim contenteditable class="javascript fragment">
+// Container Dumb Component          
+@Component({
+  selector: 'app-container',
+  template: `<div class='container-layout'>
+    <app-button (send)='send.emit()' title='Search'></app-button>
+</div>`
+})
+export class Container {
+  @Output() send = new EventEmitter();
+}
+        </code></pre>
+        <pre><code data-trim contenteditable class="javascript fragment">
+// Usage from Smart Component          
+<app-container (send)='clicked()'></app-container>
             </code></pre>
             </section>
+
+<section data-markdown class="local">
+    <textarea data-template>
+# Nils
+      </textarea>
+  </section>
 
       <section data-markdown>
         <textarea data-template>
 ### React
 
-* nur rendering-lib
+* nur UI
 * konservativ weiterentwickelt
 * freie Wahl des Stils 
-* Facebook selbst bevorzugte functional, nun Hooks 
+* Facebook selbst bevorzugt functional, nun Hooks 
 
 <br>
 <small>
@@ -810,10 +845,6 @@ Seit wann ist das Framework seriös nutzbar?
 <p>
 <img src='img/spicker/Skala_1.png' width="1500" class="fragment">
 </p>
-<ol>
-<li>Habt ihr die Anforderung?
-<li class="fragment">Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?</li>
-</ol>
           </textarea>
 </section>
 
@@ -827,10 +858,6 @@ Wie nah ist das Framework an Browser- und Web-Standards?
 <p>
 <img src='img/spicker/Skala_2.png' width="1500" class="fragment">
 </p>
-<ol>
-    <li>Habt ihr die Anforderung?
-    <li class="fragment">Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?</li>
-</ol>
               </textarea>
 </section>
 
@@ -844,12 +871,14 @@ Wie stark leitet das Framework bei der Entwicklung (opinionated)?
 <p>
 <img src='img/spicker/Skala_3.png' width="1500" class="fragment">
 </p>
-<ol>
-    <li>Habt ihr die Anforderung?
-    <li class="fragment">Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?</li>
-</ol>
               </textarea>
 </section>
+
+<section data-markdown class="local">
+    <textarea data-template>
+# Olli
+      </textarea>
+  </section>
 
 <section data-markdown>
     <textarea data-template>
@@ -861,10 +890,6 @@ Wie stark muss man auf Weiterentwicklungen im Framework reagieren?
 <p>
 <img src='img/spicker/Skala_4.png' width="1500" class="fragment">
 </p>
-<ol>
-    <li>Habt ihr die Anforderung?
-    <li class="fragment">Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?</li>
-</ol>
               </textarea>
 </section>
 
@@ -878,10 +903,6 @@ Wie viel bindet man sich mit einem Framework ans Bein? Kann man das Framework no
 <p>
 <img src='img/spicker/Skala_5.png' width="1500" class="fragment">
 </p>
-<ol>
-    <li>Habt ihr die Anforderung?
-    <li class="fragment">Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?</li>
-</ol>
               </textarea>
 </section>
 
@@ -895,14 +916,10 @@ Wie vollständig ist das Framework für ein typisches großes Vorhaben?
 <p>
 <img src='img/spicker/Skala_6.png' width="1500" class="fragment">
 </p>
-<ol>
-<li>Habt ihr die Anforderung?
-<li class="fragment">Wenn ihr ein Lieblingsframework habt: passt es zu euren Anforderungen?</li>
-</ol>
               </textarea>
 </section>
 
-  <section data-markdown>
+  <!-- <section data-markdown>
       <textarea data-template>
 ## Teil IV: Was meinen eigentlich Nils und Olli         
 </textarea>
@@ -917,34 +934,33 @@ Wie vollständig ist das Framework für ein typisches großes Vorhaben?
       </section>
       
   
-      <section data-markdown class="todo" style="font-size: x-large;">
+      <section data-markdown style="font-size: xx-large;" class="fragments">
         <textarea data-template>
   ### Chat mit Olli und Nils
 
-  - Gefühlsmäßig würde ich aber sagen; Web Components im Style des alten Reacts werden wichtig werden
+- Nils: Gefühlsmäßig würde ich aber sagen; Web Components im Style des alten Reacts werden wichtig werden
 
-  - WebComponents werden erst mit Hooks interessant 😉
+- Nils: WebComponents werden erst mit Hooks interessant 😉
 
-  - ich glaube ja wirklich, dass React als ES6 Klassen am besten war,  danach ging es bergab  und genau das ist ja Web Components mit litElement  nur ohne JSX
+- Olli: ich glaube ja wirklich, dass React als ES6 Klassen am besten war, danach ging es bergab  und genau das ist ja Web Components mit litElement  nur ohne JSX
 
-  - Finde ich nicht unbedingt, finde die Hooks API unter'm Strich schon in Orndung... aber!... Die Frage ist, was neue Leute jetzt nehmen
+- Nils: Finde ich nicht unbedingt, finde die Hooks API unter'm Strich schon in Orndung... aber!... Die Frage ist, was neue Leute jetzt nehmen
 
-  - die ist ja in Ordnung, aber im Vergleich zu dem, was man dafür lernen und verstehen muss...
+- Olli: die ist ja in Ordnung, aber im Vergleich zu dem, was man dafür lernen und verstehen muss...
 
-  - Das Argument, mit React würde man JavaScript machen stimmt ja nicht mehr, und dann sagen die Leutchens vielleicht, dann lieber WCs, die sind wenigstens Standard
+- Nils: Das Argument, mit React würde man JavaScript machen stimmt ja nicht mehr, und dann sagen die Leutchens vielleicht, dann lieber WCs, die sind wenigstens Standard
 
-  - 
   
   </textarea>
       </section>
-
+ -->
 <section data-markdown class="fragments">
     <textarea data-template>
 ### TL'DR: Welches Framework soll ich nehmen?
 
 * Angular: erzwingt Einheitlichkeit über viele Teams
 * React: maximale Flexibilität
-* Web Components: keine Abhängigkeiten
+* Web Components: keine Abhängigkeiten (naja)
 * Vue: Frontendler (UI Developer) lieben es
 
 _Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es Geschmack und persönliche Erfahrung_
@@ -978,17 +994,15 @@ _Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es
   </textarea>
   </section>
 
-  <section data-markdown class="todo">
-      <textarea data-template>
-        <p>🎅🤶</p>
-    <a href="https://reactbuch.de"><img src='img/react-buch-v2.png' style="max-height: 650px;">    </a>
-      </textarea>
-    </section>
 
     <section>
       <h2>Vielen Dank!</h2>
       <h3>Mit welchem Framework soll ich meine Single-Page-App bauen? WJAX 2019</h3>
       <div>
+          <a href="https://nilshartmann.net">Nils Hartmann</a> /
+          <a href="https://twitter.com/nilshartmann">@nilshartmann</a>
+        </div>
+  <div>
           <a href="http://zeigermann.eu">Oliver Zeigermann</a> /
           <a href="http://twitter.com/djcordhose">@DJCordhose</a> /
           <a href="https://www.embarc.de/ ">embarc GmbH</a>
