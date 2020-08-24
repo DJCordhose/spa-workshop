@@ -8,7 +8,7 @@
       Details can be found here
       <a
         href="https://v3.vuejs.org/guide/introduction.html"
-      >https://v3.vuejs.org/guide/introduction.html</a>
+      >https://v3.vuejs.org/guide/introduction.html</a>. Info on TypeScript support: <a href='https://v3.vuejs.org/guide/typescript-support.html#annotating-props'>https://v3.vuejs.org/guide/typescript-support.html#annotating-props</a>.
     </p>
   </div>
 </template>
