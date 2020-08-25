@@ -367,13 +367,6 @@ https://www.embarc.de/microservices-makro-architektur-oop-2020/
     </textarea>
   </section>
 
-       <section data-markdown class="todo">
-      <textarea data-template>
-<img src='img/spa_rules.jpg' height="1000px">    
-</textarea>
-    </section>
-   
-
   <section data-markdown class="todo">
         <textarea data-template>
 Wenn in react eine Komponente „alles“ enthält: gibt man das mit Smart und dumb components nicht wieder auf?
@@ -427,6 +420,26 @@ What else should we expect? Front-end engineers are given the incredibly hard ta
           </p>
         </section>
 
+        <section>
+          <h2>Wir nehmen Frontend-Architektur nicht für voll</h2>
+          <p>Zitate</p>
+          <ul>
+            <li class="fragment">
+              <em>Frontend-Architektur? Ich dachte sowas gibt es gar nicht</em>
+            </li>
+            <li class="fragment">
+              <em>Das Frontend kloppen wir am Ende einfach irgendwie drauf</em>
+            </li>
+            <li class="fragment">
+              <em>Architektur für ein bisschen CSS-Pixel-Geschubse?</em>
+            </li>
+            <li class="fragment">
+              <em>Wir nehmen jetzt Angular, das war beim letzten Projekt ja auch gut</em>
+            </li>
+          </ul>
+        </section>
+
+
         <section data-markdown>
           <textarea data-template>
 ### Unsere Fragen für heute
@@ -435,10 +448,86 @@ _Moderne Frontend-Architekturen für Single-Page-Anwendungen_
 
 1. Was ist Frontend?
 1. Was ist eine Single-Page-Anwendung (SPA)?
-1. Was ist modern?
 1. Was ist Architektur?
 1. Was kann moderne Frontend-Architekturen für Single-Page-Anwendungen beinhalten?
             </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+# Was ist Frontend?
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+### Front-End und Back-End
+
+* Front-End und Back-End werden in der Informationstechnik an verschiedenen Stellen in Verbindung mit einer Schichteneinteilung verwendet. 
+* Dabei ist typischerweise das Front-End näher am Benutzer, das Back-End näher am System.
+* Bei Client-Server-Anwendungen wird das auf dem Client laufende Programm als Front-End, das auf dem Server laufende als Back-End bezeichnet.
+* Front-End bezeichnet auch grundsätzlich die Benutzeroberfläche, die z. B. in Form einer grafischen Benutzeroberfläche oder mittels Bildschirmmasken implementiert sein kann.
+
+<small>https://de.wikipedia.org/wiki/Front-End_und_Back-End</small>  
+
+            </textarea>
+        </section>
+
+        
+
+        <section data-markdown>
+          <textarea data-template>
+### Klassische Sicht
+
+  <img src='img/webapp_arch01_classic.png' height="500px">
+
+          </textarea>
+        </section>
+
+
+        <section data-markdown>
+          <textarea data-template>
+# Was ist eine Single-Page-Anwendung (SPA)?
+          </textarea>
+        </section>
+
+
+        <section data-markdown>
+          <textarea data-template>
+    <img src='img/spa_rules.jpg' height="1000px">    
+    </textarea>
+        </section>
+       
+        <section data-markdown>
+          <textarea data-template>
+#### Klassische Sicht mit "ein bisschen" JavaScript
+      
+  <img src='img/webapp_arch_02_jquery.png' height="500px">  
+
+                  </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+### Moderne Frontend-Architektur === SPA
+
+A single-page application (SPA) is a web application that interacts 
+with the user by dynamically rewriting the current page rather than loading entire new pages from a server. 
+
+This approach avoids interruption of the user experience between successive pages.
+
+<small>https://en.wikipedia.org/wiki/Single-page_application</small>  
+
+            </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+### Single-Page-Anwendung
+        
+  <img src='img/webapp_arch_03_spa.png'  height="500px">  
+  
+                    </textarea>
         </section>
 
         <section data-markdown>
@@ -475,7 +564,9 @@ Was bedeutet dabei wichtig?
 - solche Entscheidungen möchte man am besten gar nicht fällen
 - wenn man sie doch fällen muss, dann möglichst spät wenn man schon viel weiß
 - oder sie in einem begrenzten Umfang treffen
-- Passt nicht zwingend zu einer eher technischen Definition: zerteilen in sinnvolle Module (kann Architektur sein, muss aber nicht)
+- Fachabteilung wird verwundert sein wenn man sagt, dass man Dinge nicht umsetzen kann
+
+Passt nicht zwingend zu einer eher technischen Definition: zerteilen in sinnvolle Module (kann Architektur sein, muss aber nicht)
             </textarea>
         </section>
 
@@ -511,7 +602,7 @@ Entscheidungen, die die Umsetzbarkeit fundamental beeinflussen _können(!)_
 1. CSS Framework (Bootstrap, Tailwind, kein Framework)
 1. State Management
 1. Typing
-1. Aufteilung in Micro-Frontends
+1. Aufteilung in Innere und Äußere Architektur
 
             </textarea>
         </section>
@@ -531,159 +622,14 @@ Entscheidungen, die die Umsetzbarkeit fundamental beeinflussen _können(!)_
       </textarea>
     </section>
   
-  
-        <section data-markdown>
-          <textarea data-template>
-### Frontend-Architektur?
+    <section data-markdown class="todo">
+      <textarea data-template>
+# Hier durch die typischen Architektur-Entscheidungen gehen
+        </textarea
+      >
+    </section>
 
-<div class="fragment">
-Mein Sohn hat da mal was fertig gemacht
-</div>  
 
-<div class="fragment">
-<img src='img/chs_generic_architecture.jpg' height="500px">
-<br>
-<small>(c) Anton Schmidt</small>
-
-</div>  
-
-            </textarea>
-        </section>
-
-        <section>
-          <h2>Wir nehmen Frontend-Architektur nicht für voll</h2>
-          <p>Zitate</p>
-          <ul>
-            <li class="fragment">
-              <em>Frontend-Architektur? Ich dachte sowas gibt es gar nicht</em>
-            </li>
-            <li class="fragment">
-              <em>Das Frontend kloppen wir am Ende einfach irgendwie drauf</em>
-            </li>
-            <li class="fragment">
-              <em>Architektur für ein bisschen CSS-Pixel-Geschubse?</em>
-            </li>
-          </ul>
-        </section>
-
-        <section data-markdown class="local">
-          <textarea data-template>
-# Nils
-          </textarea>
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-## Teil I: Motivation / Herleitung / Hintergrund
-
-</textarea
-          >
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-### Moderne Frontend-Architektur === SPA
-
-A single-page application (SPA) is a web application that interacts 
-with the user by dynamically rewriting the current page rather than loading entire new pages from a server. 
-
-This approach avoids interruption of the user experience between successive pages.
-
-<small>
-https://en.wikipedia.org/wiki/Single-page_application  
-</small>
-            </textarea
-          >
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-#### "Alle" reden von SPA... aber:            
-  ### Warum eigentlich nicht klassisch?
-
-  <img src='img/webapp_arch01_classic.png' height="500px">
-
-  Ganz einfach ?!
-
-          </textarea>
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-#### "Alle" reden von SPA... aber:            
-  ### Warum eigentlich nicht klassisch?
-    
-<img src='img/classic/double-submit.jpg' class='part'>
-    
-  Double Submit
-    
-                </textarea
-          >
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-  ### Warum eigentlich nicht klassisch?
-    
-  <video controls src="img/classic/roundtrips.mp4" type="video/mp4" class='part'></video>
-  
-  Round Trips für jede Kleinigkeit
-    
-                </textarea
-          >
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-### Warum eigentlich nicht klassisch...
-  #### ...mit "ein bisschen" JavaScript?
-      
-  <img src='img/webapp_arch_02_jquery.png' height="500px">  
-
-😱 
-
-                  </textarea
-          >
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-#### Sauberste Lösung:
-  ### Single-Page-Anwendung
-        
-  <img src='img/webapp_arch_03_spa.png'  height="500px">  
-  
-                    </textarea
-          >
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
-### Ist das ein Kandidat für eine SPA? 
-
-<img src='img/spa_or_not_spa_01_spon.png' height="600">
-
-            </textarea
-          >
-        </section>
-        <section data-markdown>
-          <textarea data-template>
-### Ist das ein Kandidat für eine SPA? 
-
-<img src='img/spa_or_not_spa_02_outlook-and-skype.png' height="600">
-
-            </textarea
-          >
-        </section>
-        <section data-markdown>
-          <textarea data-template>
-### Ist das ein Kandidat für eine SPA? 
-
-<img src='img/spa_or_not_spa_03_github.png' height="600">
-
-            </textarea
-          >
-        </section>
 
         <section data-markdown class="local">
           <textarea data-template>
