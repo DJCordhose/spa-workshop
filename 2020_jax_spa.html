@@ -534,7 +534,19 @@ Was bedeutet dabei wichtig?
             </textarea>
         </section>
 
-        <section data-markdown>
+
+
+        <section data-markdown class="todo">
+          <textarea data-template>
+### Definition Architektur
+
+<img src='img/skizze/architektur-definition.png'>
+      </textarea>
+    </section>
+  
+      
+
+        <!-- <section data-markdown>
           <textarea data-template>
   ### The ultimate goal of software architecture is, well, software
   
@@ -544,17 +556,17 @@ Was bedeutet dabei wichtig?
   https://twitter.com/DJCordhose/status/1084456405438996480  
   </small>
   </textarea>
-        </section>
+        </section> -->
   
-        <section data-markdown>
+        <section data-markdown class="todo">
           <textarea data-template>
-### Architektur im Kontext
+### Architektur-Arbeit
 
 <img src='img/skizze/architektur.png' height="800">
             </textarea>
         </section>
 
-        <section data-markdown>
+        <!-- <section data-markdown>
           <textarea data-template>
 ### Konsequenzen
 
@@ -578,31 +590,35 @@ Passt nicht zwingend zu einer eher technischen Definition: zerteilen in sinnvoll
           <textarea data-template>
 ### Was **kann** zu Architektur-Entscheidungen zählen?
 
-die _wichtigen_ Entscheidungen ist ein wenig "abstrakt", hier aber einige Hinweise
+die _wichtigen_ Entscheidungen ist ein wenig "abstrakt", hier aber einige Indikatoren
 
 * Ohne XY hätten wir das Projekt nicht geschafft
 * Wegen XY können wir dieses (evtl. einfach aussehende) Feature nur mit großem Aufwand umsetzen
 * Die Fähigkeiten von XY sind an dieser Stelle erschöpft. Weitere Features sind damit nicht mehr rationell umsetzbar
 * Für XY finden wir einfach keine Experten mehr
+* XY betrifft viele (viele im Team oder viele Teams)
+* Entscheidung für XY wäre schwer im Nachhinein zu ändern (teuer und/oder aufwändig)
+* XY hilft sehr beim Einhalten der Rahmenbedingungen oder Erreichen der Qualitätsziele
 
 Entscheidungen, die die Umsetzbarkeit fundamental beeinflussen _können(!)_
 
             </textarea>
         </section>
-
+ -->
         <section data-markdown class="no-fragment">
           <textarea data-template>
-### Typische Beispiele
+### Typische Kandidaten (Lösungsansätze) für wichtige Entscheidungen im Frontend
 
 #### Was wir heute besprechen
-1. SPA vs Jamstack vs Serverseitiges Rendering
-1. Aufteilung in Innere und Äußere Struktur
-1. Wahl des Web-Frameworks
+1. SPA vs Jamstack vs Serverseitiges Rendering (Struktur)
+1. Aufteilung in Innere und Äußere Struktur (Struktur)
+1. Wahl des Web-Frameworks (Technologie)
 
 #### Was wir heute nicht besprechen
-1. State Management
-1. Typing
-1. CSS Framework (Bootstrap, Tailwind, kein Framework)
+1. State Management (Technologie)
+1. Typing (Technologie)
+1. CSS Framework (Bootstrap, Tailwind, kein Framework) (Technologie)
+1. Wie arbeiten Leute zusammen? (hängt mit Struktur zusammen) (Prozess)
 
             </textarea>
         </section>
@@ -619,10 +635,10 @@ _SPAs sind nicht automatisch die bessere Architektur-Ansatz_
 </textarea>
     </section>
 
-    <section data-markdown>
+    <section data-markdown  class="todo">
       <textarea data-template>
 ### Jamstack        
-<img src='img/jamstack.png' height="800">
+<img src='img/skizze/jamstack.png' height="800">
   </textarea>
 </section>
 
