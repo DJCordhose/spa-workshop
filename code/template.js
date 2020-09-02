@@ -6,7 +6,16 @@
 
 const template = document.createElement('template')
 template.innerHTML = `
-<link href='styles.css' rel='stylesheet'>
+<!-- <link href='styles.css' rel='stylesheet'> -->
+<style>
+:host {
+    all: initial;
+    color: green;
+}
+p {
+    background: var(--my-element-bg, #9E9E9E);
+}
+</style>
 <input id="in">
 <slot></slot>
 <p><span id="log"></span>, World</p>

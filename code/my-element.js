@@ -13,12 +13,13 @@ class MyElement extends HTMLElement {
     }
     constructor() {
         super();
-        this.render();
     }
 
     // https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements#Using_the_lifecycle_callbacks
     connectedCallback() {
         console.log('connected');
+        this.render();
+        // this.render_no_shadow();
         this.bind();
         this.model = this.getAttribute("greeting");
     }
@@ -44,6 +45,13 @@ class MyElement extends HTMLElement {
         this.button = this.shadowRoot.querySelector("#btn");
     }
 
+    render_no_shadow() {
+        this.appendChild(template.content.cloneNode(true)); // deep clone
+        this.input = document.querySelector("#in");
+        this.log = document.querySelector("#log");
+        this.button = document.querySelector("#btn");
+    }
+
     attributeChangedCallback(name, oldValue, newValue) {
         console.log('Attribute Changed');
         if (name === "greeting") {
@@ -52,9 +60,11 @@ class MyElement extends HTMLElement {
     }
 
     set model(value) {
-        this.log.textContent = value;
-        this.input.value = value;
         this._model = value;
+        if (this.log) {
+            this.log.textContent = value;
+            this.input.value = value;
+        }
         this.dispatchEvent(new CustomEvent('model-changed', {detail: value}));
     }
 
