@@ -10,6 +10,7 @@
       <style>
           p, my-controller {
             font-size: 24px;
+            color:aqua;
           }
           :root {
             --my-app-font-size: 36px
@@ -17,6 +18,9 @@
           }
         </style>
     <p>Hello</p>
-  <my-controller greeting='Huhu'></my-controller>
+  <my-controller greeting='Huhu'  style="--my-element-bg: orange">
+    <p>Child #1</p>
+    <p>Child #2</p>
+  </my-controller>
   </body>
 </html>
