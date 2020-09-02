@@ -480,15 +480,6 @@ _Moderne Frontend-Architekturen für Single-Page-Anwendungen_
        
         <section data-markdown>
           <textarea data-template>
-#### Klassische Sicht mit "ein bisschen" JavaScript
-      
-  <img src='img/webapp_arch_02_jquery.png' height="500px">  
-
-                  </textarea>
-        </section>
-
-        <section data-markdown>
-          <textarea data-template>
 ### Moderne Frontend-Architektur === SPA
 
 A single-page application (SPA) is a web application that interacts 
@@ -608,14 +599,15 @@ Entscheidungen, die die Umsetzbarkeit fundamental beeinflussen _können(!)_
 #### Was wir heute besprechen
 1. SPA vs Jamstack vs Serverseitiges Rendering (Struktur)
 1. Aufteilung in Innere und Äußere Struktur (Struktur)
+1. Typing (Technologie)
 1. Wahl des Web-Frameworks (Technologie)
 
-#### Was wir heute nicht besprechen
+<!-- #### Was wir heute nicht besprechen
 1. State Management (Technologie)
-1. Typing (Technologie)
 1. CSS Framework (Bootstrap, Tailwind, kein Framework) (Technologie)
-1. Wie arbeiten Leute zusammen? (hängt mit Struktur zusammen) (Vorgehen)
+1. Wie arbeiten Leute zusammen? (hängt mit Struktur zusammen) (Vorgehen) -->
 
+_Es gibt noch viele weitere Kandidaten_
             </textarea>
         </section>
 
@@ -630,14 +622,6 @@ _SPAs sind nicht automatisch die bessere Architektur-Ansatz_
   
 </textarea>
     </section>
-
-    <section data-markdown  class="todo">
-      <textarea data-template>
-### Jamstack        
-<img src='img/skizze/jamstack.png' height="800">
-  </textarea>
-</section>
-
 
     <section data-markdown>
       <textarea data-template>
@@ -699,7 +683,25 @@ _Beispiel ungelesene Nachrichten: inkonsistent Client Server und übersicht und 
           </textarea>
     </section>
 
-    <section data-markdown>
+
+    <section data-markdown  class="todo">
+      <textarea data-template>
+### Jamstack        
+<img src='img/skizze/jamstack.png' height="800">
+  </textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+#### Klassische Sicht mit "ein bisschen" JavaScript
+
+<img src='img/webapp_arch_02_jquery.png' height="500px">  
+
+          </textarea>
+</section>
+
+
+    <!-- <section data-markdown>
       <textarea data-template>
 ### Interaktion: UX ist die Stärke von SPAs
 
@@ -713,7 +715,7 @@ _Beispiel ungelesene Nachrichten: inkonsistent Client Server und übersicht und 
 </p>
 
 </textarea>
-</section>
+</section> -->
 
     <section data-markdown>
       <textarea data-template>
@@ -965,6 +967,89 @@ _Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
 
           </textarea>
   </section> -->
+
+
+  <section data-markdown>
+    <textarea data-template>
+### Mögliche Architektur-Entscheidung        
+
+## Typisierung ermöglichen
+
+<img src='img/icons/check.png' height="256">
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+### Warum Typisierung im Front-End?        
+
+<img src='img/Die Grafik - Frontend-Architektur.png'>
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+### Typisierung fördert Wartbarkeit        
+
+* je weiter sich unser Stack in den Browser ausbreitet desto notwendiger wird gute Wartbarkeit
+* UI-Logik sollte wartbar sein, egal ob technisch im Browser oder auf dem Server 
+* TypeScript ist die Technologie der Wahl
+  * Typisierung ist optional
+  * Typensystem deutlich flexibler als Java
+  * Nimmt viel Rücksicht aus typische Datenstrukturen in JavaScript
+  * Compiliert zu reinem JavaScript
+
+</textarea>
+</section>
+
+<section>
+  <h3>Basics</h3>
+     <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
+// variables can have type information
+let foo: string;
+foo = 'yo';
+// Error: Type 'number' is not assignable to type 'string'.
+foo = 10;
+</code></pre>
+     <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
+
+// types can be inferred (return type)
+function sayIt(what: string) {
+  return `Saying: ${what}`;
+}
+const said: string = sayIt(obj);
+
+</code></pre>
+     <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
+class Sayer {
+  what: string; // mandatory
+
+  constructor(what: string) {
+      this.what = what;
+  }
+
+  // return type if you want to
+  sayIt(): string {
+      return `Saying: ${this.what}`;
+  }
+}
+</code></pre>
+
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+
+http://www.typescriptlang.org/
+
+https://www.typescriptlang.org/play/index.html
+
+https://github.com/Microsoft/TypeScript/wiki/What's-new-in-TypeScript
+
+</textarea>
+</section>
 
 
     <section data-markdown>
@@ -1304,7 +1389,7 @@ Stark verdichtet liefern diese Referenzkarten kompaktes Wissen, Check-Listen und
 
     <section>
       <h2>Vielen Dank!</h2>
-      <h3>Moderne Frontend-Architektur für Ihre Single-Page Application, Software Architecture Summit 2019 </h3>
+      <h3>Moderne Frontend-Architekturen für Single-Page-Anwendungen, JAX 2020</h3>
       <p>Bleibt gern in Kontakt</p>
   
       <div>
