@@ -521,13 +521,11 @@ Was bedeutet dabei wichtig?
             </textarea>
         </section>
 
-
-
         <section data-markdown class="todo">
           <textarea data-template>
-### Definition Architektur
+### Architektur
 
-<img src='img/skizze/architektur-definition.png'>
+<img src='img/skizze/architektur.png' height="800">
       </textarea>
     </section>
   
@@ -545,14 +543,6 @@ Was bedeutet dabei wichtig?
   </textarea>
         </section> -->
   
-        <section data-markdown class="todo">
-          <textarea data-template>
-### Architektur-Arbeit
-
-<img src='img/skizze/architektur.png' height="800">
-            </textarea>
-        </section>
-
         <!-- <section data-markdown>
           <textarea data-template>
 ### Konsequenzen
@@ -627,18 +617,19 @@ _SPAs sind nicht automatisch die bessere Architektur-Ansatz_
       <textarea data-template>
 ### Typische Anforderungen
 
-  <img src='img/spicker-anforderungen.png' height="750">
+  <img src='img/spicker-anforderungen.png' height="650">
   
           </textarea>
     </section>
-    <section data-markdown>
+    <!-- <section data-markdown>
       <textarea data-template>
 ### Mehr zu UX-Anforderungen 
         
 https://developers.google.com/web/tools/chrome-user-experience-report    
   </textarea>
-</section>
-<section data-markdown>
+</section> -->
+
+<!-- <section data-markdown>
       <textarea data-template>
 ### Eventual Consistency
 
@@ -654,7 +645,7 @@ By http://www.europecomics.com/serie/imbattable/
 </small>
           </textarea>
     </section>
-
+ -->
     <section data-markdown>
       <textarea data-template>
 ### Inkonsistenzen im UI
@@ -668,8 +659,8 @@ _Beispiel ungelesene Nachrichten: inkonsistent Client Server und übersicht und 
   </textarea>
 </section>
 
-    <section data-background="img/screenhot-xing-global-state_anzahl-nachrichten.png">
-    </section>
+    <!-- <section data-background="img/screenhot-xing-global-state_anzahl-nachrichten.png">
+    </section> -->
 
     <section data-markdown class="fragments">
       <textarea data-template>
@@ -729,9 +720,6 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
 </textarea>
     </section>
 
-
-
-
 <section data-markdown>
 <textarea data-template>
 
@@ -741,120 +729,54 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
 * Die Anwendungsteile sollen sich zu einer möglichst schlüssigen Anwendung zusammensetzen lassen.
 
 
-<p>
 <img src='img/spicker/Zerlegung_Zusammenspiel1.png' height="300" >
-</p>
 
+</textarea>
+</section>
 
-*Formel:* Zusammensetzen = Integration der Teile + Kommunikation zwischen Teilen
+<section data-markdown>
+  <textarea data-template>
+<img src='img/skizze/frontend-arch-outer.png' height="750">
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+<img src='img/skizze/frontend-arch-outer-ssi.png' height="750">
 
 </textarea>
 </section>
 
 
-    <section data-markdown>
-        <textarea data-template>
 
-<img src='img/spicker-integration.png' height="750px">
-
-              </textarea>
-      </section>
-
-      <section data-markdown>
-        <textarea data-template>
-## Integration über Links
-
-<img src='img/spicker/integration-links.png'>
-
-              </textarea>
-      </section>
-
-
-    <section>
-      <h3>Prominentes Beispiel für Klassische Links: Outlook Online</h3>
-      <a href="https://outlook.live.com/mail" target="_blank">
-        <img src="img/screenshot-outlook-mit-highlight.png" height="550">
-      </a>
-    </section>
-
-    <section>
-      <video controls src="video/outlook.mp4" type="video/mp4" height="600px"></video>
-      <p>
-        <small>UX-Schwächen, unterschiedliche Technologien, jede App wird anders dargestellt
-          <br> Wechsel der App dauert (Service Workers können die Zeit ab 2. Aufruf vermindern)
-          <br>Umstellung auf React fortlaufend
-        </small>
-      </p>
-    </section>
-
-    <section data-markdown>
-      <textarea data-template>
-## Modularer Monolith
-
-<img src='img/spicker/integration-monolith.png'>
-
-            </textarea>
-    </section>
-
-    <section>
-      <h3>Prominentes Beispiel für Majestic Modular Monoliths: Google Docs</h3>
-      <img src="img/screenshot-google-docs-comment.png" height="500px">
-      <p>
-        <small>Keine architekturbedingten UX Probleme</small>
-      </p>
-    </section>
-
-    <section data-markdown>
-      <textarea data-template>
-  ## Micro Components
-
-<img src='img/spicker/integration-micro-components.png'>
-
-            </textarea>
-    </section>
-
-    <section>
-      <h3>Prominentes Beispiel für Micro Components: Spotify mobile App</h3>
-      <img src="img/screenshot-spotify.png" height="450px">
-      <p>
-          <small>
-              Dies gilt nur für die App, der Web Player ist seit einiger Zeit als React-Monolith gebaut: 
-              <a href="http://labs.spotify.com/2019/03/25/building-spotifys-new-web-player/" target="_blank">
-                http://labs.spotify.com/2019/03/25/building-spotifys-new-web-player/</a>
-
-          
-          <!-- <a href="https://www.quora.com/What-is-the-technology-stack-behind-the-Spotify-web-client/answer/Andreas-Blixt" target="_blank">https://www.quora.com/What-is-the-technology-stack-behind-the-Spotify-web-client/answer/Andreas-Blixt</a>
-          <br>
-          <a href="https://www.quora.com/How-are-Spotify-Web-Player-components-developed" target="_blank">https://www.quora.com/How-are-Spotify-Web-Player-components-developed</a>
-          <br>
-          <a href="https://www.reddit.com/r/reactjs/comments/5sgkro/til_spotify_is_using_reactredux_in_their_web_app/" target="_blank">https://www.reddit.com/r/reactjs/comments/5sgkro/til_spotify_is_using_reactredux_in_their_web_app/</a> -->
-        </small>
-      </p>
-
-    </section>
-
-    <section>
-      <video controls src="video/micro_frontend_spotify.mp4" type="video/mp4" height="600px"></video>
-      <p>
-        <small>überraschende UX Schwächen, Apps nur gleichzeitig dargestellt, aber nicht komplett integriert</small>
-      </p>
-    </section>
-
-
-<!-- <section data-markdown>
+<section data-markdown>
   <textarea data-template>
-  ### Unsere Empfehlung
+<img src='img/skizze/frontend-arch-outer-vertical.png' height="750">
 
-  * So lange die Anwendung überschaubar bleibt und in einem Team entwickelt werden kann **"Modularer Monolith"**.
-  * Dann Kombination mit **"Micro Components"** wenn viele Teile gleichzeitig dargestellt werden sollen ...
-  * ... oder andernfalls **"Klassische Links"**.
+</textarea>
+</section>
 
-  <p>
-  <img src='img/icons/quality.png' height="256">
-  </p>
 
-        </textarea>
-</section> -->
+<section data-markdown>
+  <textarea data-template>
+<img src='img/skizze/frontend-arch-outer-csi.png' height="750">
+
+</textarea>
+</section>
+<section data-markdown>
+  <textarea data-template>
+<img src='img/skizze/frontend-arch-outer-spa.png' height="750">
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+<img src='img/skizze/frontend-arch-outer.png' height="750">
+
+</textarea>
+</section>
 
 <section data-markdown>
   <textarea data-template>
@@ -927,14 +849,6 @@ _Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
   </section>
 
   <section data-markdown>
-    <textarea data-template>
-
-<img src='img/bahn-smart-dumb.png' height="750">
-
-          </textarea>
-  </section>
-
-  <section data-markdown>
       <textarea data-template>
 
       ### Klarer Daten- und Kontrollfluss zwischen den Komponenten
@@ -943,23 +857,6 @@ _Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
 
             </textarea>
     </section>
-
-    <section data-markdown>
-      <textarea data-template>
-
-<img src='img/bahn-smart-dumb-calender.png' height="750">
-
-            </textarea>
-    </section>
-
-  <!-- <section data-markdown>
-    <textarea data-template>
-
-<img src='img/bahn-komponenten.png' height="750">
-
-          </textarea>
-  </section> -->
-
 
   <section data-markdown>
     <textarea data-template>
@@ -1366,9 +1263,7 @@ _Verlässt man sich auf lokalen Zustand in Komponenten?_
 Wissen auf den Punkt.
 Stark verdichtet liefern diese Referenzkarten kompaktes Wissen, Check-Listen und Rezepte für Ihre Projekte!
 
-<p>
-<img src='img/spicker/Spicker_9_Vorschaubild3er.jpg' height="350">
-</p>
+<img src='img/spicker/Spicker_9_Vorschaubild3er.jpg' height="200">
 
 #### Architektur-Spicker Ausgabe Nr. 9: Moderne Frontend-Architektur
 
@@ -1453,7 +1348,7 @@ Stark verdichtet liefern diese Referenzkarten kompaktes Wissen, Check-Listen und
         progress: true,
         history: true,
         center: true,
-        width: 1100,
+        width: 1200,
         height: 800,
 
         transition: "slide", // none/fade/slide/convex/concave/zoom
