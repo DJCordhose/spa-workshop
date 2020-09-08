@@ -400,7 +400,7 @@ What else should we expect? Front-end engineers are given the incredibly hard ta
               </textarea>
         </section>
   
-        <section>
+        <!-- <section>
           <h2>Wir nehmen Frontend-Architektur nicht für voll</h2>
           <p>Zitate</p>
           <ul>
@@ -418,7 +418,7 @@ What else should we expect? Front-end engineers are given the incredibly hard ta
             </li>
           </ul>
         </section>
-
+ -->
 
         <section data-markdown>
           <textarea data-template>
@@ -472,27 +472,31 @@ _Moderne Frontend-Architekturen für Single-Page-Anwendungen_
         </section>
 
 
-        <section data-markdown>
-          <textarea data-template>
-    <img src='img/spa_rules.jpg' height="1000px">    
-    </textarea>
-        </section>
-       
-        <section data-markdown>
+        <section data-markdown class="fragments">
           <textarea data-template>
 ### Moderne Frontend-Architektur === SPA
 
-A single-page application (SPA) is a web application that interacts 
-with the user by dynamically rewriting the current page rather than loading entire new pages from a server. 
+* A single-page application (SPA) is a web application that interacts 
+with the user  ...
+* by dynamically rewriting the current page rather than loading entire new pages from a server. 
 
-This approach avoids interruption of the user experience between successive pages.
+* This approach avoids interruption of the user experience between successive pages.
 
 <small>https://en.wikipedia.org/wiki/Single-page_application</small>  
 
             </textarea>
         </section>
 
-        <section data-markdown>
+        <section data-markdown  data-transition='fade'>
+          <textarea data-template>
+### Traditionelle Web-App
+
+  <img src='img/webapp_arch01_classic.png' height="650px">
+
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition='fade'>
           <textarea data-template>
 ### Single-Page-Anwendung
         
@@ -613,14 +617,14 @@ _SPAs sind nicht automatisch die bessere Architektur-Ansatz_
 </textarea>
     </section>
 
-    <section data-markdown>
+    <!-- <section data-markdown>
       <textarea data-template>
 ### Typische Anforderungen
 
   <img src='img/spicker-anforderungen.png' height="650">
   
           </textarea>
-    </section>
+    </section> -->
     <!-- <section data-markdown>
       <textarea data-template>
 ### Mehr zu UX-Anforderungen 
@@ -668,17 +672,36 @@ _Beispiel ungelesene Nachrichten: inkonsistent Client Server und übersicht und 
   </textarea>
 </section>
 
+    <section data-markdown>
+      <textarea data-template>
+### Interaktion: UX ist die Stärke von SPAs
+
+dazu haben SPAs eine ebenso einheitliche Struktur wie traditionelle Web-Apps 
+</textarea>
+</section>
+
     <!-- <section data-background="img/screenhot-xing-global-state_anzahl-nachrichten.png">
     </section> -->
+
+    <section data-markdown>
+      <textarea data-template>
+### Wirklich?
+
+<img src='img/spa_rules.jpg' height="1000px">    
+</textarea>
+    </section>
+   
 
     <section data-markdown class="fragments">
       <textarea data-template>
   ### Nicht für jeden Satz an Anforderungen sind SPAs ideal
   
-  * Soll die Seite auch ohne JavaScript laufen?
-  * Spielt man hauptssächlich Inhalte aus
-  * Hat die Seite wenig oder keine interaktiven Elemente?
-  * Ist UX ohnehin nicht weiter wichtig
+* Soll die Seite auch ohne JavaScript laufen?
+   * Wer braucht das wirklich?
+   * Realistisch: Man möchte einfach kein JS machen
+* Spielt man hauptssächlich Inhalte aus?
+* Hat die Seite wenig oder keine interaktiven Elemente?
+* Ist UX ohnehin nicht weiter wichtig?
   
           </textarea>
     </section>
@@ -693,6 +716,17 @@ _Beispiel ungelesene Nachrichten: inkonsistent Client Server und übersicht und 
               </textarea>
     </section>
     
+    <section data-markdown aria-checked="fragments">
+      <textarea data-template>
+### Klassischer Ansatz mit "ein bisschen" JavaScript
+
+* kann sinnvoll sein wenn man wirklich nur ein bisschen UI-Logik im Browser braucht
+* JavaScript hat weiterhin eher Script-Charakter
+* schwer wartbar bei komplexerer Logik
+* birgt Gefahr, dass Logik schleichend komplexer wird und dies dann keine gute Architektur-Entscheidung mehr ist
+    
+              </textarea>
+    </section>
     
     <section data-markdown>
       <textarea data-template>
@@ -702,22 +736,19 @@ _Beispiel ungelesene Nachrichten: inkonsistent Client Server und übersicht und 
   </textarea>
 </section>
 
+<section data-markdown aria-checked="fragments">
+  <textarea data-template>
+### Jamstack
 
-    <!-- <section data-markdown>
-      <textarea data-template>
-### Interaktion: UX ist die Stärke von SPAs
+* Serverseitige Logik zur Build-Zeit
+* Extrem simples Deployment
+* Beste Skalierung
+* Sinnvoll bei Content lastigen Anwendungen
+* Birgt ähnliche Gefahren wie vorheriger
 
-* Habt ihr eine passende Anwendung?
-* Hände heben 
-  1. Wer hat eine passende Anwendung?
-  1. Wer hat sicher keine? 
+          </textarea>
+</section>
 
-<p>
-<img src='img/icons/discussion.png' height="256">
-</p>
-
-</textarea>
-</section> -->
 
     <section data-markdown>
       <textarea data-template>
@@ -731,7 +762,7 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
 </textarea>
     </section>
 
-<section data-markdown>
+<section data-markdown class="no-fragment">
 <textarea data-template>
 
 ### Zerlegung und Zusammenspiel
@@ -759,7 +790,12 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
 </textarea>
 </section>
 
+<section data-markdown>
+  <textarea data-template>
+<img src='img/skizze/frontend-arch-outer-csi.png' height="750">
 
+</textarea>
+</section>
 
 <section data-markdown>
   <textarea data-template>
@@ -771,20 +807,7 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
 
 <section data-markdown>
   <textarea data-template>
-<img src='img/skizze/frontend-arch-outer-csi.png' height="750">
-
-</textarea>
-</section>
-<section data-markdown>
-  <textarea data-template>
 <img src='img/skizze/frontend-arch-outer-spa.png' height="750">
-
-</textarea>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-<img src='img/skizze/frontend-arch-outer.png' height="750">
 
 </textarea>
 </section>
@@ -794,7 +817,7 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
 ### Bewertung
 
 * SSI
-  * Robuste Variante bei purem Serverside-Rendering    
+  * Robuste Variante bei purem Serverside-Rendering, geht nicht mit SPA
 * Reine Vertikalen
   * Flexible Version mit Mischung als Serverside- und Client-Side-Rendering
 * CSI
@@ -807,6 +830,8 @@ _Zerlegen in Teile und Integration in eine konsistente Anwendung_
 
 <section data-markdown>
   <textarea data-template>
+### Genau !1!11!!!    
+
 <img src='img/twitter-part-whole.png'>
 
 <small>https://twitter.com/monicaaquirk/status/1298447577671561216</small>
@@ -836,7 +861,7 @@ https://micro-frontends.org/</small>
 ### Mögliche Architektur-Entscheidung        
 ## Innere Struktur
 
-Wie setzen sich Anwendungsteile aus Komponenten zusammen und wie kommunizieren diese miteinander?
+Wie setzen sich bei SPAs Anwendungsteile aus Komponenten zusammen und wie kommunizieren diese miteinander?
 
 <img src='img/icons/check.png' height="256">
 
@@ -885,6 +910,16 @@ _Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
             </textarea>
     </section>
 
+    <section data-markdown>
+      <textarea data-template>
+### Wieso        
+
+* Wartbarkeit wegen leichter Verständlichkeit
+* wiederverwendbare Dumb-Components
+* Austauschbarkeit von Library aus Dumb-Components  
+  </textarea>
+  </section>
+  
   <section data-markdown>
     <textarea data-template>
 ### Mögliche Architektur-Entscheidung        
@@ -965,9 +1000,11 @@ class Sayer {
 }
 </code></pre>
 
+<small>https://www.typescriptlang.org/</small>
+
 </section>
 
-<section data-markdown>
+<!-- <section data-markdown>
   <textarea data-template>
 
 http://www.typescriptlang.org/
@@ -978,7 +1015,7 @@ https://github.com/Microsoft/TypeScript/wiki/What's-new-in-TypeScript
 
 </textarea>
 </section>
-
+ -->
 
     <section data-markdown>
         <textarea data-template>
@@ -996,9 +1033,10 @@ https://github.com/Microsoft/TypeScript/wiki/What's-new-in-TypeScript
   
 ### Framework-Vergleich
 
-* Grundsätzlich folgen alle Frameworks einem Komponenten-basierten Ansatz.
-* Bzgl. mancher Aspekte stellen sie sich jedoch unterschiedlich dar.
-* Die folgenden Skalen geben für wichtige Unterschiede unsere Einschätzung wieder.
+* Grundsätzlich folgen alle Frameworks einem Komponenten-basierten Ansatz
+* Bzgl. mancher Aspekte stellen sie sich jedoch unterschiedlich dar
+* Welcher Aspekt im eigenen Projekt zur Architektur-Entscheidung werden kann hängt von den Anforderungen ab
+* Die folgenden Skalen geben für wichtige Unterschiede unsere Einschätzung wieder
 
 <p>
 <img src='img/framework-icons/angular-icon_200px.png' height="200">
@@ -1191,7 +1229,7 @@ https://github.com/Microsoft/TypeScript/wiki/What's-new-in-TypeScript
   </section>
 
 
-    <section data-markdown>
+    <!-- <section data-markdown>
       <textarea data-template>
 ### TL'DR: Welches Framework soll ich nehmen?
 
@@ -1200,7 +1238,7 @@ https://github.com/Microsoft/TypeScript/wiki/What's-new-in-TypeScript
 * Web Components: keine Abhängigkeiten
 * Vue: Frontendler (UI Developer) lieben es
 
-<!-- _Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es Geschmack und persönliche Erfahrung_ -->
+_Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es Geschmack und persönliche Erfahrung_
 
 <p>
 <img src='img/icons/quality.png' height="256">
@@ -1208,7 +1246,7 @@ https://github.com/Microsoft/TypeScript/wiki/What's-new-in-TypeScript
 
 
 </textarea>
-    </section>
+    </section> -->
 
     <!-- <section data-markdown>
       <textarea data-template>
