@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>
+      Moderne Frontend-Architekturen für Single-Page-Anwendungen
+    </title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css" />
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">-->
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">-->
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/night.css" id="theme">-->
+    <!--<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">-->
+    <link
+      rel="stylesheet"
+      href="reveal.js/css/theme/solarized.css"
+      id="theme"
+    />
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css" />
+    <style>
+      /*pre code {*/
+
+      /*display: block;*/
+
+      /*padding: 0.5em;*/
+
+      /*background: #FFFFFF !important;*/
+
+      /*color: #000000 !important;*/
+
+      /*}*/
+
+      .right-img {
+        margin-left: 10px !important;
+        float: right;
+        height: 500px;
+      }
+
+      .weg:before {
+        content: "Streichen?";
+      }
+
+      .weg {
+        color: red !important;
+      }
+
+      .presenter h1 {
+        color: rgb(255, 0, 234) !important;
+      }
+
+      .todo:before {
+        content: "TODO: ";
+      }
+
+      .todo {
+        color: red !important;
+      }
+
+      code span.line-number {
+        color: lightcoral;
+      }
+
+      .reveal pre code {
+        max-height: 1000px !important;
+      }
+
+      img {
+        border: 0 !important;
+        box-shadow: 0 0 0 0 !important;
+      }
+
+      .reveal {
+        -ms-touch-action: auto !important;
+        touch-action: auto !important;
+      }
+
+      .reveal h2,
+      .reveal h3,
+      .reveal h4 {
+        letter-spacing: 2px;
+        font-family: "Calibri", sans-serif;
+        /* font-family: 'Times New Roman', Times, serif; */
+        font-weight: bold;
+        color: black;
+        font-style: italic;
+        letter-spacing: -2px;
+        text-transform: none !important;
+      }
+
+      .reveal em {
+        font-weight: bold;
+      }
+
+      .reveal .step-subtitle h1 {
+        letter-spacing: 1px;
+      }
+
+      .reveal .step-subtitle h2,
+      .reveal .step-subtitle h3 {
+        text-transform: none;
+
+        font-weight: normal;
+        /* font-weight: 400; */
+        /* font-family: 'Amiri', serif; */
+        font-family: "Lobster", serif;
+        letter-spacing: 1px;
+        color: #2aa198;
+        /* text-decoration: underline; */
+      }
+
+      .reveal .step-subtitle h3 {
+        text-decoration: underline;
+        font-style: normal;
+      }
+
+      /* .reveal .step-subtitle h2 {
+      font-style: italic;
+    } */
+
+      .reveal .front-page h1,
+      .reveal .front-page h2 {
+        font-family: "League Gothic";
+        font-style: normal;
+        text-transform: uppercase !important;
+        letter-spacing: 1px;
+      }
+
+      .reveal .front-page h1 {
+        font-size: 2.5em !important;
+      }
+
+      .reveal .highlight {
+        /* #D3337B;*/
+        color: #268bd2;
+      }
+
+      .reveal section img {
+        background: none;
+      }
+
+      .reveal img.with-border {
+        border: 1px solid #586e75 !important;
+        box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.15) !important;
+      }
+
+      .reveal li {
+        margin-bottom: 8px;
+      }
+
+      /* For li's that use FontAwesome icons as bullet-point */
+
+      .reveal ul.fa-ul li {
+        list-style-type: none;
+      }
+
+      .reveal {
+        color: black !important;
+      }
+
+      .part {
+        height: 500px;
+      }
+
+      .full {
+        height: 650px;
+      }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "reveal.js/css/print/pdf.css"
+        : "reveal.js/css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+      <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+
+        <!-- 14:00 – 14:45 Moderne Frontend-Architekturen für Single-Page-Anwendungen (Oliver Zeigermann, embarc Software Consulting GmbH)         -->
+        <!-- 
+  ### JAX Version
+  * https://jax.de/software-architecture/moderne-frontend-architekturen-fuer-single-page-anwendungen/
+  * 60 Minuten
+
+  React, Angular, Vue und Web Components bestimmen den Bereich der modernen Frontend Frameworks. 
+  Weitgehend unabhängig von der Wahl des Frameworks ergeben sich architektonische Herausforderungen, die sich stark von denen einer Backend-Architektur unterscheiden. 
+  In diesem Talk beschäftigen wir uns damit, was eine moderne Single-Page-Anwendung (SPA) ausmacht und wie sie sich von einer klassischen Webanwendung 
+  unterscheidet, wie man eine SPA durch Typisierung wartbar hält, wie sich ein zyklischer Datenfluss auf die Architektur auswirkt 
+  und wie man zur effizienten Entwicklung eine Single-Page-Anwendung in kleinere Module aufspalten und für die 
+  Anwender wieder zu einem stimmigen Ganzen zusammensetzen kann. 
+  Dieser Talk geht nicht auf die Details einer Implementierung ein und bleibt auf einer konzeptionellen Ebene, der Sie auch ohne JavaScript-Kenntnisse folgen können.
+
+  
+       -->
+
+       <!-- <section data-markdown class="todo">
+        <textarea data-template>
+      Manfred Steyer (@ManfredSteyer) tweeted at 2:43 pm on Tue, Aug 04, 2020:
+      #Microfrontends can be managed with 💠 multiple repos or with 🔶 monorepos. I’ve seen both. However, both come with very different consequences (Thread 👇)
+      (https://twitter.com/ManfredSteyer/status/1290629421016195077?s=09)
+    </textarea>
+  </section> -->
+
+
+  <!-- <section data-markdown class="todo">
+    <textarea data-template>
+### Die Zeit der nicht-modernen Browser ist vorbei        
+
+- Teams unterstützt IE11 schon ab 2020 nicht mehr
+- M365 ab 2020
+
+https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666?s=09
+</textarea>
+</section> -->
+
+  <!-- <section data-markdown class="todo">
+    <textarea data-template>
+### Migrationsstory React 17        
+-  https://reactjs.org/blog/2020/08/10/react-v17-rc.html?s=09
+- React Component inside Web Component Events fixed in 17: https://github.com/facebook/react/issues/9242#issuecomment-674925358
+</textarea>
+</section>
+ -->
+  <!-- <section data-markdown class="todo">
+    <textarea data-template>
+<img src='img/browser-support-2020.jpg'>
+<img src='img/idev-2020.png'>
+</textarea>
+</section> -->
+
+  <!-- <section data-markdown class="todo">
+        <textarea data-template>
+              https://dev.to/layzee/angular-struggles-in-2020-1po4
+            </textarea>
+          </section>
+          
+          <section data-markdown class="todo">
+<textarea data-template>
+
+https://twitter.com/joonaslehtinen/status/1282783973362380801
+</textarea>
+</section> -->
+
+      <!-- <section data-markdown class="todo">
+        <textarea data-template>
+### Motivation/Analogie für die verstrickten Komplexitäten des Frontends             
+Dan Saffer (@odannyboy) tweeted at 5:04 PM on Mon, Jun 29, 2020:
+“It’s just a minor UI change” https://t.co/KXCIo5eTdx
+(https://twitter.com/odannyboy/status/1277619056628002816?s=03)
+</textarea>
+</section> -->
+
+
+      <!-- <section data-markdown class="todo">
+        <textarea data-template>
+### Für Micro-Frontends
+
+https://www.angulararchitects.io/aktuelles/the-microfrontend-revolution-module-federation-in-webpack-5/
+    </textarea>
+  </section>
+  
+<section data-markdown class="todo">
+<textarea data-template>
+
+Manfred Steyer (@ManfredSteyer) tweeted at 1:29 PM on Sat, Jun 13, 2020: Funny fact: While I helped lots of companies with #Angular + #Microfrontends in the last years, I also advised against it in even more cases (Thread ) https://t.co/DVixx4RdOp (https://twitter.com/ManfredSteyer/status/1271766741199323141?s=03)
+</textarea>
+</section> -->
+
+
+      <!-- <section data-markdown class="todo">
+        <textarea data-template>
+### Welche Lib?
+
+https://2019.stateofjs.com/data-layer/
+https://timkadlec.com/remembers/2020-04-21-the-cost-of-javascript-frameworks/
+https://www.karriere.at/jobs/angular (oder Karriere.de)
+https://con.arbeitsagentur.de/prod/apok/metasuche/suche/arbeit-ausbildung?volltext=angular 
+https://con.arbeitsagentur.de/prod/apok/metasuche/suche/arbeit-ausbildung?volltext=react
+</textarea>
+</section>
+
+
+      <section data-markdown class="todo">
+        <textarea data-template>
+### Gemeinsame Bibliothek
+
+Zwei Optionen:
+1. Konzern: für alle ist die Benutzung verpflichtend, hohes Risiko bei Qualität und Eignung der Lib
+2. Agil: Benutzung empfohlen, ob Qualität und Eignung der Lib vorliegt zeigt sich in der Verwendung
+
+</textarea>
+</section>
+
+
+      <section data-markdown class="todo">
+        <textarea data-template>
+### Braucht man Bedienbarkeit?
+
+https://www.embarc.de/wp-content/uploads/2020/03/summit_muenchen_2020_lisa_2-scaled.jpg        
+
+Keine Konkurrenz
+Produktivität egal
+
+Dann Bedienbarkeit egal
+
+Bei Konzern, Behörde
+
+https://twitter.com/Teapot4181/status/1237418641689399297
+</textarea>
+</section>
+
+      <section data-markdown class="todo">
+        <textarea data-template>
+### High Level Kram von Stefan klauen
+
+https://www.embarc.de/microservices-makro-architektur-oop-2020/
+
+<img src='img/zoerner-tldr.jpg'>
+
+    </textarea>
+  </section>
+
+  <section data-markdown class="todo">
+        <textarea data-template>
+Wenn in react eine Komponente „alles“ enthält: gibt man das mit Smart und dumb components nicht wieder auf?
+        </textarea>
+      </section>
+
+      <section data-markdown class="todo">
+        <textarea data-template>
+Sam Saccone (@samccone) tweeted at 2:30 AM on Mon, Feb 03, 2020:
+Has anyone written up a postmortem/retrospective report on redux 📄?
+
+I want to read more about the kind of learnings that only arise over a longer timeframe + codebase size + engineer count.
+(https://twitter.com/samccone/status/1224143073094987776?s=03)
+        </textarea>
+      </section>
+
+      <section data-markdown class="todo">
+        <textarea data-template>
+Yehuda Katz 🥨 (@wycats) tweeted at 2:14 AM on Fri, Jan 31, 2020:
+This back and forth about microservices vs monoliths is hopelessly stuck in a backend-focused world.
+
+What else should we expect? Front-end engineers are given the incredibly hard tasks of caring for the end user. In too many places, backend engineers still control everything.
+(https://twitter.com/wycats/status/1223051812862861312?s=03)
+                  </textarea>
+      </section> -->
+
+      <section data-markdown class="todo">
+        <textarea data-template>
+### kürzen      
+
+- Von 60 aus 45 Minuten 
+- Habe ja jetzt noch viel mehr Inhalte
+
+14:00 – 14:45 Moderne Frontend-Architekturen für Single-Page-Anwendungen (Oliver Zeigermann, embarc Software Consulting GmbH)        
+
+- TS raus
+- Innere Architektur kürzer
+
+        </textarea>
+      </section>
+
+
+
+        <section>
+          <h2>Moderne Frontend-Architekturen für Single-Page-Anwendungen</h2>
+
+          <div>
+            <a href="http://zeigermann.eu">Oliver Zeigermann</a> /
+            <a href="http://twitter.com/djcordhose">@DJCordhose</a> /
+            <a href="https://www.embarc.de/ ">embarc GmbH</a>
+          </div>
+          <p style="clear: both">
+            <small
+              >Slides:
+              <a href="https://djcordhose.github.io/spa-workshop/2020_arch.html">https://djcordhose.github.io/spa-workshop/2020_arch.html</a>
+            </small>
+          </p>
+        </section>
+
+        <!-- <section data-markdown>
+          <textarea data-template>
+                <p>🎅🤶</p>
+            <a href="https://reactbuch.de"><img src='img/react-buch-v2.png' style="max-height: 650px;">    </a>
+            <p><small><a href="https://reactbuch.de">https://reactbuch.de</a></small>
+              </p>
+              </textarea>
+        </section> -->
+  
+        <section>
+          <h2>Wir nehmen Frontend-Architektur nicht für voll</h2>
+          <p>Zitate</p>
+          <ul>
+            <li class="fragment">
+              <em>Frontend-Architektur? Ich dachte sowas gibt es gar nicht</em>
+            </li>
+            <li class="fragment">
+              <em>Das Frontend kloppen wir am Ende einfach irgendwie drauf</em>
+            </li>
+            <li class="fragment">
+              <em>Architektur für ein bisschen CSS-Pixel-Geschubse?</em>
+            </li>
+            <!-- <li class="fragment">
+              <em>Wir nehmen jetzt Angular, das war beim letzten Projekt ja auch gut</em>
+            </li> -->
+          </ul>
+        </section>
+
+
+        <section data-markdown>
+          <textarea data-template>
+### Unsere Fragen
+
+_Moderne Frontend-Architekturen für Single-Page-Anwendungen_
+
+1. Was ist Frontend?
+1. Was ist eine Single-Page-Anwendung (SPA)?
+1. Was ist Architektur?
+1. Was kann moderne Frontend-Architekturen für Single-Page-Anwendungen beinhalten?
+            </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+# Was ist Frontend?
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+### Front-End und Back-End
+
+* Front-End und Back-End werden in der Informationstechnik an verschiedenen Stellen in Verbindung mit einer Schichteneinteilung verwendet. 
+* Dabei ist typischerweise das Front-End näher am Benutzer, das Back-End näher am System.
+* Bei Client-Server-Anwendungen wird das auf dem Client laufende Programm als Front-End, das auf dem Server laufende als Back-End bezeichnet.
+* Front-End bezeichnet auch grundsätzlich die Benutzeroberfläche, die z. B. in Form einer grafischen Benutzeroberfläche oder mittels Bildschirmmasken implementiert sein kann.
+
+<small>https://de.wikipedia.org/wiki/Front-End_und_Back-End</small>  
+
+            </textarea>
+        </section>        
+
+        <section data-markdown>
+          <textarea data-template>
+### Klassische Sicht
+
+  <img src='img/webapp_arch01_classic.png' height="650px">
+
+          </textarea>
+        </section>
+
+
+        <section data-markdown>
+          <textarea data-template>
+# Was ist eine Single-Page-Anwendung (SPA)?
+          </textarea>
+        </section>
+
+
+        <section data-markdown class="fragments">
+          <textarea data-template>
+### Moderne Frontend-Architektur === SPA
+
+* A single-page application (SPA) is a web application that interacts 
+with the user  ...
+* by dynamically rewriting the current page rather than loading entire new pages from a server. 
+
+* This approach avoids interruption of the user experience between successive pages.
+
+<small>https://en.wikipedia.org/wiki/Single-page_application</small>  
+
+            </textarea>
+        </section>
+
+        <section data-markdown  data-transition='fade'>
+          <textarea data-template>
+### Traditionelle Web-App
+
+  <img src='img/webapp_arch01_classic.png' height="650px">
+
+          </textarea>
+        </section>
+
+        <section data-markdown data-transition='fade'>
+          <textarea data-template>
+### Single-Page-Anwendung
+        
+  <img src='img/webapp_arch_03_spa.png'  height="650px">  
+  
+                    </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+# Was ist Architektur?
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+### Architektur
+
+_Die Summe der wichtigen Entscheidungen_
+
+Was bedeutet dabei wichtig?
+- nur schwer änderbar, aber mit einer gewissen Unsicherheit verbunden
+- haben das Potential das Projekt zum scheitern zu bringen
+- so gewichtig, dass sie Einfluss haben auf das was man sinnvoll bauen kann  
+- nur weil man eine Entscheidung nicht bewusst trifft, heißt nicht, dass sie nicht wichtig ist
+            </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+### Architektur
+
+<img src='img/skizze/architektur.png'>
+      </textarea>
+    </section>
+  
+    <section data-markdown>
+      <textarea data-template>
+### Typische Anforderungen
+
+  <img src='img/spicker/anforderungen.png' height="650">
+  
+          </textarea>
+    </section>
+  
+
+        <!-- <section data-markdown>
+          <textarea data-template>
+  ### The ultimate goal of software architecture is, well, software
+  
+  <img src='img/twitter_implementation_is_king.jpg' height="450px">
+  
+  <small>
+  https://twitter.com/DJCordhose/status/1084456405438996480  
+  </small>
+  </textarea>
+        </section> -->
+  
+        <!-- <section data-markdown>
+          <textarea data-template>
+### Konsequenzen
+
+- solche Entscheidungen möchte man am besten gar nicht fällen
+- wenn man sie doch fällen muss, dann möglichst spät wenn man schon viel weiß
+- oder sie in einem begrenzten Umfang treffen
+- Fachabteilung wird verwundert sein wenn man sagt, dass man Dinge nicht umsetzen kann
+
+Passt nicht zwingend zu einer eher technischen Definition: zerteilen in sinnvolle Module (kann Architektur sein, muss aber nicht)
+            </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+# Was kann moderne Frontend-Architekturen für Single-Page-Anwendungen beinhalten?
+         </textarea>
+        </section>
+
+
+        <section data-markdown>
+          <textarea data-template>
+### Was **kann** zu Architektur-Entscheidungen zählen?
+
+die _wichtigen_ Entscheidungen ist ein wenig "abstrakt", hier aber einige Indikatoren
+
+* Ohne XY hätten wir das Projekt nicht geschafft
+* Wegen XY können wir dieses (evtl. einfach aussehende) Feature nur mit großem Aufwand umsetzen
+* Die Fähigkeiten von XY sind an dieser Stelle erschöpft. Weitere Features sind damit nicht mehr rationell umsetzbar
+* Für XY finden wir einfach keine Experten mehr
+* XY betrifft viele (viele im Team oder viele Teams)
+* Entscheidung für XY wäre schwer im Nachhinein zu ändern (teuer und/oder aufwändig)
+* XY hilft sehr beim Einhalten der Rahmenbedingungen oder Erreichen der Qualitätsziele
+
+Entscheidungen, die die Umsetzbarkeit fundamental beeinflussen _können(!)_
+
+            </textarea>
+        </section>
+ -->
+        <section data-markdown class="no-fragment">
+          <textarea data-template>
+### Typische Kandidaten (Lösungsansätze) für wichtige Entscheidungen im Frontend
+
+#### Was wir heute besprechen
+1. SPA vs Jamstack vs Serverseitiges Rendering (Struktur)
+1. Aufteilung in Innere und Äußere Struktur (Struktur)
+1. Typing (Technologie)
+1. Wahl des Web-Frameworks (Technologie)
+
+<!-- #### Was wir heute nicht besprechen
+1. State Management (Technologie)
+1. CSS Framework (Bootstrap, Tailwind, kein Framework) (Technologie)
+1. Wie arbeiten Leute zusammen? (hängt mit Struktur zusammen) (Vorgehen) -->
+
+_Es gibt noch viele weitere Kandidaten_
+            </textarea>
+        </section>
+
+    <section data-markdown>
+      <textarea data-template>
+### Mögliche Architektur-Entscheidung        
+## SPA vs Jamstack vs Serverseitiges Rendering
+
+_SPAs sind nicht automatisch die bessere Architektur-Ansatz_
+
+<img src='img/icons/check.png' height="256">
+  
+</textarea>
+    </section>
+
+    <!-- <section data-markdown>
+      <textarea data-template>
+### Mehr zu UX-Anforderungen 
+        
+https://developers.google.com/web/tools/chrome-user-experience-report    
+  </textarea>
+</section> -->
+
+<!-- <section data-markdown>
+      <textarea data-template>
+### Eventual Consistency
+
+Mag ok sein für ein Backend-System, aber wir Menschen kommen nicht gut klar mit Inkonsistenzen
+
+<img src='img/sync.jpg' height="450px">
+
+<small>
+
+https://twitter.com/venzann/status/1101345314814885888
+<br>
+By http://www.europecomics.com/serie/imbattable/
+</small>
+          </textarea>
+    </section>
+ -->
+ <section data-markdown>
+  <textarea data-template>
+### Heute in GMail
+
+<img src='img/inconsistent-ui.png' height="600">
+
+</textarea>
+</section>
+
+ <section data-markdown>
+      <textarea data-template>
+### Inkonsistenzen im UI
+
+_Beispiel ungelesene Nachrichten: inkonsistent Client Server und übersicht und Detail (ich lese die gerade), ist aber als ungelesen gekennzeichnet_
+
+- Ist das nicht egal?
+- Geht nicht mit jedem Struktur-Ansatz ohne weiteres
+- d.h. es beeinflusst was man bauen kann
+- Nervt mehr Leute als man denkt
+  </textarea>
+</section>
+
+    <section data-markdown>
+      <textarea data-template>
+### Interaktion: UX ist die Stärke von SPAs
+
+dazu haben SPAs eine ebenso einheitliche Struktur wie traditionelle Web-Apps 
+</textarea>
+</section>
+
+    <!-- <section data-background="img/screenhot-xing-global-state_anzahl-nachrichten.png">
+    </section> -->
+
+    <section data-markdown>
+      <textarea data-template>
+### Wirklich?
+
+<img src='img/spa_rules.jpg' height="1000px">    
+</textarea>
+    </section>
+   
+
+    <section data-markdown class="fragments">
+      <textarea data-template>
+  ### Nicht für jeden Satz an Anforderungen sind SPAs ideal
+  
+* Soll die Seite auch ohne JavaScript laufen?
+   * Wer braucht das wirklich?
+   * Realistisch: Man möchte einfach kein JS machen
+* Spielt man hauptssächlich Inhalte aus?
+* Hat die Seite wenig oder keine interaktiven Elemente?
+* Ist UX ohnehin nicht weiter wichtig?
+  
+          </textarea>
+    </section>
+
+
+    <section data-markdown>
+      <textarea data-template>
+    #### Klassische Sicht mit "ein bisschen" JavaScript
+    
+    <img src='img/webapp_arch_02_jquery.png' height="650px">  
+    
+              </textarea>
+    </section>
+    
+    <section data-markdown aria-checked="fragments">
+      <textarea data-template>
+### Klassischer Ansatz mit "ein bisschen" JavaScript
+
+* kann sinnvoll sein wenn man wirklich nur ein bisschen UI-Logik im Browser braucht
+* JavaScript hat weiterhin eher Script-Charakter
+* schwer wartbar bei komplexerer Logik
+* birgt Gefahr, dass Logik schleichend komplexer wird und dies dann keine gute Architektur-Entscheidung mehr ist
+    
+              </textarea>
+    </section>
+
+    <section data-markdown>
+      <textarea data-template>
+### Beispiel Amazon
+</textarea>
+</section>
+
+    <section data-markdown>
+      <textarea data-template>
+#### Funktioniert gut, aber bloß nicht die Motorhaube aufmachen
+
+<img src='img/amazon-under-the-hood.png' height="600px">
+
+<small>https://www.amazon.de/Microsoft-Surface-Laptop-Intel-512GB/dp/B086NDP8QM/ref=cm_cr_arp_d_product_top?ie=UTF8&th=1</small>
+  </textarea>
+</section>
+    
+<section data-markdown>
+  <textarea data-template>
+#### Viele Server-Roundtrips für Interaktion, nicht gedacht für Offline
+
+<img src='img/amazon-offline.png' height="600px">
+
+<small>https://www.amazon.de/Microsoft-Surface-Laptop-Intel-512GB/dp/B086NDP8QM/ref=cm_cr_arp_d_product_top?ie=UTF8&th=1</small>
+
+</textarea>
+</section>
+
+
+    <section data-markdown>
+      <textarea data-template>
+#### Jamstack        
+
+<img src='img/webapp-arch_jamstack.png' height="650px">
+  </textarea>
+</section>
+
+<section data-markdown aria-checked="fragments">
+  <textarea data-template>
+### Jamstack
+
+* Serverseitige Logik zur Build-Zeit
+* Extrem simples Deployment
+* Beste Skalierung
+* Sinnvoll bei Content lastigen Anwendungen
+* Birgt ähnliche Gefahren wie vorheriger
+
+          </textarea>
+</section>
+
+
+    <section data-markdown>
+      <textarea data-template>
+### Mögliche Architektur-Entscheidung        
+## Äußere Struktur
+
+_Zerlegen in Teile und Integration in eine konsistente Anwendung_
+
+<img src='img/icons/check.png' height="256">
+
+</textarea>
+    </section>
+
+<section data-markdown class="no-fragment">
+<textarea data-template>
+
+### Zerlegung und Zusammenspiel
+
+* Große Anwendungen erfordern es, dass mehrere Teams diese gemeinsam entwickeln.
+* Die Anwendungsteile sollen sich zu einer möglichst schlüssigen Anwendung zusammensetzen lassen.
+
+
+<img src='img/spicker/Zerlegung_Zusammenspiel1.png' height="300" >
+
+</textarea>
+</section>
+
+<!-- Das ist nur das Gesamtbild aus dem ich ausgeschnitten habe -->
+
+<!-- <section data-markdown>
+  <textarea data-template>
+<img src='img/skizze/frontend-arch-outer.png' height="750">
+
+</textarea>
+</section> -->
+
+
+<section data-markdown>
+  <textarea data-template>
+## Server Side Include (SSI)
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+### Prominentes Beispiel für Server Side Include: Amazon
+
+
+<small>https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction</small>
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+<img src='img/skizze/frontend-arch-outer-ssi.png' height="750">
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+#### Architekturbedingte UX-Probleme   
+<img src='img/amazon-ssi.png' height="600">
+
+<small>kein gemeinsames Datenmodell, Produkt "weiß" nicht, dass es bereits im Warenkorb ist</small>
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+## Client Side Include (CSI)
+
+</textarea>
+</section>
+
+<section style="background: url(img/mc-badge.png) no-repeat right top;">
+  <h3>Prominentes Beispiel für Client Side Include: Spotify mobile App</h3>
+  <img src="img/screenshot-spotify.png" height="450px">
+  <p>
+      <small>
+          Dies gilt nur für die App, der Web Player ist seit einiger Zeit als React-Monolith gebaut: 
+          <a href="http://labs.spotify.com/2019/03/25/building-spotifys-new-web-player/" target="_blank">
+            http://labs.spotify.com/2019/03/25/building-spotifys-new-web-player/</a>
+
+      
+      <!-- <a href="https://www.quora.com/What-is-the-technology-stack-behind-the-Spotify-web-client/answer/Andreas-Blixt" target="_blank">https://www.quora.com/What-is-the-technology-stack-behind-the-Spotify-web-client/answer/Andreas-Blixt</a>
+      <br>
+      <a href="https://www.quora.com/How-are-Spotify-Web-Player-components-developed" target="_blank">https://www.quora.com/How-are-Spotify-Web-Player-components-developed</a>
+      <br>
+      <a href="https://www.reddit.com/r/reactjs/comments/5sgkro/til_spotify_is_using_reactredux_in_their_web_app/" target="_blank">https://www.reddit.com/r/reactjs/comments/5sgkro/til_spotify_is_using_reactredux_in_their_web_app/</a> -->
+    </small>
+  </p>
+
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+<img src='img/skizze/frontend-arch-outer-csi.png' height="750">
+
+</textarea>
+</section>
+
+<section style="background: url(img/mc-badge.png) no-repeat right top;">
+  <h4>Architekturbedingte UX-Probleme</h4>
+
+  <video controls src="video/micro_frontend_spotify.mp4" type="video/mp4" height="600px"></video>
+  <p>
+    <small>Apps nur gleichzeitig dargestellt, aber nicht komplett integriert</small>
+  </p>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+## Reine Vertikalen
+
+</textarea>
+</section>
+
+<section>
+  <h3>Prominentes Beispiel für Reine Vertikalen: Outlook Online</h3>
+  <a href="https://outlook.live.com/mail" target="_blank">
+    <img src="img/screenshot-outlook-mit-highlight.png" height="550">
+  </a>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+<img src='img/skizze/frontend-arch-outer-vertical.png' height="750">
+
+</textarea>
+</section>
+
+<section>
+  <h4>Architekturbedingte UX-Schwächen</h4>
+  <video controls src="video/outlook.mp4" type="video/mp4" height="600px"></video>
+  <p>
+    <small>unterschiedliche Technologien, jede App wird anders dargestellt
+      <br> Wechsel der App dauert (Service Workers können die Zeit ab 2. Aufruf vermindern)
+      <br>Umstellung auf React fortlaufend
+    </small>
+  </p>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+## SPA Deployment-Monolith
+
+Majestic Modular Monoliths
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+<img src='img/skizze/frontend-arch-outer-spa.png' height="750">
+
+</textarea>
+</section>
+
+
+<section>
+  <h3>Prominentes Beispiel für SPA Deployment-Monolith: Google Docs</h3>
+  <img src="img/screenshot-google-docs-comment.png" height="500px">
+  <p>
+    <small>Keine architekturbedingten UX Probleme</small>
+  </p>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+### Bewertung
+
+* SSI
+  * Robuste Variante bei Serverside-Rendering
+* Reine Vertikalen
+  * Flexible Version mit Mischung als Serverside- und Client-Side-Rendering
+* CSI
+  * Techniken für die Integration entweder schwach (WC) oder nervig (iFrame)  
+* SPA Deployment-Monolith
+  * Bestes UX, Module möglich, aber monolithischer Build und Deployment
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+### Genau !1!11!!!    
+
+<img src='img/twitter-part-whole.png'>
+
+<small>https://twitter.com/monicaaquirk/status/1298447577671561216</small>
+</textarea>
+</section>
+
+<!-- <section data-markdown>
+  <textarea data-template>
+### Mehr zu Micro-Frontends
+
+<a href='https://www.manning.com/books/micro-frontends-in-action?a_aid=mfia&a_bid=5f09fdeb#toc'><img src='img/mf-in-action.png' height="300px">
+</a>
+
+<small>https://www.manning.com/books/micro-frontends-in-action?a_aid=mfia&a_bid=5f09fdeb#toc
+<br>
+https://github.com/naltatis/micro-frontends-in-action-code 
+<br>
+https://the-tractor.store/ 
+<br>
+https://micro-frontends.org/</small>
+
+  </textarea>
+</section> -->
+
+<section data-markdown>
+  <textarea data-template>
+### Mögliche Architektur-Entscheidung        
+## Innere Struktur
+
+Wie setzen sich bei SPAs Anwendungsteile aus Komponenten zusammen und wie kommunizieren diese miteinander?
+
+<img src='img/icons/check.png' height="256">
+
+</textarea>
+</section>
+
+
+<section data-markdown>
+  <textarea data-template>
+
+  ### Komponenten
+
+  In allen Frameworks setzen sich die Anwendungsteile aus Komponenten zusammen.
+
+  <img src='img/spicker/spicker-komponente.png' >
+
+  Diese können Template, Logik und Zustand kapseln.
+
+        </textarea>
+</section>
+
+<section data-markdown class="fragments">
+    <textarea data-template>
+### Arten von Komponenten
+
+_Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
+
+1. Container Components (aka Smart Components)
+  * enthalten Logik 
+  * Meist spezifisch für Anwendungsfall
+  * Nicht wiederverwendbar
+1. Presentational Components (aka Dumb Components)
+  * Darstellung
+  * keine nennenswerte Logik
+  * Komponenten-Bibliotheken enthalten vor allem wiederverwendbare Presentational Components
+
+          </textarea>
+  </section>
+
+  <section data-markdown>
+      <textarea data-template>
+
+      ### Klarer Daten- und Kontrollfluss zwischen den Komponenten
+
+      <img src='img/spicker/spicker-hierarchien.png' height="550">
+
+            </textarea>
+    </section>
+
+    <section data-markdown>
+  <textarea data-template>
+### Wieso wichtig?        
+
+* Wartbarkeit wegen leichter Verständlichkeit
+* wiederverwendbare Dumb-Components
+* Austauschbarkeit von Library aus Dumb-Components  
+</textarea>
+</section>
+
+
+  <section data-markdown>
+    <textarea data-template>
+### Mögliche Architektur-Entscheidung        
+
+## Typisierung ermöglichen
+
+<img src='img/icons/check.png' height="256">
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+### Warum Typisierung im Front-End?        
+
+<img src='img/Die Grafik - Frontend-Architektur.png'>
+
+UI-Logik profitiert von Typisierung
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+### Wieso wichtig: Typisierung fördert Wartbarkeit        
+
+* UI-Logik profitiert von Typisierung für eine gute Wartbarkeit
+* dies ist unabhängig davon wo diese abläuft
+* UI-Logik sollte wartbar sein, egal ob technisch im Browser oder auf dem Server 
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+### TypeScript
+
+* Für Typisierung in Browser ist TypeScript die Technologie der Wahl
+* Typisierung ist optional
+* Typensystem deutlich flexibler als Java
+* Nimmt viel Rücksicht aus typische Datenstrukturen in JavaScript
+* Compiliert zu reinem JavaScript
+
+<small>https://2019.stateofjs.com/javascript-flavors/</small>
+</textarea>
+</section>
+
+<section>
+  <h3>Basics</h3>
+     <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
+// variables can have type information
+let foo: string;
+foo = 'yo';
+// Error: Type 'number' is not assignable to type 'string'.
+foo = 10;
+</code></pre>
+     <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
+
+// types can be inferred (return type)
+function sayIt(what: string) {
+  return `Saying: ${what}`;
+}
+const said: string = sayIt(obj);
+
+</code></pre>
+     <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
+class Sayer {
+  what: string; // mandatory
+
+  constructor(what: string) {
+      this.what = what;
+  }
+
+  // return type if you want to
+  sayIt(): string {
+      return `Saying: ${this.what}`;
+  }
+}
+</code></pre>
+
+<small>https://www.typescriptlang.org/</small>
+
+</section>
+
+<!-- <section data-markdown>
+  <textarea data-template>
+
+http://www.typescriptlang.org/
+
+https://www.typescriptlang.org/play/index.html
+
+https://github.com/Microsoft/TypeScript/wiki/What's-new-in-TypeScript
+
+</textarea>
+</section>
+ -->
+
+    <section data-markdown>
+        <textarea data-template>
+### Mögliche Architektur-Entscheidung        
+
+## Welches Framework?
+  
+<img src='img/icons/check.png' height="256">
+
+  </textarea>
+    </section>
+  
+    <section data-markdown class="no-fragment">
+      <textarea data-template>
+  
+### Framework-Vergleich
+
+* Grundsätzlich folgen alle Frameworks einem Komponenten-basierten Ansatz
+* Bzgl. mancher Aspekte stellen sie sich jedoch unterschiedlich dar
+* Welcher Aspekt im eigenen Projekt zur Architektur-Entscheidung werden kann hängt von den Anforderungen ab
+* Die folgenden Skalen geben für wichtige Unterschiede unsere Einschätzung wieder
+
+<p>
+<img src='img/framework-icons/angular-icon_200px.png' height="200">
+<img src='img/framework-icons/react-icon_200px.png' height="180">
+<img src='img/framework-icons/vue-icon_200px.png' height="180">
+<img src='img/framework-icons/wc-icon_200px.png' height="200">
+</p>
+  
+  
+  
+            </textarea>
+    </section>
+  
+    <!-- <section data-markdown style="font-size: xx-large">
+        <textarea data-template>
+
+    ### Steckbrief: Angular
+
+    Motto: _"do it the Angular way"_
+
+    * Das Framework von Google
+    * Inkompatibler Nachfolger von Angular.js
+    * Name für Version 1.x „Angular.js“, ab Version 2 „Angular“
+    * Klare Ideen und Vorgaben
+    * Observables als durchgängiges Muster (Reactive Extensions for JavaScript, rxjs)
+    * Komponenten als Klassen
+    * TypeScript Sprache der Wahl
+
+    <p>
+    <img src='img/framework-icons/angular-icon_200px.png' height="200">
+    </p>
+              </textarea>
+      </section>
+
+      <section data-markdown style="font-size: xx-large">
+          <textarea data-template>
+
+      ### Steckbrief: React
+
+      Motto: _"JavaScript is king"_
+
+      * Das Framework von Facebook (Instagram und Facebook sind damit gebaut)
+      * Kein komplettes Framework, nur reaktive Rendering-Bibliothek
+      * Templates sind JavaScript mit Spracherweiterung JSX
+      * Kein Komponenten-Stil vorgeschrieben
+        * Ursprünglich Klassen
+        * Jetzt Funktionen mit „Hooks“ für Zustand, Lifecycle, Seiteneffekte, etc.
+
+      <p>
+      <img src='img/framework-icons/react-icon_200px.png' height="180">
+      </p>
+                </textarea>
+        </section>
+
+        <section data-markdown style="font-size: xx-large">
+            <textarea data-template>
+
+        ### Steckbrief: Vue
+
+        Motto: _"HTML is king"_
+
+        * Inoffizieller Community-Nachfolger von Angular.js
+        * Mit minimalem Aufwand einsetzbar
+        * Simple Konzepte
+        * Komponenten als Klassen möglich
+        * Bei Bedarf komplettes Framework
+        * Version 3 komplett in TypeScript
+
+        <p>
+        <img src='img/framework-icons/vue-icon_200px.png' height="180">
+        </p>
+                  </textarea>
+          </section>
+
+          <section data-markdown style="font-size: xx-large">
+              <textarea data-template>
+
+          ### Steckbrief: Web Components
+
+          Motto: _"Anti-Framework"_
+
+          * Kein Framework, nur Standard Browser-API
+          * Definition eigener Tags als Klassen
+          * Isolation von HTML / CSS in Komponenten
+          * Komplette Anwendungsentwicklung nur mit Bibliotheken zum reaktiven Rendering zumutbar (z.B.: lit-element als Nachfolger von Polymer)
+
+
+          <p>
+          <img src='img/framework-icons/wc-icon_200px.png' height="200">
+          </p>
+                    </textarea>
+            </section>
+
+
+
+  <section data-markdown>
+      <textarea data-template>
+
+  ### Framework-Vergleich
+
+  * Grundsätzlich folgen alle Frameworks einem Komponenten-basierten Ansatz.
+  * Bzgl. mancher Aspekte stellen sie sich jedoch unterschiedlich dar.
+  * Die folgenden Skalen geben für wichtige Unterschiede unsere Einschätzung wieder.
+
+  <p>
+  <img src='img/icons/levels.png' height="256">
+  </p>
+
+
+            </textarea>
+    </section>
+ -->
+
+  <section data-markdown>
+      <textarea data-template>
+  ### Framework-Vergleich
+
+  #### Skala #1: "Reife"
+
+  Seit wann ist das Framework seriös nutzbar?
+  <p>
+  <img src='img/spicker/Skala_1.png'>
+  </p>
+            </textarea>
+  </section>
+
+  <section data-markdown>
+      <textarea data-template>
+  ### Framework-Vergleich
+
+  #### Skala #2: "Konformität"
+
+  Wie nah ist das Framework an Browser- und Web-Standards?
+  <p>
+  <img src='img/spicker/Skala_2.png'>
+  </p>
+            </textarea>
+  </section>
+
+  <section data-markdown>
+      <textarea data-template>
+  ### Framework-Vergleich
+
+  #### Skala #3: "Führung"
+
+  Wie stark leitet das Framework Sie bei der Entwicklung (opinionated)?
+  <p>
+  <img src='img/spicker/Skala_3.png'>
+  </p>
+            </textarea>
+  </section>
+
+  <section data-markdown>
+      <textarea data-template>
+  ### Framework-Vergleich
+
+  #### Skala #4: "Resonanz"
+
+  Wie stark müssen Sie auf Weiterentwicklungen im Framework reagieren?
+  <p>
+  <img src='img/spicker/Skala_4.png'>
+  </p>
+            </textarea>
+  </section>
+
+  <section data-markdown>
+      <textarea data-template>
+  ### Framework-Vergleich
+
+  #### Skala #5: "Hypothek"
+
+  Wie viel bindet man sich mit einem Framework ans Bein? Kann man das Framework noch selbst warten im Notfall?
+  <p>
+  <img src='img/spicker/Skala_5.png'>
+  </p>
+            </textarea>
+  </section>
+
+  <section data-markdown>
+      <textarea data-template>
+  ### Framework-Vergleich
+
+  #### Skala #6: "Reichhaltigkeit"
+
+  Wie vollständig ist das Framework für ein typisches großes Vorhaben?
+  <p>
+  <img src='img/spicker/Skala_6.png'>
+  </p>
+            </textarea>
+  </section>
+
+
+    <!-- <section data-markdown>
+      <textarea data-template>
+### TL'DR: Welches Framework soll ich nehmen?
+
+* Angular: erzwingt Einheitlichkeit über viele Teams
+* React: maximale Flexibilität
+* Web Components: keine Abhängigkeiten
+* Vue: Frontendler (UI Developer) lieben es
+
+_Alle Optionen taugen grundsätzlich für die meisten Aufgaben. Letztlich ist es Geschmack und persönliche Erfahrung_
+
+<p>
+<img src='img/icons/quality.png' height="256">
+</p>
+
+
+</textarea>
+    </section> -->
+
+    <!-- <section data-markdown>
+      <textarea data-template>
+### Mögliche Architektur-Entscheidung        
+## Externes Zustandsmanagement
+
+_Verlässt man sich auf lokalen Zustand in Komponenten?_
+
+<img src='img/icons/check.png' height="256">
+  
+</textarea>
+    </section>
+
+        <section data-markdown class="todo">
+          <textarea data-template>
+  ### Zustand und Redux
+  
+  Geteilter vs Zentraler Zustand
+  
+  <img src='img/scratch/nils-redux-1.jpg'>
+  <img src='img/scratch/nils-redux-2.jpg'>
+  <img src='img/scratch/nils-redux-3.jpg'>
+  <img src='img/scratch/nils-redux-4.jpg'>
+  <img src='img/scratch/nils-redux-5.jpg'>
+  
+      </textarea>
+    </section>
+  
+    <section>
+      <h1>Redux</h1>
+      <ul>
+        <li><span class="highlight">Central</span> state management: one store for whole app, like a database</li>
+        <li><span class="highlight">External</span> state management: extract logic from the (UI-)components</li>
+      </ul>
+      <em>It's not only a framework, it's also a pattern (like MVC)</em>
+  </section>
+
+  <section>
+    <h2>Redux</h2>
+    <h3>Architectural guidance</h3>
+    <ul>
+            <li>Uni-directional data flow
+            <li>Central and immutable state: store
+                    <li>Only reducers are allowed to modify state
+                            <li>State moves from Smart Components to store
+            <li>UI logic moves from Smart Components in Action-Creators / Services and Reducer
+            <li>Asynchronous code only in Action-Creators / Services or Effects
+            <li>Initializing of the app with central action
+    </ul>
+</section>
+
+  <section>
+      <h2>Redux is independent of UI framework</h2>
+      <p style="color: #2aa198">Bindings exist for popular UI frameworks</p>
+      <ul style="font-size: 80%">
+          <li>React: <a href="http://redux.js.org/docs/basics/UsageWithReact.html" target="_blank">
+              http://redux.js.org/docs/basics/UsageWithReact.html
+          </a>
+          <li>Angular: <a href="https://redux.js.org/" target="_blank">https://redux.js.org/</a></li>
+          <li>Vue: <a href="https://github.com/vuejs/vuex" target="_blank">https://github.com/vuejs/vuex</a>
+          <li>Web Components (Polymer): Redux is recommended implementation of <em>Global Mediator Pattern</em>,
+              <a href="https://twitter.com/DJCordhose/status/899943415353311232" target="_blank">https://twitter.com/DJCordhose/status/899943415353311232</a>
+              <a href="https://tur-nr.github.io/polymer-redux/" target="_blank">https://tur-nr.github.io/polymer-redux/</a>
+      </ul>
+
+  </section>
+
+  <section>
+      <h3>Redux extracts responsibility out of Components</h3>
+      <img src="img/redux-02-extracting-responsibility.png" style="max-height: 500px; border:0;box-shadow:0 0 0 0"/>
+  </section>
+
+  <section>
+      <h3>Redux Pattern, Resulting Architecture</h3>
+      <img src="img/redux-03-resulting-redux-architecture.png" style="max-height: 500px; border:0;box-shadow:0 0 0 0"/>
+  </section>
+
+
+  <section>
+      <h2>Different Types of State</h2>
+      <img src="img/three-kinds-of-state.png">
+  </section>
+ -->
+
+    
+    <section data-markdown class="no-fragment">
+      <textarea data-template>
+
+### Zum Mitnehmen und Nachlesen
+
+Wissen auf den Punkt.
+Stark verdichtet liefern diese Referenzkarten kompaktes Wissen, Check-Listen und Rezepte für Ihre Projekte!
+
+<img src='img/spicker/Spicker_9_Vorschaubild3er.jpg' height="200">
+
+#### Architektur-Spicker Ausgabe Nr. 9: Moderne Frontend-Architektur
+
+* 4 Seiten in Farbe. Hier auf der JAX für jeden auf Papier gedruckt.
+* Oder online zum Download:   <a href="https://www.embarc.de/wp-content/uploads/2019/11/Architektur-Spicker9-online3.pdf">
+    https://www.embarc.de/architektur-spicker/</a>
+
+    </textarea>
+    </section>
+
+    <section>
+      <h2>Vielen Dank!</h2>
+      <h3>Moderne Frontend-Architekturen für Single-Page-Anwendungen</h3>
+      <p>Bleibt gern in Kontakt</p>
+  
+      <div>
+        <a href="http://zeigermann.eu">Oliver Zeigermann</a> /
+        <a href="http://twitter.com/djcordhose">@DJCordhose</a> /
+        <a href="https://www.embarc.de/ ">embarc GmbH</a>
+      </div>
+  <p>Diese Folien:
+          <a href='https://djcordhose.github.io/spa-workshop/2020_arch.html'>https://djcordhose.github.io/spa-workshop/2020_arch.html</a>
+      </p>
+  </section>
+
+      </div>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js "></script>
+    <script src="reveal.js/js/reveal.js "></script>
+    <script src="lib/jquery-2.2.4.js "></script>
+    <script>
+      // $('.weg').remove();
+      // uncomment for jax
+      // $('.jax').remove();
+      const isLocal =
+        window.location.hostname.indexOf("localhost") !== -1 ||
+        window.location.hostname.indexOf("127.0.0.1") !== -1;
+
+      if (isLocal) {
+      } else {
+        // only applies to public version
+        $(".preparation").remove();
+        // $(".todo").remove();
+        $(".local").remove();
+        $(".presenter").remove();
+      }
+      Reveal.addEventListener("ready", function(event) {
+        // do we want this???
+        $("li").addClass("fragment");
+        $(".no-fragment li").removeClass("fragment");
+
+        // make all links open in new tab
+        $("a").attr("target", "_blank");
+
+        if (isLocal) {
+          // only applies to presentation version
+          Reveal.configure({ controls: false });
+        } else {
+          // only applies to public version
+          $(".fragment").removeClass("fragment");
+        }
+        // applies to all versions
+        $("code").addClass("line-numbers");
+      });
+      // $('section').attr('data-background-image', "backgrounds/light-metal.jpg ");
+      // $('section').attr('data-background-image', "backgrounds/pink.jpg ");
+      // $('section').attr('data-background-image', "backgrounds/white.jpg ");
+      //    $('section').attr('data-background-image', "backgrounds/code.jpg ");
+      $("section").attr("data-background-image", "backgrounds/sky.jpg");
+    </script>
+
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        width: 1200,
+        height: 800,
+
+        transition: "slide", // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          {
+            src: "reveal.js/lib/js/classList.js",
+            condition: function() {
+              return !document.body.classList;
+            }
+          },
+          {
+            src: "reveal.js/plugin/markdown/marked.js",
+            condition: function() {
+              return !!document.querySelector("[data-markdown]");
+            }
+          },
+          {
+            src: "reveal.js/plugin/markdown/markdown.js",
+            condition: function() {
+              return !!document.querySelector("[data-markdown]");
+            }
+          },
+          {
+            src: "reveal.js/plugin/highlight/highlight.js",
+            async: true,
+            condition: function() {
+              return !!document.querySelector("pre code");
+            },
+            callback: function() {
+              hljs.initHighlightingOnLoad();
+            }
+          },
+          { src: "reveal.js/plugin/zoom-js/zoom.js", async: true },
+          { src: "reveal.js/plugin/notes/notes.js", async: true },
+          { src: "lib/js/line-numbers.js" }
+        ]
+      });
+    </script>
+  </body>
+</html>
