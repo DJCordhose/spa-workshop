@@ -197,24 +197,6 @@
       <div class="slides">
 
 
-        <!-- 14:00 – 14:45 Moderne Frontend-Architekturen für Single-Page-Anwendungen (Oliver Zeigermann, embarc Software Consulting GmbH)         -->
-      <section data-markdown class="todo">
-        <textarea data-template>
-### kürzen      
-
-- Von 60 aus 45 Minuten 
-- Habe ja jetzt noch viel mehr Inhalte
-
-14:00 – 14:45 Moderne Frontend-Architekturen für Single-Page-Anwendungen (Oliver Zeigermann, embarc Software Consulting GmbH)        
-
-- TS raus
-- Innere Architektur kürzer
-
-        </textarea>
-      </section>
-
-
-
         <section>
           <h2>Moderne Frontend-Architekturen für Single-Page-Anwendungen</h2>
 
@@ -409,7 +391,7 @@ Entscheidungen, die die Umsetzbarkeit fundamental beeinflussen _können(!)_
 
 #### Was wir heute besprechen
 1. SPA vs Jamstack vs Serverseitiges Rendering (Struktur)
-1. Aufteilung in Innere und Äußere Struktur (Struktur)
+1. State-Management (Struktur)
 1. Typing (Technologie)
 1. Wahl des Web-Frameworks (Technologie)
 
@@ -587,225 +569,12 @@ dazu haben SPAs eine ebenso einheitliche Struktur wie traditionelle Web-Apps
 </section>
 
 
-    <section data-markdown>
-      <textarea data-template>
-### Mögliche Architektur-Entscheidung        
-## Äußere Struktur
-
-_Zerlegen in Teile und Integration in eine konsistente Anwendung_
-
-<img src='img/icons/check.png' height="256">
-
-</textarea>
-    </section>
-
-<section data-markdown class="no-fragment">
-<textarea data-template>
-
-### Zerlegung und Zusammenspiel
-
-* Große Anwendungen erfordern es, dass mehrere Teams diese gemeinsam entwickeln.
-* Die Anwendungsteile sollen sich zu einer möglichst schlüssigen Anwendung zusammensetzen lassen.
-
-
-<img src='img/spicker/Zerlegung_Zusammenspiel1.png' height="300" >
-
-</textarea>
-</section>
-
-<!-- Das ist nur das Gesamtbild aus dem ich ausgeschnitten habe -->
-
-<!-- <section data-markdown>
-  <textarea data-template>
-<img src='img/skizze/frontend-arch-outer.png' height="750">
-
-</textarea>
-</section> -->
-
-
-<section data-markdown>
-  <textarea data-template>
-## Server Side Include (SSI)
-
-</textarea>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-### Prominentes Beispiel für Server Side Include: Amazon
-
-
-<small>https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction</small>
-
-</textarea>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-<img src='img/skizze/frontend-arch-outer-ssi.png' height="750">
-
-</textarea>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-#### Architekturbedingte UX-Probleme   
-<img src='img/amazon-ssi.png' height="600">
-
-<small>kein gemeinsames Datenmodell, Produkt "weiß" nicht, dass es bereits im Warenkorb ist</small>
-
-</textarea>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-## Client Side Include (CSI)
-
-</textarea>
-</section>
-
-<section style="background: url(img/mc-badge.png) no-repeat right top;">
-  <h3>Prominentes Beispiel für Client Side Include: Spotify mobile App</h3>
-  <img src="img/screenshot-spotify.png" height="450px">
-  <p>
-      <small>
-          Dies gilt nur für die App, der Web Player ist seit einiger Zeit als React-Monolith gebaut: 
-          <a href="http://labs.spotify.com/2019/03/25/building-spotifys-new-web-player/" target="_blank">
-            http://labs.spotify.com/2019/03/25/building-spotifys-new-web-player/</a>
-
-      
-      <!-- <a href="https://www.quora.com/What-is-the-technology-stack-behind-the-Spotify-web-client/answer/Andreas-Blixt" target="_blank">https://www.quora.com/What-is-the-technology-stack-behind-the-Spotify-web-client/answer/Andreas-Blixt</a>
-      <br>
-      <a href="https://www.quora.com/How-are-Spotify-Web-Player-components-developed" target="_blank">https://www.quora.com/How-are-Spotify-Web-Player-components-developed</a>
-      <br>
-      <a href="https://www.reddit.com/r/reactjs/comments/5sgkro/til_spotify_is_using_reactredux_in_their_web_app/" target="_blank">https://www.reddit.com/r/reactjs/comments/5sgkro/til_spotify_is_using_reactredux_in_their_web_app/</a> -->
-    </small>
-  </p>
-
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-<img src='img/skizze/frontend-arch-outer-csi.png' height="750">
-
-</textarea>
-</section>
-
-<section style="background: url(img/mc-badge.png) no-repeat right top;">
-  <h4>Architekturbedingte UX-Probleme</h4>
-
-  <video controls src="video/micro_frontend_spotify.mp4" type="video/mp4" height="600px"></video>
-  <p>
-    <small>Apps nur gleichzeitig dargestellt, aber nicht komplett integriert</small>
-  </p>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-## Reine Vertikalen
-
-</textarea>
-</section>
-
-<section>
-  <h3>Prominentes Beispiel für Reine Vertikalen: Outlook Online</h3>
-  <a href="https://outlook.live.com/mail" target="_blank">
-    <img src="img/screenshot-outlook-mit-highlight.png" height="550">
-  </a>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-<img src='img/skizze/frontend-arch-outer-vertical.png' height="750">
-
-</textarea>
-</section>
-
-<section>
-  <h4>Architekturbedingte UX-Schwächen</h4>
-  <video controls src="video/outlook.mp4" type="video/mp4" height="600px"></video>
-  <p>
-    <small>unterschiedliche Technologien, jede App wird anders dargestellt
-      <br> Wechsel der App dauert (Service Workers können die Zeit ab 2. Aufruf vermindern)
-      <br>Umstellung auf React fortlaufend
-    </small>
-  </p>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-## SPA Deployment-Monolith
-
-Majestic Modular Monoliths
-</textarea>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-<img src='img/skizze/frontend-arch-outer-spa.png' height="750">
-
-</textarea>
-</section>
-
-
-<section>
-  <h3>Prominentes Beispiel für SPA Deployment-Monolith: Google Docs</h3>
-  <img src="img/screenshot-google-docs-comment.png" height="500px">
-  <p>
-    <small>Keine architekturbedingten UX Probleme</small>
-  </p>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-### Bewertung
-
-* SSI
-  * Robuste Variante bei Serverside-Rendering
-* Reine Vertikalen
-  * Flexible Version mit Mischung als Serverside- und Client-Side-Rendering
-* CSI
-  * Techniken für die Integration entweder schwach (WC) oder nervig (iFrame)  
-* SPA Deployment-Monolith
-  * Bestes UX, Module möglich, aber monolithischer Build und Deployment
-
-</textarea>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-### Genau !1!11!!!    
-
-<img src='img/twitter-part-whole.png'>
-
-<small>https://twitter.com/monicaaquirk/status/1298447577671561216</small>
-</textarea>
-</section>
-
-<!-- <section data-markdown>
-  <textarea data-template>
-### Mehr zu Micro-Frontends
-
-<a href='https://www.manning.com/books/micro-frontends-in-action?a_aid=mfia&a_bid=5f09fdeb#toc'><img src='img/mf-in-action.png' height="300px">
-</a>
-
-<small>https://www.manning.com/books/micro-frontends-in-action?a_aid=mfia&a_bid=5f09fdeb#toc
-<br>
-https://github.com/naltatis/micro-frontends-in-action-code 
-<br>
-https://the-tractor.store/ 
-<br>
-https://micro-frontends.org/</small>
-
-  </textarea>
-</section> -->
-
 <section data-markdown>
   <textarea data-template>
 ### Mögliche Architektur-Entscheidung        
-## Innere Struktur
+## State-Management
 
-Wie setzen sich bei SPAs Anwendungsteile aus Komponenten zusammen und wie kommunizieren diese miteinander?
+Wie setzen sich bei SPAs Anwendungsteile aus Komponenten zusammen und wie kommunizieren diese miteinander und wo wird Zustand gehalten?
 
 <img src='img/icons/check.png' height="256">
 
@@ -826,45 +595,6 @@ Wie setzen sich bei SPAs Anwendungsteile aus Komponenten zusammen und wie kommun
 
         </textarea>
 </section>
-
-<section data-markdown class="fragments">
-    <textarea data-template>
-### Arten von Komponenten
-
-_Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
-
-1. Container Components (aka Smart Components)
-  * enthalten Logik 
-  * Meist spezifisch für Anwendungsfall
-  * Nicht wiederverwendbar
-1. Presentational Components (aka Dumb Components)
-  * Darstellung
-  * keine nennenswerte Logik
-  * Komponenten-Bibliotheken enthalten vor allem wiederverwendbare Presentational Components
-
-          </textarea>
-  </section>
-
-  <section data-markdown>
-      <textarea data-template>
-
-      ### Klarer Daten- und Kontrollfluss zwischen den Komponenten
-
-      <img src='img/spicker/spicker-hierarchien.png' height="550">
-
-            </textarea>
-    </section>
-
-    <section data-markdown>
-  <textarea data-template>
-### Wieso wichtig?        
-
-* Wartbarkeit wegen leichter Verständlichkeit
-* wiederverwendbare Dumb-Components
-* Austauschbarkeit von Library aus Dumb-Components  
-</textarea>
-</section>
-
 
   <section data-markdown>
     <textarea data-template>
@@ -1281,7 +1011,7 @@ _Verlässt man sich auf lokalen Zustand in Komponenten?_
     <section data-markdown class="no-fragment">
       <textarea data-template>
 
-### Zum Mitnehmen und Nachlesen
+### Zum Nachlesen
 
 Wissen auf den Punkt.
 Stark verdichtet liefern diese Referenzkarten kompaktes Wissen, Check-Listen und Rezepte für Ihre Projekte!
@@ -1290,8 +1020,7 @@ Stark verdichtet liefern diese Referenzkarten kompaktes Wissen, Check-Listen und
 
 #### Architektur-Spicker Ausgabe Nr. 9: Moderne Frontend-Architektur
 
-* 4 Seiten in Farbe. Hier auf der JAX für jeden auf Papier gedruckt.
-* Oder online zum Download:   <a href="https://www.embarc.de/wp-content/uploads/2019/11/Architektur-Spicker9-online3.pdf">
+<a href="https://www.embarc.de/wp-content/uploads/2019/11/Architektur-Spicker9-online3.pdf">
     https://www.embarc.de/architektur-spicker/</a>
 
     </textarea>
