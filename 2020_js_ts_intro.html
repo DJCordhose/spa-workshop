@@ -198,9 +198,8 @@
 
       <section data-markdown>
           <textarea data-template>
-## Modern JavaScript
+## ES5: Classic JavaScript
 
-Talking about ES6 and later
 </textarea>
 </section>
 
@@ -386,11 +385,23 @@ result1 === 3;
                         </code></pre>
                 </section>
 
-<section>
-    <h2>ES6-Reference</h2>
-    <p><a href="http://exploringjs.com/es6/" target="_blank">
-        http://exploringjs.com/es6/
+<section data-markdown>
+  <textarea data-template>
+## Modern JavaScript
+
+Talking about ES6 and later
+</textarea>
+</section>
+
+  <section data-markdown>
+    <textarea data-template>
+      <h2>After JS5: Reference</h2>
+
+* https://exploringjs.com/es6/ (ES2015)
+* https://exploringjs.com/es2016-es2017.html
+* https://exploringjs.com/es2018-es2019/index.html
     </a>
+  </textarea>
 </section>
 
 <section>
@@ -442,12 +453,18 @@ console.log(programmer instanceof Person); // true</code></pre>
 
         <section>
             <h3>ES6: Extended Object Literals</h3>
-   <pre><code class="javascript" contenteditable>const name = 'Oma';
+   <pre><code class="javascript" contenteditable data-trim>
+const name = 'Oma';
 const person = {
     // ES5: name: name
-    name
+    name,
+    // ES5: toString: function()
+    toString() {
+        return this.name;
+    }
 };
 console.log(person.name); // Oma
+console.log(person.toString()); // Oma
    </code></pre>
         </section>
 
@@ -487,66 +504,133 @@ export { displayInPage };
    <pre class="fragment"><code class="javascript" contenteditable data-trim>import {displayInPage} from "./util";
 displayInPage('Hello, World');
    </code></pre>
-   <!--<pre class="fragment"><code class="javascript" contenteditable data-trim>import {displayInPage as display} from "./util";-->
-<!--display('Hello, World');-->
-   <!--</code></pre>-->
-   <!--<pre class="fragment"><code class="javascript" contenteditable data-trim>import * as util from "./util";-->
-<!--util.displayInPage('Hello, World');-->
-   <!--</code></pre>-->
+   <pre class="fragment"><code class="javascript" contenteditable data-trim>import {displayInPage as display} from "./util";
+display('Hello, World');
+   </code></pre>
+   <pre class="fragment"><code class="javascript" contenteditable data-trim>import * as util from "./util";
+util.displayInPage('Hello, World');
+   </code></pre>
                     </section>
-        <!--<section>-->
-                        <!--<h2>Neuerungen und Verbesserungen in ES6</h2>-->
-                    <!--</section>-->
-
-                    <!--<section>-->
-                      <!--<h3>Tagged Template Literals</h3>-->
-          <!--<p><a target="_blank" href="http://exploringjs.com/es6/ch_template-literals.html#_tagged-templates">-->
-         <!--Mini-DSLs: Template-Literals mit tag-->
-    <!--</a>-->
-    <!--</p>-->
-
-   <!--<pre class="fragment"><code class="javascript" contenteditable>function tag(strings, ...values) {-->
-  <!--console.log(strings);-->
-  <!--//[ '', ' codes in ', '.' ]-->
-  <!--console.log(values);-->
-  <!--//[ 'Oma', 'Haskell' ]-->
-  <!--return 'whatever you want';-->
-<!--}-->
-<!--</code></pre>-->
-
-   <!--<pre><code class="javascript" contenteditable>const expanded = tag`${person} codes in ${language}.`;-->
-<!--console.log(expanded);-->
-<!--//whatever you want-->
-<!--</code></pre>-->
-
-                    <!--</section>-->
 
                     <section>
                         <h3>ES6: Destructuring of Objects</h3>
-   <pre><code class="javascript" contenteditable>const person = {
+   <pre><code class="javascript" contenteditable data-trim>
+const person = {
   name: 'Olli',
+  address: {
+    city: 'Hamburg'
+  },
   email: 'oliver.zeigermann@gmail.com'
 };</code></pre>
-   <pre class="fragment"><code class="javascript" contenteditable>const {name, notThere} = person;
+   <pre class="fragment"><code class="javascript" contenteditable data-trim>
+const {name, notThere} = person;
 console.log(`name=${name}`);
 // name=Olli
 console.log(`notThere=${notThere}`);
 // notThere=undefined
 </code></pre>
-   <!--<pre class="fragment"><code class="javascript" contenteditable>const {address: {city}} = person;-->
-<!--console.log(`city=${city}`);-->
-<!--//city=Hamburg-->
-<!--</code></pre>-->
+   <pre class="fragment"><code class="javascript" contenteditable data-trim>
+const {address: {city}} = person;
+console.log(`city=${city}`);
+//city=Hamburg
+</code></pre>
                     </section>
 
-        <section>
-                        <h3>ES6: Template Literals</h3>
-          <p><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings">
-         String-Literals with Gaps
+                    
+                    <section>
+                        <h3>ES6: Destructuring of Parameters</h3>
+   <pre><code class="javascript" contenteditable data-trim>
+const person = {
+  name: 'Olli',
+  address: {
+    city: 'Hamburg'
+  },
+  email: 'oliver.zeigermann@gmail.com'
+};</code></pre>
+   <pre class="fragment"><code class="javascript" contenteditable data-trim>
+function print({email: contact}) {
+    console.log(`contact=${contact}`);
+}
+print(person);
+// contact=oliver.zeigermann@gmail.com
+</code></pre>
+   <pre class="fragment"><code class="javascript" contenteditable data-trim>
+function g({name: x, y, z=10}) {
+  console.log(`x=${x}`); // x=olli
+  console.log(`y=${y}`); // y=undefined
+  console.log(`z=${z}`); // z=10
+}
+g({ name: 'olli' });
+</code></pre>
+                    </section>
+                    <section>
+                        <h3>ES6: Destructuring of Arrays</h3>
+   <pre><code class="javascript" contenteditable>const [a, b] = [1, 2];
+console.log(`a=${a}`);
+// a=1
+console.log(`b=${b}`);
+// b=2
+</code></pre>
+   <pre class="fragment"><code class="javascript" contenteditable data-trim>
+const [, b] = [1, 2];
+console.log(`b=${b}`);
+//b=2
+</code></pre>
+                    </section>
+                    <section>
+                        <h3>ES6: for..of</h3>
+          <p><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of">
+            Iterate over everything that is 'iterable'
     </a>
     </p>
 
-   <pre><code class="javascript" contenteditable>const person = 'Oma';
+   <pre><code class="javascript" contenteditable>for (const e of array2) {
+    console.log(e);
+}
+// Hi
+// Olli
+// how are you
+// ?
+</code></pre>
+                    </section>
+
+    <section>
+                        <h3>ES6: Spread-Operator</h3>
+          <p><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator">
+            Everything that is 'iterable' can be transformed into single parameters    </a>
+    </p>
+   <pre><code class="javascript" contenteditable data-trim>
+const array1 = ['Olli', 'how are you'];
+const array2 = ['Hi', ...array1, '?'];
+console.log(array2);
+// => ["Hi", "Olli", "how are you", "?"]
+</code></pre>
+   <pre class="fragment"><code class="javascript" contenteditable  data-trim>
+console.log(...array1);
+// => Hi Olli how are you ?
+</code></pre>
+                    </section>
+
+                    <section>
+                      <h3>ES2018: Spread in object literals</h3>
+ <pre><code class="javascript" contenteditable data-trim>
+ const obj1 = { foo: 'bar', x: 42 };
+ const obj2 = { foo: 'baz', y: 13 };
+ const mergedObj = { ...obj1, ...obj2 };
+ console.log(mergedObj)
+ // { foo: "baz", x: 42, y: 13 }
+ </code></pre>
+                  </section>
+
+
+                    <section>
+                      <h3>ES6: Template Literals</h3>
+        <p><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings">
+       Multi-Line String-Literals with Gaps
+  </a>
+  </p>
+
+ <pre><code class="javascript" contenteditable>const person = 'Oma';
 const language = 'Haskell';
 
 console.log(`${person} programs
@@ -557,98 +641,34 @@ in ${language}.`);
 // 10485760 lines of code
 // in Haskell.
 </code></pre>
-                    </section>
+                  </section>
+
+                  <section>
+                    <h3>Tagged Template Literals</h3>
+        <p><a target="_blank" href="http://exploringjs.com/es6/ch_template-literals.html#_tagged-templates">
+       Mini-DSLs: Template-Literals with tag
+  </a>
+  </p>
+
+     <pre><code class="javascript" contenteditable data-trim>
+const expanded = tag`${person} codes in ${language}.`;
+console.log(expanded);
+//whatever you want
+</code></pre>
 
 
-                    <!--<section>-->
-                        <!--<h3>Destructuring bei Parametern</h3>-->
-   <!--<pre><code class="javascript" contenteditable>const person = {-->
-  <!--name: 'Olli',-->
-  <!--address: {-->
-    <!--city: 'Hamburg'-->
-  <!--},-->
-  <!--email: 'oliver.zeigermann@gmail.com'-->
-<!--};</code></pre>-->
-   <!--<pre class="fragment"><code class="javascript" contenteditable data-trim>-->
-<!--function print({email: contact}) {-->
-    <!--console.log(`contact=${contact}`);-->
-<!--}-->
-<!--print(person);-->
-<!--// contact=oliver.zeigermann@gmail.com-->
-<!--</code></pre>-->
-   <!--<pre class="fragment"><code class="javascript" contenteditable data-trim>-->
-<!--function g({name: x, y, z=10}) {-->
-  <!--console.log(`x=${x}`); // x=olli-->
-  <!--console.log(`y=${y}`); // y=undefined-->
-  <!--console.log(`z=${z}`); // z=10-->
-<!--}-->
-<!--g({ name: 'olli' });-->
-<!--</code></pre>-->
-                    <!--</section>-->
-                    <!--<section>-->
-                        <!--<h3>Destructuring bei Arrays</h3>-->
-   <!--<pre><code class="javascript" contenteditable>const [a, b] = [1, 2];-->
-<!--console.log(`a=${a}`);-->
-<!--// a=1-->
-<!--console.log(`b=${b}`);-->
-<!--// b=2-->
-<!--</code></pre>-->
-   <!--<pre class="fragment"><code class="javascript" contenteditable data-trim>-->
-<!--const [, b] = [1, 2];-->
-<!--console.log(`b=${b}`);-->
-<!--//b=2-->
-<!--</code></pre>-->
-                    <!--</section>-->
-                    <!--<section>-->
-                        <!--<h3>Erweiterte Objekt-Literale</h3>-->
-   <!--<pre><code class="javascript" contenteditable>const name = 'Oma';-->
-<!--const person = {-->
-    <!--// ES5: name: name-->
-    <!--name,-->
-    <!--// ES5: toString: function()-->
-    <!--toString() {-->
-        <!--return this.name;-->
-    <!--}-->
-<!--};-->
-<!--console.log(person.name); // Oma-->
-<!--console.log(person.toString()); // Oma-->
-   <!--</code></pre>-->
-                    <!--</section>-->
-                    <!--<section>-->
-                        <!--<h3>for..of</h3>-->
-          <!--<p><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of">-->
-         <!--Iterieren über alles was 'iterable' ist-->
-    <!--</a>-->
-    <!--</p>-->
+ <pre class="fragment"><code class="javascript" contenteditable data-trim>
+function tag(strings, ...values) {
+console.log(strings);
+//[ '', ' codes in ', '.' ]
+console.log(values);
+//[ 'Oma', 'Haskell' ]
+return 'whatever you want';
+}
+</code></pre>
 
-   <!--<pre><code class="javascript" contenteditable>for (const e of array2) {-->
-    <!--console.log(e);-->
-<!--}-->
-<!--// Hi-->
-<!--// Olli-->
-<!--// how are you-->
-<!--// ?-->
-<!--</code></pre>-->
-                    <!--</section>-->
+                  </section>
 
-    <!--<section>-->
-                        <!--<h3>Spread-Operator</h3>-->
-          <!--<p><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator">-->
-          <!--Alles was 'iterable' ist kann in einzelne Parameter transformiert werden-->
-    <!--</a>-->
-    <!--</p>-->
-   <!--<pre><code class="javascript" contenteditable>const array1 = ['Olli', 'how are you'];-->
-<!--const array2 = ['Hi', ...array1, '?'];-->
-<!--console.log(array2);-->
-<!--// => ["Hi", "Olli", "how are you", "?"]-->
-<!--</code></pre>-->
-   <!--<pre class="fragment"><code class="javascript" contenteditable>console.log(...array1);-->
-<!--</code></pre>-->
-                    <!--</section>-->
-
-                <!--<section>-->
-                    <!--<h2>Verbesserungen bei Funktionen in ES6</h2>-->
-                <!--</section>-->
                 <section>
                     <h2>fetch</h2>
                     <p>Browser API to load and save data</p>
@@ -785,9 +805,9 @@ fetch(url, {
                     </section> -->
 <section data-markdown>
     <textarea data-template>
-### From Callback to Promise to async/await
+### ES2017: From Callback to Promise to async/await
 
-https://twitter.com/addyosmani/status/1097035418657144832
+<small>https://twitter.com/addyosmani/status/1097035418657144832</small>
 
 </textarea>
 </section>
@@ -858,17 +878,17 @@ https://twitter.com/samccone/status/1102341416372514816
 </section>
 
 <section>
-    <h2>https://2018.stateofjs.com</h2>
-    <p>Recently published survey on the state of JavaScript</p>
+    <h2>https://2019.stateofjs.com</h2>
+    <p>Survey on the state of JavaScript</p>
 </section>
 
 <section>
 <h3>JavaScript flavors</h3>
-    <a href="http://stateofjs.com/2016/flavors/" target="_blank">
-        <img src="img/2018_flavors.jpg">
+    <a href="https://2019.stateofjs.com/javascript-flavors/" target="_blank">
+        <img src="img/2019_flavors.png" height="500">
     </a>
-    <p><small><a href="https://2018.stateofjs.com/javascript-flavors/overview/" target="_blank">
-      https://2018.stateofjs.com/javascript-flavors/overview/
+    <p><small><a href="https://2019.stateofjs.com/javascript-flavors/" target="_blank">
+      https://2019.stateofjs.com/javascript-flavors/
     </a></small></p>
 </section>
 
@@ -877,13 +897,11 @@ https://twitter.com/samccone/status/1102341416372514816
     <h3 class="fragment">ease of use and tool support over soundness</h3>
     <ul class="fragment">
         <li>By Microsoft (Anders Hejlsberg)
-        <li>Based on ES67ES7/ES8
+        <li>Based on ES6/ES7/ES8/ES9/ES10
         <li>Adds optional type annotations, visibility, and decorators
         <li>Compiler checks and removes annotations
           <li>External declarations can add type information to pure JavaScript
-        <li>Extensive support in
-
-        <a target="_blank" href="https://youtu.be/uceWBKISaF8">WebStorm</a> and Visual Studio Code
+        <li>Extensive support in Visual Studio Code and IntelliJ
         <li>supporting people from Java and C# land
     </ul>
 </section>
