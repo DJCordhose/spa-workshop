@@ -196,6 +196,28 @@
           </p>
       </section>
 
+      <section data-markdown class="todo">
+        <textarea data-template>
+### Basics
+- Übungen reinbauen als Playground Links
+- readonly 
+- Sandbox
+
+### Advanced
+- https://github.com/DJCordhose/inversify-playground
+  - Meta Data: https://www.typescriptlang.org/docs/handbook/decorators.html#metadata
+- type vs interface: https://www.typescriptlang.org/play?q=240#example/types-vs-interfaces
+- unknown and never: https://www.typescriptlang.org/play?q=23#example/unknown-and-never
+- type guards: https://www.typescriptlang.org/play?q=29#example/type-guards 
+-  Advanced Types und Utility Types von TypeScript
+   - https://www.typescriptlang.org/docs/handbook/advanced-types.html
+   - https://www.typescriptlang.org/docs/handbook/utility-types.html
+- https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards 
+  - https://www.typescriptlang.org/play?target=7&jsx=0#code/LAKAxgNghgzjAEBBAdgSwLZQvA3qeB8YA9sjAC4BOArmOcZQBQAOlx5ApnRwCbyUcoPUhACe8ZFHQcAXPAqVUyAOYBKXPkIBfUDpChIsBABFiy+BwAenZDwQoMWDSELwA7sWIAzRurwvXQhIyYggOADoIM0YAAwASHHIAC1QYcMlpLXdPLxgY1U0CPT0DaDh4AGEocgtrDlt7NExsf1dpYjdfZ0Cg0hhQiKjlWITk1PSpDiz2tzyCgKLdUFAAehX4JPJyZhgZNbcD8PJRZg4YMEVmcmgVcIZlFeEwGBWkqFsAI08AaxWhADd3mBeABaY6nNKbdAQADE1BgHEoIJ4HC8SlB4I4IOU1CglDsoDCNXejggcgczXgAF4JBw3JVqowAOQABWolEooiZqgA3KBUF54IwAEQzYXwJTwEnNPyFIXSpywBnkVThGa+Jb6EAC+VNLBqjgdWULXWkqUIKoqg0dDUgEogLzUZB0VCkCUwS2MBVkpB6iCqOTe93K7r8DjkdnIU2UpWW1UzeAAQipNKdKLRyF4fLty3AfQGkWiqU93tU835gsYxcZpeNrm91s68yyHAgCNDBDW8BE4mYxDgqA+YXcSXq8GSiI4UoE8HTSlQnDE4483aurrI3eQS4gqG+HDlXaJUr9ckt8AAPvBTOYaZn6Z7WezOdzs64uw2PN5bXogA
+
+</textarea>
+</section>
+
       <section data-markdown>
           <textarea data-template>
 ## ES5: Classic JavaScript
@@ -994,18 +1016,17 @@ sayIt(): string {
   <section class="typescript">
       <h3>TypeScript</h3>
       <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
-// TypeScript allows to put the type annotation here instead of using inference
 function foo(num: number) {
-if (num > 10) {
-  return 'cool';
-}
+  if (num > 10) {
+    return 'cool';
+  }
 }
 </code></pre>
       <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
 // check required
-const fooed: string|void = foo(9);
+const fooed: string|void = foo(11);
 if (fooed) {
-fooed.toString();
+  fooed.toString();
 }
 </code></pre>
       <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
@@ -1031,7 +1052,7 @@ fooed!.toString();
 </textarea>
   </section>
 
-  <section>
+  <section class="fragments">
       <h3>Generic Type information</h3>
       <p class="fragment">Types can be parameterized by others</p>
       <p class="fragment">Most common with collection types</p>
@@ -1120,6 +1141,46 @@ animals.add(new Animal("Twinky"));
         </div>
 
     </section>
+
+    <section>
+      <h2>Union Types</h2>
+      <p class="fragment">aka Disjoint Unions aka Tagged Unions aka Algebraic data types</p>
+      <p class="fragment">to describe data with weird shapes</p>
+      <p class="fragment">depending on some data other data might apply or not</p>
+      <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
+// a disjoint union type with two cases
+type Response = Result | Failure;
+
+type Result = { status: 'done', payload: Object }; // all good, we have the data
+type Failure = { status: 'error', code: number}; // error, we get the error code
+     </code></pre>
+  </section>
+
+  <section>
+      <h3>Implementation in TypeScript</h3>
+      <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
+function callback(response: Response) {
+  // works, as this is present in both
+  console.log(response.status);
+  // does not work,
+  // as we do not know if it exists, just yet
+  console.log(response.payload); // ERROR
+  console.log(response.code); // ERROR
+     </code></pre>
+      <pre class="fragment"><code class="typescript line-numbers" contenteditable  data-trim data-num-start="7">
+  switch (response.status) {
+    case 'done':
+        // this is the special thing:
+        // type system now knows this is a Result
+        console.log(response.payload);
+        break;
+    case 'error':
+        // and this is a Failure
+        console.log(response.code);
+        break;
+  }
+}           </code></pre>
+  </section>
 
     <section>
         <h3>any type</h3>
@@ -1212,7 +1273,7 @@ _not really_
         <h3>Structural Typing for Interfaces</h3>
         <pre><code class="typescript line-numbers" contenteditable data-trim>
 interface NamedObject {
-name: string;
+  name: string;
 }
 
 // this is fine as nominal typing only applies to Flow classes
@@ -1220,12 +1281,12 @@ let namedObject: NamedObject = dog;
 
 // same thing, also fine
 let namedObject: NamedObject = {
-name: "Olli"
+  name: "Olli"
 };
 
 // not fine in either, missing name
 let namedObject: NamedObject = {
-firstName: "Olli"
+  firstName: "Olli"
 };
         </code></pre>
     </section>
@@ -1234,11 +1295,11 @@ firstName: "Olli"
         <h3>Structural Typing for classes</h3>
         <pre><code class="typescript line-numbers" contenteditable data-trim>
 class Person {
-name: string;
+  name: string;
 }
 
 class Dog {
-name: string;
+  name: string;
 }
 
 let dog: Dog = new Dog();
@@ -1248,12 +1309,38 @@ let person: Person = dog;
 
 // same thing, also correct
 let person: Person = {
-name: "Olli"
+  name: "Olli"
 };
 
         </code></pre>
     </section>
 
+    <section>
+      <h3>Some Type Inference Magic</h3>
+      <p>Consider</p>
+      <pre><code class="typescript line-numbers" contenteditable data-trim>
+class Dog { woof() { } }
+
+const animals = [];
+animals.push(new Dog());
+</code></pre>
+      <div class="fragment">
+          <p>both TypeScript and Flow know this is safe, as we have only added Dogs so far</p>
+          <pre><code class="typescript line-numbers" contenteditable data-trim data-num-start="5">
+animals.forEach((animal: Dog) => animal.woof());
+</code></pre>
+
+      </div>
+      <div class="fragment">
+          <p>Adding Cats <em>later</em> and thus changing array type later</p>
+          <pre><code class="typescript line-numbers" contenteditable data-trim>
+class Cat { meow() { } }
+animals.push(new Cat());
+</code></pre>
+          <p>does not affect TypeScript (correct), but makes Flow fail</p>
+
+      </div>
+  </section>    
 
     <section>
         <h2>Classes in TypeScript</h2>
@@ -1317,40 +1404,37 @@ Annotations in Java</a>)
   <script src="reveal.js/js/reveal.js "></script>
   <script src="lib/jquery-2.2.4.js "></script>
   <script>
-    // $('.weg').remove();
-    // uncomment for jax
-    $('.jax').remove();
-    if (window.location.hostname.indexOf('localhost') !== -1) {
-    } else {
-      // only applies to public version
-      $('.preparation').remove();
-      $('.todo').remove();
-      $('.local').remove();
-      $('.presenter').remove();
+      const isLocal =
+        window.location.hostname.indexOf("localhost") !== -1 ||
+        window.location.hostname.indexOf("127.0.0.1") !== -1;
 
-    }
-    Reveal.addEventListener('ready', function (event) {
-        // do we want this???
-        $('li').addClass('fragment')
-
-        // make all links open in new tab
-        $('a').attr('target', '_blank')
-
-      if (window.location.hostname.indexOf('localhost') !== -1) {
-        // only applies to presentation version
-        Reveal.configure({ controls: false });
+      if (isLocal) {
       } else {
         // only applies to public version
-        $('.fragment').removeClass('fragment');
+        $(".preparation").remove();
+        // $(".todo").remove();
+        $(".local").remove();
+        $(".presenter").remove();
       }
-      // applies to all versions
-      $('code').addClass('line-numbers');
-    });
-    // $('section').attr('data-background-image', "backgrounds/light-metal.jpg ");
-    // $('section').attr('data-background-image', "backgrounds/pink.jpg ");
-    // $('section').attr('data-background-image', "backgrounds/white.jpg ");
-//    $('section').attr('data-background-image', "backgrounds/code.jpg ");
-$('section').attr('data-background-image', "backgrounds/sky.jpg");
+      Reveal.addEventListener("ready", function(event) {
+        // do we want this???
+        $("li").addClass("fragment");
+        $(".no-fragment li").removeClass("fragment");
+
+        // make all links open in new tab
+        $("a").attr("target", "_blank");
+
+        if (isLocal) {
+          // only applies to presentation version
+          Reveal.configure({ controls: false });
+        } else {
+          // only applies to public version
+          $(".fragment").removeClass("fragment");
+        }
+        // applies to all versions
+        $("code").addClass("line-numbers");
+      });
+      $('section').attr('data-background-image', "backgrounds/sky.jpg");
 
   </script>
 
