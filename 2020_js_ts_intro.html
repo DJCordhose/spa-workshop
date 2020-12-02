@@ -201,19 +201,13 @@
 ### Basics
 - Übungen reinbauen als Playground Links
 - readonly 
-- Sandbox
+- https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html
 
 ### Advanced
-- https://github.com/DJCordhose/inversify-playground
-  - Meta Data: https://www.typescriptlang.org/docs/handbook/decorators.html#metadata
-- type vs interface: https://www.typescriptlang.org/play?q=240#example/types-vs-interfaces
-- unknown and never: https://www.typescriptlang.org/play?q=23#example/unknown-and-never
-- type guards: https://www.typescriptlang.org/play?q=29#example/type-guards 
+- 
 -  Advanced Types und Utility Types von TypeScript
    - https://www.typescriptlang.org/docs/handbook/advanced-types.html
    - https://www.typescriptlang.org/docs/handbook/utility-types.html
-- https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards 
-  - https://www.typescriptlang.org/play?target=7&jsx=0#code/LAKAxgNghgzjAEBBAdgSwLZQvA3qeB8YA9sjAC4BOArmOcZQBQAOlx5ApnRwCbyUcoPUhACe8ZFHQcAXPAqVUyAOYBKXPkIBfUDpChIsBABFiy+BwAenZDwQoMWDSELwA7sWIAzRurwvXQhIyYggOADoIM0YAAwASHHIAC1QYcMlpLXdPLxgY1U0CPT0DaDh4AGEocgtrDlt7NExsf1dpYjdfZ0Cg0hhQiKjlWITk1PSpDiz2tzyCgKLdUFAAehX4JPJyZhgZNbcD8PJRZg4YMEVmcmgVcIZlFeEwGBWkqFsAI08AaxWhADd3mBeABaY6nNKbdAQADE1BgHEoIJ4HC8SlB4I4IOU1CglDsoDCNXejggcgczXgAF4JBw3JVqowAOQABWolEooiZqgA3KBUF54IwAEQzYXwJTwEnNPyFIXSpywBnkVThGa+Jb6EAC+VNLBqjgdWULXWkqUIKoqg0dDUgEogLzUZB0VCkCUwS2MBVkpB6iCqOTe93K7r8DjkdnIU2UpWW1UzeAAQipNKdKLRyF4fLty3AfQGkWiqU93tU835gsYxcZpeNrm91s68yyHAgCNDBDW8BE4mYxDgqA+YXcSXq8GSiI4UoE8HTSlQnDE4483aurrI3eQS4gqG+HDlXaJUr9ckt8AAPvBTOYaZn6Z7WezOdzs64uw2PN5bXogA
 
 </textarea>
 </section>
@@ -422,6 +416,7 @@ Talking about ES6 and later
 * https://exploringjs.com/es6/ (ES2015)
 * https://exploringjs.com/es2016-es2017.html
 * https://exploringjs.com/es2018-es2019/index.html
+* https://kangax.github.io/compat-table/es2016plus/
     </a>
   </textarea>
 </section>
@@ -436,6 +431,39 @@ Talking about ES6 and later
                 <li>Webpack Dev Sever (HTTP Server with Hot Reload)
                 </ul>
     </ul>
+</section>
+
+<section>
+  <h4>ES2020: nullish coalescing operator</h4>
+<pre class="fragment"><code class="javascript" contenteditable data-trim>
+console.log(null || 'right');
+// right
+console.log(undefined || 'right');
+// right
+console.log("" || 'wrong');
+// wrong
+console.log(0 || 'wrong');
+// wrong
+console.log(false || 'wrong');
+// wrong
+</code></pre>
+  
+<pre class="fragment"><code class="javascript" contenteditable data-trim>
+console.log(null ?? 'right');
+// right
+console.log(undefined ?? 'right');
+// right
+console.log("" ?? 'wrong');
+// ""
+console.log(0 ?? 'wrong');
+// 0
+console.log(false ?? 'wrong');
+// false
+  </code></pre>
+  <small>
+<a href='https://www.typescriptlang.org/play?#code/PTAEDsFcBtoSwM4AtQGMD2BDaBTBq5wBzUdABxwCdMAXdSgWACgRQkaayEAuEAExwA3HNHJUAdAFt0ALzixM4+kWA5wAWgCqAZWB90qBMADqOAEbAAUpkGZtqSnDI1gAJRwAzKmtQ5gAeQpqOkojADkYeGQAfQxsPAJiaLFg+mZmDHAEdFxxUSIACgByAB8S0iDaeiKASgBuDPQsnJw89EKoWFAy0CLHInZahpYwfvZG5tz8gshwAQ9CHD5u8r64AZoh5lYxmgnsqfaCgCJjld6Ad0omoi2R0Cub-Za2woAGc6LH4jvWb6JnodCh5sAgcJ9-r8wP90kxAa1pvV4a9igB+VEVKhVSh3TIHBFHTrQUDo3q7KGgXbI6azeaLZaktYbClUph4l7TU4kjFfa4-JH3U7Uo4fRmQgWsN7C4Gg8Fivm3CVgEHQMHMIA'>
+Try in Playground
+</a>  </small>
 </section>
 
             <section>
@@ -1079,7 +1107,7 @@ animals.push(new Cat('Purry'));
   </section>
 
   <section>
-      <h3>TypeScript</h3>
+      <h4>TypeScript allows for birds and dogs to be cats here :)</h4>
          <pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
 let cats: Array&lt;Cat> = []; // can only contain cats
 let animals: Array&lt;Animal> = []; // can only contain animals
@@ -1106,15 +1134,14 @@ cats.forEach(cat => console.log(`Cat: ${cat.name}`));
 // Cat: Brutus
 // Cat: Twinky
 </code></pre>
-          <p class="fragment">TypeScript allows for birds and dogs to be cats here :)</p>
     </section>
 
-    <section>
+    <section style="font-size: xx-large;">
         <h2>The flipside</h2>
         <p>This code is safe (as we access cats in a readonly fashion)</p>
         <pre><code class="typescript line-numbers" contenteditable data-trim>
 function logAnimals(animals: Array&lt;Animal>) {
-animals.forEach(animal => console.log(`Animal: ${animal.name}`));
+  animals.forEach(animal => console.log(`Animal: ${animal.name}`));
 }
 
 logAnimals(cats);
@@ -1133,9 +1160,9 @@ logAnimals(cats);
         <pre><code class="java line-numbers" contenteditable data-trim>
 // Java
 void logAnimals(List&lt;? extends Animal> animals) {
-animals.forEach(animal -> System.out.println("Animal: " + animal.name));
-// illegal:
-animals.add(new Animal("Twinky"));
+  animals.forEach(animal -> System.out.println("Animal: " + animal.name));
+  // illegal:
+  animals.add(new Animal("Twinky"));
 }
 </code></pre>
         </div>
@@ -1154,6 +1181,7 @@ type Response = Result | Failure;
 type Result = { status: 'done', payload: Object }; // all good, we have the data
 type Failure = { status: 'error', code: number}; // error, we get the error code
      </code></pre>
+     <small><a href='https://www.typescriptlang.org/play?q=423#example/union-and-intersection-types'>https://www.typescriptlang.org/play?q=423#example/union-and-intersection-types</a></small>
   </section>
 
   <section>
@@ -1180,6 +1208,7 @@ function callback(response: Response) {
         break;
   }
 }           </code></pre>
+<small><a href='https://www.typescriptlang.org/play?jsx=0&ssl=16&ssc=1&pln=25&pc=2#code/PTAEENQEwSwZwFYHsYDsAuoCuqZNaOgJ4AOApqAO4zoAWhlSoAxuHGXALABQx5oAJQ4lQAXkEcsAG0wAfUADFwMKVgBOZANw8efCkLjTM4gN6g46cOixwAXKADkUfGQcAaUCXBEpScFHsAeQAjBDJmTABfTVAQCCkpUABzJCQoD0oKWnAANwo6CigrcF1SCiUVdQpTc0trO0cyNTUkNXcWNLJ7VCwAW2Cm6NiwJpa1DIokskwC0FHWjqgyHW4l5ilwDVApadANOBJ8dnsDEm1uOMY1AGs4DzZCWnhQZ5J9sgwXgmCkOh5mI5IHYAOl8SQAFPtDqh2MCLFYbABKc5xZwcUCoX5UVrXNw8OIPTLQJiYzDXTGUF4AMxemDIAA94Og7qAEDZMERpv9ASCwZDhEcyMCvD4-FBkcNQABRAQCQICbkwoFCvlQwXAgFLCVxGVyhXcHhwajoZj0fkHdXw+qI0Amf5sChOFwOWw8UDuyV0Z7PWYHcIwcCJL2oJKu7gez1lcxECxkXoYpCU8mJuCPb2pyAGIxuj0ApW8pAQtUwoUi3z+ZE593BDTga7nVjsRrNVouquS8CoKBp1PPSAVVQadt5uDK0GF83Q2GasiV8MemtkOvnSJAA'>Code in Playground</a></small>
   </section>
 
     <section>
@@ -1201,43 +1230,26 @@ let r2: boolean = func('wat');
 
         <ul>
             <li class="fragment">explicit any supported, but any never inferred
+            <li class="fragment">try to avoid
+
         </ul>
     </section>
 
-    <section data-markdown style="font-size: xx-large">
+    <section data-markdown style="font-size: xx-large;">
       <textarea data-template>
-### `unknown` type
+### unknown and never type
 
-* least-capable type in TypeScript
+_unknown_
 * useful for APIs that want to signal “this can be any value, so you must perform some type of checking before you use it”
+* no operations are permitted on an unknown
 * anything is assignable to unknown
 * unknown isn't assignable to anything but itself and any
-* no operations are permitted on an unknown
 
-<pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
-let u: unknown;
-let a: any;
-</code></pre>
-<pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
-a = 10; // cool
-u = 10; // cool
-</code></pre>
-<pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
-let s: string;
-s = a; // also cool
-s = u; // not cool: type 'unknown' is not assignable to type 'string'.
-</code></pre>
-<pre class="fragment"><code class="typescript line-numbers" contenteditable data-trim>
-a = u; // cool
-u = a; // cool
-  </code></pre>
-<small>
-https://github.com/Microsoft/TypeScript/wiki/What%27s-new-in-TypeScript#new-unknown-top-type
-<br>
-<a href="https://www.typescriptlang.org/play/index.html#src=%2F%2F%20https%3A%2F%2Fgithub.com%2FMicrosoft%2FTypeScript%2Fwiki%2FWhat%2527s-new-in-TypeScript%23new-unknown-top-type%0D%0A%2F%2F%20*%20counterpart%20of%20any%0D%0A%2F%2F%20*%20anything%20is%20assignable%20to%20unknown%2C%20%0D%0A%2F%2F%20*%20unknown%20isn't%20assignable%20to%20anything%20but%20itself%20and%20any%0D%0A%2F%2F%20*%20no%20operations%20are%20permitted%20on%20an%20unknown%0D%0A%0D%0Alet%20u%3A%20unknown%3B%0D%0Alet%20a%3A%20any%3B%0D%0A%0D%0A%2F%2F%20cool%0D%0Aa%20%3D%2010%3B%0D%0Au%20%3D%2010%3B%0D%0A%0D%0Alet%20s%3A%20string%3B%0D%0As%20%3D%20a%3B%20%2F%2F%20also%20cool%0D%0As%20%3D%20u%3B%20%2F%2F%20not%20cool%0D%0A%0D%0Aa%20%3D%20u%3B%0D%0Au%20%3D%20a%3B%0D%0A%0D%0A%0D%0A%0D%0A">
+_never_
+
+<a href="https://www.typescriptlang.org/play?q=23#example/unknown-and-never">
 Open in Playground
 </a>
-</small>    
 </textarea>
     </section>
 
@@ -1395,6 +1407,49 @@ Annotations in Java</a>)
       </ul>
   </section>
 
+  <section data-markdown>
+    <textarea data-template>
+## Advanced Topics
+
+</textarea>
+</section>
+
+<section data-markdown style="font-size: x-large;">
+  <textarea data-template>
+## type vs interface
+
+_Because an interface more closely maps how JavaScript objects work by being open to extension, we recommend using an interface over a type alias when possible._
+
+_On the other hand, if you can’t express some shape with an interface and you need to use a union or tuple type, type aliases are usually the way to go_
+
+https://www.typescriptlang.org/docs/handbook/advanced-types.html#interfaces-vs-type-aliases
+https://www.typescriptlang.org/docs/handbook/2/objects.html#interfaces-vs-intersections
+
+- pretty much mixable
+- interfaces have better error messages and a clear position of definition: https://www.typescriptlang.org/play?q=240#example/types-vs-interfaces
+- interfaces for libraries and types for user-code: https://twitter.com/orta/status/1307692799807164417
+
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+## Inversify IoC Container
+
+- https://github.com/DJCordhose/inversify-playground
+- Meta Data: https://www.typescriptlang.org/docs/handbook/decorators.html#metadata
+</textarea>
+</section>
+
+<section data-markdown>
+  <textarea data-template>
+## type guards
+
+- https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards
+- https://www.typescriptlang.org/play?q=29#example/type-guards
+- [our animal example](https://www.typescriptlang.org/play?target=7&jsx=0#code/LAKAxgNghgzjAEBBAdgSwLZQvA3qeB8YA9sjAC4BOArmOcZQBQAOlx5ApnRwCbyUcoPUhACe8ZFHQcAXPAqVUyAOYBKXPkIBfUDpChIsBABFiy+BwAenZDwQoMWDSELwA7sWIAzRurwvXQhIyYggOADoIM0YAAwASHHIAC1QYcMlpLXdPLxgY1U0CPT0DaDh4AGEocgtrDlt7NExsf1dpYjdfZ0Cg0hhQiKjlWITk1PSpDiz2tzyCgKLdUFAAehX4JPJyZhgZNbcD8PJRZg4YMEVmcmgVcIZlFeEwGBWkqFsAI08AaxWhADd3mBeABaY6nNKbdAQADE1BgHEoIJ4HC8SlB4I4IOU1CglDsoDCNXejggcgczXgAF4JBw3JVqowAOQABWolEooiZqgA3KBUF54IwAEQzYXwJTwEnNPyFIXSpywBnkVThGa+Jb6EAC+VNLBqjgdWULXWkqUIKoqg0dDUgEogLzUZB0VCkCUwS2MBVkpB6iCqOTe93K7r8DjkdnIU2UpWW1UzeAAQipNKdKLRyF4fLty3AfQGkWiqU93tU835gsYxcZpeNrm91s68yyHAgCNDBDW8BE4mYxDgqA+YXcSXq8GSiI4UoE8HTSlQnDE4483aurrI3eQS4gqG+HDlXaJUr9ckt8AAPvBTOYaZn6Z7WezOdzs64uw2PN5bXogA)
+</textarea>
+</section>
 
     </div>
 
@@ -1418,8 +1473,8 @@ Annotations in Java</a>)
       }
       Reveal.addEventListener("ready", function(event) {
         // do we want this???
-        $("li").addClass("fragment");
-        $(".no-fragment li").removeClass("fragment");
+        $(".fragments li").addClass("fragment");
+        $(".no-fragments li").removeClass("fragment");
 
         // make all links open in new tab
         $("a").attr("target", "_blank");
