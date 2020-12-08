@@ -197,23 +197,6 @@
       <div class="slides">
 
 
-        <!-- 14:00 – 14:45 Moderne Frontend-Architekturen für Single-Page-Anwendungen (Oliver Zeigermann, embarc Software Consulting GmbH)         -->
-        <!-- 
-  ### JAX Version
-  * https://jax.de/software-architecture/moderne-frontend-architekturen-fuer-single-page-anwendungen/
-  * 60 Minuten
-
-  React, Angular, Vue und Web Components bestimmen den Bereich der modernen Frontend Frameworks. 
-  Weitgehend unabhängig von der Wahl des Frameworks ergeben sich architektonische Herausforderungen, die sich stark von denen einer Backend-Architektur unterscheiden. 
-  In diesem Talk beschäftigen wir uns damit, was eine moderne Single-Page-Anwendung (SPA) ausmacht und wie sie sich von einer klassischen Webanwendung 
-  unterscheidet, wie man eine SPA durch Typisierung wartbar hält, wie sich ein zyklischer Datenfluss auf die Architektur auswirkt 
-  und wie man zur effizienten Entwicklung eine Single-Page-Anwendung in kleinere Module aufspalten und für die 
-  Anwender wieder zu einem stimmigen Ganzen zusammensetzen kann. 
-  Dieser Talk geht nicht auf die Details einer Implementierung ein und bleibt auf einer konzeptionellen Ebene, der Sie auch ohne JavaScript-Kenntnisse folgen können.
-
-  
-       -->
-
        <!-- <section data-markdown class="todo">
         <textarea data-template>
       Manfred Steyer (@ManfredSteyer) tweeted at 2:43 pm on Tue, Aug 04, 2020:
@@ -222,17 +205,6 @@
     </textarea>
   </section> -->
 
-
-  <!-- <section data-markdown class="todo">
-    <textarea data-template>
-### Die Zeit der nicht-modernen Browser ist vorbei        
-
-- Teams unterstützt IE11 schon ab 2020 nicht mehr
-- M365 ab 2020
-
-https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666?s=09
-</textarea>
-</section> -->
 
   <!-- <section data-markdown class="todo">
     <textarea data-template>
@@ -255,14 +227,8 @@ https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say
             </textarea>
           </section>
           
-          <section data-markdown class="todo">
-<textarea data-template>
 
-https://twitter.com/joonaslehtinen/status/1282783973362380801
-</textarea>
-</section> -->
-
-      <!-- <section data-markdown class="todo">
+       <section data-markdown class="todo">
         <textarea data-template>
 ### Motivation/Analogie für die verstrickten Komplexitäten des Frontends             
 Dan Saffer (@odannyboy) tweeted at 5:04 PM on Mon, Jun 29, 2020:
@@ -357,20 +323,11 @@ I want to read more about the kind of learnings that only arise over a longer ti
         </textarea>
       </section>
 
-      <section data-markdown class="todo">
-        <textarea data-template>
-Yehuda Katz 🥨 (@wycats) tweeted at 2:14 AM on Fri, Jan 31, 2020:
-This back and forth about microservices vs monoliths is hopelessly stuck in a backend-focused world.
-
-What else should we expect? Front-end engineers are given the incredibly hard tasks of caring for the end user. In too many places, backend engineers still control everything.
-(https://twitter.com/wycats/status/1223051812862861312?s=03)
-                  </textarea>
-      </section> -->
+ -->
 
       <section data-markdown class="todo">
         <textarea data-template>
-- Smart/Dumb und Redux entduplizieren und Struktur rein bringen          
-- Alles auf Deutsch übersetzen  
+- Code-Beispiele für alles
 
 Integrationsteil, Alle Integrationen mit Code illustrieren
 - module und lazy für Spa wie im Buch
@@ -418,11 +375,41 @@ Integrationsteil, Alle Integrationen mit Code illustrieren
             <li class="fragment">
               <em>Architektur für ein bisschen CSS-Pixel-Geschubse?</em>
             </li>
+            <li class="fragment">
+              <em>Von Frontend habe ich keine Ahnung - muss also leicht sein! (das ist paraphrasiert, ist so nicht gefallen)</em>
+            </li>
+
             <!-- <li class="fragment">
               <em>Wir nehmen jetzt Angular, das war beim letzten Projekt ja auch gut</em>
             </li> -->
           </ul>
         </section>
+
+  <section data-markdown>
+    <textarea data-template>
+
+<img src='img/yehuda-twtter-frontend.png'>      
+
+<small>https://twitter.com/wycats/status/1223051812862861312</small>
+
+</textarea>
+</section>
+
+
+  <section data-markdown class="no-fragment">
+    <textarea data-template>
+### Die Zeit der nicht-modernen Browser ist vorbei        
+
+- Teams unterstützt IE11 schon ab 2020 nicht mehr
+- M365 ab 2020
+
+Das ändert auch die Art und Weise wie man Anwendungen entwickelt
+
+<small>https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666</small>
+
+</textarea>
+</section>
+
 
 
         <section data-markdown>
@@ -976,7 +963,7 @@ Majestic Modular Monoliths
 </textarea>
 </section>
 
-<section data-markdown>
+<!-- <section data-markdown>
   <textarea data-template>
 ### Mehr zu Micro-Frontends
 
@@ -992,7 +979,7 @@ https://the-tractor.store/
 https://micro-frontends.org/</small>
 
   </textarea>
-</section>
+</section> -->
 
 <section data-markdown id='innere-struktur'>
   <textarea data-template>
@@ -1060,10 +1047,10 @@ _Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
 </section>
 
 <section>
-  <h3>Example</h3>
+  <h3>Beispiel</h3>
   <img src="exercise/detail.png">
 
-  <p><small>What would be candidates for Smart-/Dumb-Components?</small></p>
+  <p><small>Was wären Kandidaten für Smart-/Dumb-Components?</small></p>
 </section>
 
 <section>
@@ -1076,7 +1063,7 @@ _Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
   <img src="exercise/detail-smart.jpg">
 </section>
 
-<section>
+<!-- <section>
   <h3>Smart and Dumb Components</h3>
     <h2>Limitations</h2>
     <p style="color: #2aa198">Mainly with growing and long-living applications</p>
@@ -1098,12 +1085,12 @@ _Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
             </ul>
         </li>
     </ul>
-</section>
+</section> -->
 
-<section>
+<!-- <section style="font-size: xx-large;">
   <h3>Smart und Dumb Components</h3>
   <h2>Grenzen</h2>
-  <!-- <p style="color: #2aa198">Hauptsächlich mit wachsenden und langlebigen Anwendungen</p>
+  <p style="color: #2aa198">Hauptsächlich mit wachsenden und langlebigen Anwendungen</p>
 
   <ul>
     <li>"Gott-Komponenten": Zustand und Logik wandern über die Zeit der Entwicklung in der Hierarchie herauf
@@ -1118,49 +1105,13 @@ _Man kann als Anwendungsteile zwei Arten von Komponenten unterscheiden_
       <ul>
         <li>Wie behandelt man asynchronen Code?
         <li>Wie initialisiert man die Anwendung?
-        <li>Wie tests man UI/Business Logik?
+        <li>Wie testet man UI/Business Logik?
       </ul>
     </li>
-  </ul> -->
-</section>
+  </ul>
+</section> -->
 
-<section>
-  <!-- <h3>Smart und Dumb Components</h3>
-  <h2>Grenzen</h2> -->
-  <h3>Problem 1: Über Komponenten verteilter Zustand</h3>
-  <img src="img/verteilter-zustand.png" class='part' />
-  <p>Wo muss ich nach Fehlern suchen? Wo ist die Logik?</p>
-  <p>In welchem Zustand ist meine Anwendung?</p>
-</section>
-
-<section>
-  <!-- <h3>Smart und Dumb Components</h3>
-  <h2>Grenzen</h2> -->
-  <h3>Problem 2: Getrennte Komponentenhierarchien</h3>
-  <img src="img/zwei-komponenten-hierarchien.png" class='part' />
-  <p>Geht entweder nicht oder "Gott-Komponente" entsteht</p>
-</section>
-
-<section>
-  <!-- <h3>Smart und Dumb Components</h3>
-  <h2>Grenzen</h2> -->
-
-  <h3>Problem 3: Gemeinsamer ("globaler") Zustand</h3>
-  <img src="img/gemeinsam-genutzter-state.png" class='part' />
-  <p>Wie kommt Zustand von ganz oben nach ganz unten? </p>
-</section>
-
-<section>
-  <!-- <h3>Smart und Dumb Components</h3>
-  <h2>Grenzen</h2> -->
-
-  <h3>Problem 4: UI und Logik vermischt</h3>
-  <img src="img/ui-und-logic-vermischt.png" class='part' />
-  <p>Wiederverwendung? Framework-unabhängigkeit? Testbarkeit?</p>
-  <p>Wie, wo und wann wird die Anwendung initialisiert?</p>
-</section>
-
-    <section data-markdown>
+    <section data-markdown id='state-management'>
       <textarea data-template>
 ### Mögliche Architektur-Entscheidung        
 ## Externes Zustandsmanagement
@@ -1171,6 +1122,29 @@ _Verlässt man sich auf lokalen Zustand in Komponenten?_
   
 </textarea>
     </section>
+
+    <section style="font-size: xx-large;">
+      <h3>Grenzen von Smart/Dumb</h3>
+      <p ><em>Besonders bei wachsenden und langlebigen Anwendungen</em></p>
+      <ul>
+          <li>Tendenz zu "Gottkomponenten": Zustand und Logik wandern langsam nach oben in eine einzige Komponente
+          <li>Vermischung von Framework und UI-Logik (erschwert Austausch das Frameworks und das Testing)
+          <li>Verteilter, veränderlicher Zustand erschwert Wartbarkeit
+              <ul>
+                  <li>Zustand oft nicht klar zuzuordnen</li>
+                  <li>In welchem Zustand ist die Anwendung?
+              </ul>
+          </li>
+          <li>Architektur immer noch unklar
+              <ul>
+                  <li>Wo ist Nebenläufigkeit erlaubt?
+                  <li>Wie läuft die Initialisierungsphase
+                  <li>Wie testet man die Business Logik?
+              </ul>
+          </li>
+      </ul>
+  </section>
+
 
         <!-- <section data-markdown class="todo">
           <textarea data-template>
@@ -1190,43 +1164,44 @@ _Verlässt man sich auf lokalen Zustand in Komponenten?_
     <section>
       <h1>Redux</h1>
       <ul>
-        <li><span class="highlight">Central</span> state management: one store for whole app, like a database</li>
-        <li><span class="highlight">External</span> state management: extract logic and state from the (UI-)components</li>
+        <li><span class="highlight">Zentrale</span> Zustandsverwaltung: ein Speicher (Store) für die gesamte Anwendung, wie eine Datenbank</li>
+        <li><span class="highlight">Externe</span> Zustandsverwaltung: Extrahieren von Logik und Zustand aus den (UI-)Komponenten</li>
       </ul>
-      <em>It's not only a framework, it's also a pattern (like MVC)</em>
+      <em>Nicht nur ein Framework, auch ein Pattern (wie MVC)</em>
+
   </section>
 
   <section data-markdown data-transition="none">
     <textarea data-template>
-### Redux/ngrx/vuex/MobX
+### Redux
 
 <img src='img/redux-1.png' height="550">
                   </textarea>
   </section>
   <section data-markdown data-transition="none">
     <textarea data-template>
-### Redux/ngrx/vuex/MobX
+### Redux
 
 <img src='img/redux-2.png' height="550">
                   </textarea>
   </section>
   <section data-markdown data-transition="none">
     <textarea data-template>
-### Redux/ngrx/vuex/MobX
+### Redux
 
 <img src='img/redux-3.png' height="550">
                   </textarea>
   </section>
   <section data-markdown data-transition="none">
     <textarea data-template>
-### Redux/ngrx/vuex/MobX
+### Redux
 
 <img src='img/redux-4.png' height="550">
                   </textarea>
   </section>
   <section data-markdown data-transition="none">
     <textarea data-template>
-### Redux/ngrx/vuex/MobX
+### Redux
 
 <img src='img/redux-5.png' height="550">
                   </textarea>
@@ -1234,19 +1209,76 @@ _Verlässt man sich auf lokalen Zustand in Komponenten?_
 
   <section>
     <h2>Redux</h2>
-    <h3>Architectural guidance</h3>
+    <h3>Architektonische Richtlinien</h3>
     <ul>
-            <li>Uni-directional data flow
-            <li>Central and immutable state: store
-                    <li>Only reducers are allowed to modify state
-                            <li>State moves from Smart Components to store
-            <li>UI logic moves from Smart Components in Action-Creators / Services and Reducer
-            <li>Asynchronous code only in Action-Creators / Services or Effects
-            <li>Initializing of the app with central action
+            <li>Uni-direktionaler Datenfluss
+            <li>Externer, zentraler und unveränderlicher Zustand: Store
+            <li>Nur reducer dürfen den Zustand verändern
+              <li>Zustand wandert von Smart Components zum Store
+            <li>UI-Logik wandert von Smart Components in Action-Creators / Services und Reducer
+            <li>Asynchroner Code nur in Action-Creators / Services oder Effects
+            <li>Initialisierung der Anwendung mit zentraler Aktion
     </ul>
+
+
+  </section>
+
+<section data-markdown >
+  <textarea data-template>
+### Lokales Zustand ist immer noch "erlaubt"!
+Es gibt viele Stellen, an denen man Zustand halten kann
+
+<img src="img/three-kinds-of-state.png" height="300">
+
+* Server and client
+* Component State
+* Redux
+* URL, Session oder Local Storage
+</textarea>
 </section>
 
-  <section>
+<section>
+  <h2>Ein Beispiel</h2>
+  <img src="exercise/master.png">
+  <p>Welche Daten braucht man minimal zur Darstellung?</p>
+</section>
+
+<section>
+  <h3>Application State</h3>
+  <img src="exercise/master-app-state.jpg">
+</section>
+
+<section>
+  <h3>Local UI State</h3>
+  <img src="exercise/master-ui-state.jpg">
+</section>
+
+<section>
+  <h3>Views</h3>
+  <img src="exercise/master-views.jpg">
+</section>
+
+<section>
+  <h3>Redux ist unabhängig vom Framework</h3>
+  <p>Implementierungen existieren für alle wichtigen UI-Frameworks</p>
+  <ul>
+      <li>React: <a href="http://redux.js.org/docs/basics/UsageWithReact.html" target="_blank">
+          http://redux.js.org/docs/basics/UsageWithReact.html
+      </a>
+      <li>Angular: <a href="https://github.com/ngrx/store" target="_blank">https://github.com/ngrx/store</a></li>
+      <li>Vue:
+          <a href="https://github.com/vuejs/vuex" target="_blank">https://github.com/vuejs/vuex</a> /
+
+          <a href="https://github.com/revue/revue" target="_blank">https://github.com/revue/revue</a>
+      <li>Web Components (Polymer): Empfohlene Implementierung des <em>Global Mediator Pattern</em>,
+      <a href="https://twitter.com/DJCordhose/status/899943415353311232" target="_blank">https://twitter.com/DJCordhose/status/899943415353311232</a>
+      <a href="https://tur-nr.github.io/polymer-redux/" target="_blank">https://tur-nr.github.io/polymer-redux/</a>
+  </ul>
+</section>
+
+
+
+  <!-- <section>
       <h2>Redux is independent of UI framework</h2>
       <p style="color: #2aa198">Bindings exist for popular UI frameworks</p>
       <ul style="font-size: 80%">
@@ -1260,7 +1292,7 @@ _Verlässt man sich auf lokalen Zustand in Komponenten?_
               <a href="https://tur-nr.github.io/polymer-redux/" target="_blank">https://tur-nr.github.io/polymer-redux/</a>
       </ul>
 
-  </section>
+  </section> -->
 
    <section data-markdown>
           <textarea data-template>
@@ -1272,128 +1304,15 @@ Redux (the library) itself is very unsophisticated. It's pretty much this:
 dispatch(action) {
   state = reducer(state, action);
   subscribers.forEach(s => s());
-}```
+}
+```
 
-<small>
-https://twitter.com/dan_abramov/status/1025399231576727555
-</small>
+<small>https://twitter.com/dan_abramov/status/1025399231576727555</small>
+
 </textarea>
 </section>
    
-      <section>
-          <h3>Is anyone really using this?</h3>
-          <div class="fragment">
-              <a href="https://www.xing.com/messenger" target="_blank">
-              <img src="img/xing-messenger-redux.png" height="550px">
-              </a>
-              <small>Microsoft Outlook, Twitter, Apple, XING and many others use React and Redux</small>
-          </div>
-      </section>
-
-    <section data-markdown>
-  <textarea data-template>
-### But don't overdo it
-
-_Spreading out your application into too many tiny fragments can make it hard to read and maintain_
-
-<img src='img/ngrx-overdone.jpg' height="450px">
-<small>
-https://twitter.com/jbandi/status/1023954402116358145
-</small>
-    </textarea>
-  </section>
-
-  <section data-markdown>
-  <textarea data-template>
-
-### Local state is still "allowed"!
-There are a lot of places where you can hold state
-
-<img src="img/three-kinds-of-state.png">
-
-* Server and client
-* Component State
-* Redux
-* URL, Session or Local Storage
-</textarea>
-</section>
-
-
-        <section>
-						<h3>Wrap Up Redux</h3>
-						<p><em>A UI pattern for User Interfaces</em></p>
-            <ul>
-                <li>Mainstream solution
-                <li>Independent of framework
-                <li>Easy testing of business logic as logic is implemented only in pure functions ("Reducer")
-                <li>Great debugging because of dev tools
-                <li>Works great in large applications with many dependencies between parts / components
-                <li>provides architectural guidance where which part of the application goes
-              </ul>
-
-        </section>
-
-
-        <section>
-            <h3>Architektur-Muster</h3>
-            <h2>Zentrales Statemanagement: Redux</h2>
-            <h3>Heißt auch <em>Global Mediator Pattern</em></h3>
-            <p>Zustand wird zentral gehalten, UI-Logik geht aus den Komponenten</p>
-            <p>Ansätze: <span class="highlight">Micro Components</span>, <span class="highlight">Majestic Modular Monoliths</span></p>
-            <p>Bedient Anforderungen: <span class="highlight">Gleichzeitige, synchronisierte Darstellung mehrerer Module</span>,
-                <span class="highlight">Gemeinsame Bibliothek, Wieververwendung</span></p>
-        </section>
-
-        <section>
-            <h3>Grenzen von Smart/Dumb</h3>
-            <p class="fragment"><em>Besonders bei wachsenden und langlebigen Anwendungen</em></p>
-            <ul class="fragment">
-                <li>Tendenz zu "Gottkomponenten": Zustand und Logik wandern langsam nach oben in eine einzige Komponente
-                <li>Vermischung von Framework und UI-Logik (erschwert Austausch das Frameworks)
-                <li>Verteilter, veränderlicher Zustand erschwert Wartbarkeit
-                    <ul>
-                        <li>Zustand oft nicht klar zuzuordnen</li>
-                        <li>In welchem Zustand ist die Anwendung?
-                    </ul>
-                </li>
-                <li>Architektur immer noch unklar
-                    <ul>
-                        <li>Wo ist Nebenläufigkeit erlaubt?
-                        <li>Wie läuft die Initialisierungsphase
-                        <li>Wie testet man die Business Logik?
-                    </ul>
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h3>Redux ist unabhängig vom Framework</h3>
-            <p>Implementierungen existieren für alle wichtigen UI-Frameworks</p>
-            <ul>
-                <li>React: <a href="http://redux.js.org/docs/basics/UsageWithReact.html" target="_blank">
-                    http://redux.js.org/docs/basics/UsageWithReact.html
-                </a>
-                <li>Angular: <a href="https://github.com/ngrx/store" target="_blank">https://github.com/ngrx/store</a></li>
-                <li>Vue:
-                    <a href="https://github.com/vuejs/vuex" target="_blank">https://github.com/vuejs/vuex</a> /
-
-                    <a href="https://github.com/revue/revue" target="_blank">https://github.com/revue/revue</a>
-                <li>Web Components (Polymer): Empfohlene Implementierung des <em>Global Mediator Pattern</em>,
-                <a href="https://twitter.com/DJCordhose/status/899943415353311232" target="_blank">https://twitter.com/DJCordhose/status/899943415353311232</a>
-                <a href="https://tur-nr.github.io/polymer-redux/" target="_blank">https://tur-nr.github.io/polymer-redux/</a>
-            </ul>
-        </section>
-
-
-        <section>
-            <h4>Redux extrahiert Verwantwortlichkeiten aus UI-Framework</h4>
-            <img src="img/redux-02-extracting-responsibility.png" height="500" style="border:0;box-shadow:0 0 0 0"/>
-            <p><small>
-                Copyright 2017, Nils Hartmann
-            </small></p>
-        </section>
-
-        <section>
+<section>
             <h3>Code Sample: Reducer</h3>
             <h4>Nur eine Funktion, daher unabhängig vom UI Framework</h4>
             <pre class="fragment"><code data-trim data-num-start="1">
@@ -1442,16 +1361,105 @@ async function loadGreetings(dispatch) {
             <p>Wieder nur eine Funktion, der einzige Ort an dem asynchrone Operationen erlaubt sind</p>
         </section>
 
+        <section data-markdown>
+          <textarea data-template>
+### Dev-Tools
+
+<img src='img/redux-dev-tools.png' height="650">
+
+</textarea>
+        </section>        
+
         <section>
             <h3>Ist das nur eine spinnige Idee, oder nutzt das echt jemand?</h3>
             <div class="fragment">
                 <a href="https://www.xing.com/messenger" target="_blank">
-                <img src="xing-messenger-redux.png">
+                  <img src="img/xing-messenger-redux.png" height="550px">
                 </a>
-            </div>
+                <small>Microsoft Outlook, Twitter, Apple, XING and many others use React and Redux</small>
+              </div>
         </section>
 
+
+      <!-- <section>
+          <h3>Is anyone really using this?</h3>
+          <div class="fragment">
+              <a href="https://www.xing.com/messenger" target="_blank">
+              <img src="img/xing-messenger-redux.png" height="550px">
+              </a>
+              <small>Microsoft Outlook, Twitter, Apple, XING and many others use React and Redux</small>
+          </div>
+      </section> -->
+
+    <section data-markdown>
+  <textarea data-template>
+### Eine Schwäche von Redux
+
+_Wenn Sie Ihre Anwendung in zu viele kleine Fragmente zerlegen, kann es schwierig sein, sie zu lesen und zu pflegen._
+    
+<img src='img/ngrx-overdone.jpg' height="450px">
+
+<small>https://twitter.com/jbandi/status/1023954402116358145</small>
+    </textarea>
+  </section>
+
+<section data-markdown>
+  <textarea data-template>
+### Redux Toolkit    
+
+_Erlaubt die Aufteilung der Redex-Anwendung in zusammengehörige "Slices"_
+
+<img src='img/redux-toolkit.png' height="450">
+
+<small>https://redux-toolkit.js.org/</small>
+
+    </textarea>
+  </section>
+  
+  
+        <!-- <section>
+						<h3>Wrap Up Redux</h3>
+						<p><em>A UI pattern for User Interfaces</em></p>
+            <ul>
+                <li>Mainstream solution
+                <li>Independent of framework
+                <li>Easy testing of business logic as logic is implemented only in pure functions ("Reducer")
+                <li>Great debugging because of dev tools
+                <li>Works great in large applications with many dependencies between parts / components
+                <li>provides architectural guidance where which part of the application goes
+              </ul>
+
+        </section> -->
+
         <section>
+          <h3>Wrap Up Redux</h3>
+          <p><em>Ein UI-Muster für Benutzerschnittstellen</em></p>
+          <ul>
+              <li>Mainstream-Lösung
+              <li>unabhängig vom SPA-Framework
+              <li>Einfaches Testen der Geschäftslogik, da die Logik nur in reinen Funktionen implementiert ist ("Reducer")
+              <li>Großartiges Debugging wegen der Entwicklungswerkzeuge
+              <li>Funktioniert hervorragend in großen Anwendungen mit vielen Abhängigkeiten zwischen Teilen/Komponenten
+              <li>Bietet eine architektonische Anleitung, wohin welcher Teil der Anwendung geht
+            </ul>
+
+        </section>
+
+        <!-- <section>
+          <h3>Wrap Up Redux</h3>
+          <p><em>A UI pattern for User Interfaces</em></p>
+          <ul>
+              <li>Mainstream solution
+              <li>Independent of framework
+              <li>Easy testing of business logic as logic is implemented only in pure functions ("Reducer")
+              <li>Great debugging because of dev tools
+              <li>Works great in large applications with many dependencies between parts / components
+              <li>provides architectural guidance where which part of the application goes
+            </ul>
+
+      </section> -->
+
+        <!-- <section>
             <h3>Zusammenfassung Redux</h3>
             <ul class="fragment">
                 <li>Ein Architektur-Muster für UIs
@@ -1464,31 +1472,10 @@ async function loadGreetings(dispatch) {
                 <li>Nur Reducer dürfen State verändern
                 <li>Initialisierung durch initiale Aktion
             </ul>
-        </section>
+        </section> -->
 
 
-        <section>
-            <h2>Übung #3</h2>
-            <img src="exercise/master.png">
-            <p>Welche Daten braucht man minimal zur Darstellung?</p>
-        </section>
-
-        <section>
-            <h3>Application State</h3>
-            <img src="exercise/master-app-state.jpg">
-        </section>
-
-        <section>
-            <h3>UI State</h3>
-            <img src="exercise/master-ui-state.jpg">
-        </section>
-
-        <section>
-            <h3>Views</h3>
-            <img src="exercise/master-views.jpg">
-        </section>
-
-  <section data-markdown>
+  <section data-markdown id='ts'>
     <textarea data-template>
 ### Mögliche Architektur-Entscheidung        
 
@@ -1521,6 +1508,35 @@ UI-Logik profitiert von Typisierung
 </textarea>
 </section>
 
+<section class="no-fragment">
+  <h2>Warum Typensysteme verwenden?</h2>
+      <div>
+          <h3>Ein Typsystem macht den Code einfacher zu warten</h3>
+          <ul >
+              <li>kann Code besser lesbar machen
+              <li>kann Code leichter analysierbar machen
+              <li>kann zuverlässiges Refactoring ermöglichen
+              <li>kann eine allgemein bessere IDE-Unterstützung ermöglichen
+              <li>kann einige (typbezogene) Fehler frühzeitig erkennen
+          </ul>
+      </div>
+      <p><a href="https://channel9.msdn.com/Events/Build/2016/B881" target="_blank">
+        Anders Hejlsberg@Build2016: <em>Big JavaScript codebases tend to become "read-only".</em>
+    </a></p>
+    </section>
+
+    <section>
+<h3>JavaScript flavors</h3>
+    <a href="https://2019.stateofjs.com/javascript-flavors/" target="_blank">
+        <img src="img/2019_flavors.png" height="500">
+    </a>
+    <p><small><a href="https://2019.stateofjs.com/javascript-flavors/" target="_blank">
+      https://2019.stateofjs.com/javascript-flavors/
+    </a></small></p>
+</section>
+
+
+  
 <section data-markdown>
   <textarea data-template>
 ### TypeScript
@@ -1530,10 +1546,40 @@ UI-Logik profitiert von Typisierung
 * Typensystem deutlich flexibler als Java
 * Nimmt viel Rücksicht aus typische Datenstrukturen in JavaScript
 * Compiliert zu reinem JavaScript
+* Alle wichtigen SPA-Frameworks funktionieren gut mit TypeScript
 
-<small>https://2019.stateofjs.com/javascript-flavors/</small>
+<small>http://www.typescriptlang.org/</small>
+
 </textarea>
 </section>
+
+<section data-markdown style="font-size: xx-large;">
+  <textarea data-template>
+### Verhalten wie aus Java/C# gewohnt            
+
+<img src='img/screenshot-typescript.png' class='part'>
+
+Probleme werden zur Entwicklungszeit sichtbar
+<br>
+Show References geht verlässlich
+<br>
+Refactoring möglich
+
+        </textarea>
+</section>
+
+<section data-markdown class="no-fragment">
+  <textarea data-template>
+### Es gibt zwei Perspektiven, wie man TypeScript betrachten kann
+
+- TypeScript ist eine Sprache, die sich zu JavaScript kompilieren lässt.
+- TypeScript ist ein Werkzeug, das JavaScript um ein optionales statisches Typensystem erweitert.
+
+<small>https://twitter.com/jbandi/status/1040518056051654659</small>
+
+  </textarea>
+</section>
+  
 
 <section>
   <h3>Basics</h3>
@@ -1570,33 +1616,6 @@ class Sayer {
 
 <small>https://www.typescriptlang.org/</small>
 
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-#### Verhalten wie aus Java/C# gewohnt            
-
-<img src='img/screenshot-typescript.png' class='part'>
-
-Probleme werden zur Entwicklungszeit sichtbar
-<br>
-Show References geht verlässlich
-<br>
-Refactoring möglich
-
-        </textarea>
-</section>
-
-<section data-markdown>
-  <textarea data-template>
-
-http://www.typescriptlang.org/
-
-https://www.typescriptlang.org/play/
-
-https://github.com/Microsoft/TypeScript/wiki/What's-new-in-TypeScript
-
-</textarea>
 </section>
 
 
@@ -1714,7 +1733,17 @@ https://github.com/Microsoft/TypeScript/wiki/What's-new-in-TypeScript
             </section>
 
 
+<section data-markdown>
+  <textarea data-template>
+### Web Components sind ernst zu nehmen
 
+<iframe height="600" width='100%'
+src="https://chromestatus.com/metrics/feature/timeline/popularity/1689"></iframe>
+
+<small>https://chromestatus.com/metrics/feature/timeline/popularity/1689</small>
+  </textarea>
+</section>
+              
   <section data-markdown>
       <textarea data-template>
 
